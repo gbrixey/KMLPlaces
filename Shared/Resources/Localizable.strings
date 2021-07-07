@@ -1,0 +1,10 @@
+// MARK: - Tab Bar
+
+"tab.bar.list" = "List";
+"tab.bar.map" = "Map";
+"tab.bar.settings" = "Settings";
+
+// MARK: - List
+
+"list.title" = "List";
+"list.all.places" = "All Places";
