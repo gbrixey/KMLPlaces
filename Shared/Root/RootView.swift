@@ -22,7 +22,9 @@ struct RootView: View {
     }
 }
 
-struct RootView_Previews: PreviewProvider {
+// MARK: - Previews
+
+struct RootViewPreviews: PreviewProvider {
     static var previews: some View {
         RootView()
     }

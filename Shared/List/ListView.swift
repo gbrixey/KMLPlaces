@@ -32,18 +32,12 @@ extension ListView {
 
         var body: some View {
             HStack(spacing: 0) {
-                Image(systemName: item.icon)
+                Image(systemName: item.systemIcon)
                     .frame(width: 50)
                     .foregroundColor(item.nameColor)
                 Text(item.name)
                     .foregroundColor(item.nameColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                ForEach(item.colors.prefix(3), id: \.self) { color in
-                    Circle()
-                        .fill(color)
-                        .frame(width: 16, height: 16)
-                        .padding(4)
-                }
             }
             .onTapGesture(perform: onTap)
             .accessibilityElement(children: .ignore)
@@ -52,7 +46,9 @@ extension ListView {
     }
 }
 
-struct ListView_Previews: PreviewProvider {
+// MARK: - Previews
+
+struct ListViewPreviews: PreviewProvider {
     static var previews: some View {
         ListView(viewModel: ListViewModel())
     }

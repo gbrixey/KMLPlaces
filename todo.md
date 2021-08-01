@@ -18,6 +18,7 @@ New functionality
     - Figure out how to calculate distance for nearby search
 - Parse Styles from KML
     - Display icons specified in KML on map and list
+        - SDWebImage
     - Use a different icon in list for folders, paths, and polylines
     - Use a default icon (SF Symbols pin in list)
 - Ensure app looks OK in dark mode
@@ -36,8 +37,10 @@ New functionality
     - Option to clear all data
     - HTML on/off
     - Restore hidden places
+    - See error log from importing KML data
 - Data import screen
     - Select whether to replace existing data or add to it
         - If adding, select whether to update existing entries with the same name or add duplicates
     - Add a loading modal view
     - Keep a copy of the KML on device to re-parse when app is updated?
+- Add README

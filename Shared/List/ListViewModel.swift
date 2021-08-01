@@ -5,8 +5,8 @@ class ListViewModel: ObservableObject {
     @Published var title = "My Places"
     @Published var items: [ListItem] = [
         .allPlaces,
-        .folder(Folder(name: "Skyscrapers", colors: [.blue, .black])),
-        .place(Place(icon: "house", name: "My House", color: .blue))
+        .folder(Folder(name: "Skyscrapers")),
+        .place(Place(name: "My House"))
     ]
 
     func itemTapped(at index: Int) {
@@ -27,12 +27,12 @@ extension ListViewModel {
             name
         }
 
-        var icon: String {
+        var systemIcon: String {
             switch self {
             case .allPlaces, .folder:
                 return "folder"
-            case let .place(place):
-                return place.icon
+            case .place:
+                return "mappin"
             }
         }
 
@@ -55,27 +55,13 @@ extension ListViewModel {
                 return .primary
             }
         }
-
-        var colors: [Color] {
-            switch self {
-            case .allPlaces:
-                return []
-            case let .folder(folder):
-                return folder.colors
-            case let .place(place):
-                return [place.color]
-            }
-        }
     }
 
     struct Folder {
         let name: String
-        let colors: [Color]
     }
 
     struct Place {
-        let icon: String
         let name: String
-        let color: Color
     }
 }

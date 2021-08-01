@@ -7,91 +7,88 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E161FF992683CDA6008E734B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161FF982683CDA6008E734B /* RootView.swift */; };
-		E161FF9A2683CDA6008E734B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161FF982683CDA6008E734B /* RootView.swift */; };
-		E161FF9D2683CF4E008E734B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E161FF9C2683CF4E008E734B /* Localizable.strings */; };
-		E161FF9E2683CF4E008E734B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E161FF9C2683CF4E008E734B /* Localizable.strings */; };
-		E161FFA22683D06B008E734B /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161FFA12683D06B008E734B /* ListView.swift */; };
-		E161FFA32683D06B008E734B /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161FFA12683D06B008E734B /* ListView.swift */; };
-		E161FFA52683D110008E734B /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161FFA42683D110008E734B /* ListViewModel.swift */; };
-		E161FFA62683D110008E734B /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161FFA42683D110008E734B /* ListViewModel.swift */; };
-		E167EBFF267C041A0074E402 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E167EBFE267C041A0074E402 /* Tests_iOS.swift */; };
-		E167EC0A267C041B0074E402 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E167EC09267C041B0074E402 /* Tests_macOS.swift */; };
-		E167EC0C267C041B0074E402 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E167EBE0267C04190074E402 /* KMLPlaces.xcdatamodeld */; };
-		E167EC0D267C041B0074E402 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E167EBE0267C04190074E402 /* KMLPlaces.xcdatamodeld */; };
-		E167EC0E267C041B0074E402 /* KMLPlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E167EBE2267C04190074E402 /* KMLPlacesApp.swift */; };
-		E167EC0F267C041B0074E402 /* KMLPlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E167EBE2267C04190074E402 /* KMLPlacesApp.swift */; };
-		E167EC10267C041B0074E402 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E167EBE3267C04190074E402 /* ContentView.swift */; };
-		E167EC11267C041B0074E402 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E167EBE3267C04190074E402 /* ContentView.swift */; };
-		E167EC12267C041B0074E402 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E167EBE4267C04190074E402 /* Persistence.swift */; };
-		E167EC13267C041B0074E402 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E167EBE4267C04190074E402 /* Persistence.swift */; };
-		E167EC14267C041B0074E402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E167EBE5267C041A0074E402 /* Assets.xcassets */; };
-		E167EC15267C041B0074E402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E167EBE5267C041A0074E402 /* Assets.xcassets */; };
+		E124EC4526B60F9300E7EA55 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4426B60F9300E7EA55 /* Tests_iOS.swift */; };
+		E124EC5026B60F9300E7EA55 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */; };
+		E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */; };
+		E124EC5326B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */; };
+		E124EC5426B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */; };
+		E124EC5526B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */; };
+		E124EC5826B60F9300E7EA55 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2A26B60F9200E7EA55 /* Persistence.swift */; };
+		E124EC5926B60F9300E7EA55 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2A26B60F9200E7EA55 /* Persistence.swift */; };
+		E124EC5A26B60F9300E7EA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E124EC2B26B60F9300E7EA55 /* Assets.xcassets */; };
+		E124EC5B26B60F9300E7EA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E124EC2B26B60F9300E7EA55 /* Assets.xcassets */; };
+		E124EC6D26B6108600E7EA55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E124EC6C26B6108600E7EA55 /* Localizable.strings */; };
+		E124EC6E26B6108600E7EA55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E124EC6C26B6108600E7EA55 /* Localizable.strings */; };
+		E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7226B6112F00E7EA55 /* RootView.swift */; };
+		E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7226B6112F00E7EA55 /* RootView.swift */; };
+		E124EC7926B6113E00E7EA55 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7726B6113E00E7EA55 /* ListView.swift */; };
+		E124EC7A26B6113E00E7EA55 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7726B6113E00E7EA55 /* ListView.swift */; };
+		E124EC7B26B6113E00E7EA55 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7826B6113E00E7EA55 /* ListViewModel.swift */; };
+		E124EC7C26B6113E00E7EA55 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7826B6113E00E7EA55 /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E167EBFB267C041A0074E402 /* PBXContainerItemProxy */ = {
+		E124EC4126B60F9300E7EA55 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E167EBDB267C04190074E402 /* Project object */;
+			containerPortal = E124EC2126B60F9200E7EA55 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E167EBE9267C041A0074E402;
+			remoteGlobalIDString = E124EC2F26B60F9300E7EA55;
 			remoteInfo = "KMLPlaces (iOS)";
 		};
-		E167EC06267C041A0074E402 /* PBXContainerItemProxy */ = {
+		E124EC4C26B60F9300E7EA55 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E167EBDB267C04190074E402 /* Project object */;
+			containerPortal = E124EC2126B60F9200E7EA55 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E167EBF1267C041A0074E402;
+			remoteGlobalIDString = E124EC3726B60F9300E7EA55;
 			remoteInfo = "KMLPlaces (macOS)";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E161FF982683CDA6008E734B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		E161FF9C2683CF4E008E734B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		E161FFA12683D06B008E734B /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		E161FFA42683D110008E734B /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
-		E167EBE1267C04190074E402 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
-		E167EBE2267C04190074E402 /* KMLPlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesApp.swift; sourceTree = "<group>"; };
-		E167EBE3267C04190074E402 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E167EBE4267C04190074E402 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		E167EBE5267C041A0074E402 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E167EBEA267C041A0074E402 /* KMLPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMLPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E167EBED267C041A0074E402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E167EBF2267C041A0074E402 /* KMLPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMLPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E167EBF4267C041A0074E402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E167EBF5267C041A0074E402 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		E167EBFA267C041A0074E402 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E167EBFE267C041A0074E402 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
-		E167EC00267C041A0074E402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E167EC05267C041A0074E402 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E167EC09267C041B0074E402 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
-		E167EC0B267C041B0074E402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesApp.swift; sourceTree = "<group>"; };
+		E124EC2A26B60F9200E7EA55 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		E124EC2B26B60F9300E7EA55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E124EC3026B60F9300E7EA55 /* KMLPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMLPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E124EC3326B60F9300E7EA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E124EC3826B60F9300E7EA55 /* KMLPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMLPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E124EC3A26B60F9300E7EA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E124EC3B26B60F9300E7EA55 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		E124EC4026B60F9300E7EA55 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E124EC4426B60F9300E7EA55 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		E124EC4626B60F9300E7EA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E124EC4B26B60F9300E7EA55 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		E124EC5126B60F9300E7EA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E124EC6C26B6108600E7EA55 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E124EC7226B6112F00E7EA55 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		E124EC7726B6113E00E7EA55 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		E124EC7826B6113E00E7EA55 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E167EBE7267C041A0074E402 /* Frameworks */ = {
+		E124EC2D26B60F9300E7EA55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E167EBEF267C041A0074E402 /* Frameworks */ = {
+		E124EC3526B60F9300E7EA55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E167EBF7267C041A0074E402 /* Frameworks */ = {
+		E124EC3D26B60F9300E7EA55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E167EC02267C041A0074E402 /* Frameworks */ = {
+		E124EC4826B60F9300E7EA55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -101,123 +98,121 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E161FF972683CD96008E734B /* Root */ = {
+		E124EC2026B60F9200E7EA55 = {
 			isa = PBXGroup;
 			children = (
-				E161FF982683CDA6008E734B /* RootView.swift */,
-				E167EBE3267C04190074E402 /* ContentView.swift */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		E161FF9B2683CF3C008E734B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E167EBE5267C041A0074E402 /* Assets.xcassets */,
-				E161FF9C2683CF4E008E734B /* Localizable.strings */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		E161FF9F2683CFCC008E734B /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				E167EBE2267C04190074E402 /* KMLPlacesApp.swift */,
-				E167EBE4267C04190074E402 /* Persistence.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		E161FFA02683D05B008E734B /* List */ = {
-			isa = PBXGroup;
-			children = (
-				E161FFA12683D06B008E734B /* ListView.swift */,
-				E161FFA42683D110008E734B /* ListViewModel.swift */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		E167EBDA267C04190074E402 = {
-			isa = PBXGroup;
-			children = (
-				E167EBDF267C04190074E402 /* Shared */,
-				E167EBEC267C041A0074E402 /* iOS */,
-				E167EBF3267C041A0074E402 /* macOS */,
-				E167EBFD267C041A0074E402 /* Tests iOS */,
-				E167EC08267C041A0074E402 /* Tests macOS */,
-				E167EBEB267C041A0074E402 /* Products */,
+				E124EC2526B60F9200E7EA55 /* Shared */,
+				E124EC3226B60F9300E7EA55 /* iOS */,
+				E124EC3926B60F9300E7EA55 /* macOS */,
+				E124EC4326B60F9300E7EA55 /* Tests iOS */,
+				E124EC4E26B60F9300E7EA55 /* Tests macOS */,
+				E124EC3126B60F9300E7EA55 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E167EBDF267C04190074E402 /* Shared */ = {
+		E124EC2526B60F9200E7EA55 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				E161FF9F2683CFCC008E734B /* Core */,
-				E161FF972683CD96008E734B /* Root */,
-				E161FFA02683D05B008E734B /* List */,
-				E161FF9B2683CF3C008E734B /* Resources */,
-				E167EBE0267C04190074E402 /* KMLPlaces.xcdatamodeld */,
+				E124EC6A26B6102300E7EA55 /* Core */,
+				E124EC7026B6110900E7EA55 /* Root */,
+				E124EC6F26B6110100E7EA55 /* List */,
+				E124EC6B26B6105A00E7EA55 /* Resources */,
+				E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		E167EBEB267C041A0074E402 /* Products */ = {
+		E124EC3126B60F9300E7EA55 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E167EBEA267C041A0074E402 /* KMLPlaces.app */,
-				E167EBF2267C041A0074E402 /* KMLPlaces.app */,
-				E167EBFA267C041A0074E402 /* Tests iOS.xctest */,
-				E167EC05267C041A0074E402 /* Tests macOS.xctest */,
+				E124EC3026B60F9300E7EA55 /* KMLPlaces.app */,
+				E124EC3826B60F9300E7EA55 /* KMLPlaces.app */,
+				E124EC4026B60F9300E7EA55 /* Tests iOS.xctest */,
+				E124EC4B26B60F9300E7EA55 /* Tests macOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E167EBEC267C041A0074E402 /* iOS */ = {
+		E124EC3226B60F9300E7EA55 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				E167EBED267C041A0074E402 /* Info.plist */,
+				E124EC3326B60F9300E7EA55 /* Info.plist */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		E167EBF3267C041A0074E402 /* macOS */ = {
+		E124EC3926B60F9300E7EA55 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				E167EBF4267C041A0074E402 /* Info.plist */,
-				E167EBF5267C041A0074E402 /* macOS.entitlements */,
+				E124EC3A26B60F9300E7EA55 /* Info.plist */,
+				E124EC3B26B60F9300E7EA55 /* macOS.entitlements */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
 		};
-		E167EBFD267C041A0074E402 /* Tests iOS */ = {
+		E124EC4326B60F9300E7EA55 /* Tests iOS */ = {
 			isa = PBXGroup;
 			children = (
-				E167EBFE267C041A0074E402 /* Tests_iOS.swift */,
-				E167EC00267C041A0074E402 /* Info.plist */,
+				E124EC4426B60F9300E7EA55 /* Tests_iOS.swift */,
+				E124EC4626B60F9300E7EA55 /* Info.plist */,
 			);
 			path = "Tests iOS";
 			sourceTree = "<group>";
 		};
-		E167EC08267C041A0074E402 /* Tests macOS */ = {
+		E124EC4E26B60F9300E7EA55 /* Tests macOS */ = {
 			isa = PBXGroup;
 			children = (
-				E167EC09267C041B0074E402 /* Tests_macOS.swift */,
-				E167EC0B267C041B0074E402 /* Info.plist */,
+				E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */,
+				E124EC5126B60F9300E7EA55 /* Info.plist */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		E124EC6A26B6102300E7EA55 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */,
+				E124EC2A26B60F9200E7EA55 /* Persistence.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E124EC6B26B6105A00E7EA55 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E124EC2B26B60F9300E7EA55 /* Assets.xcassets */,
+				E124EC6C26B6108600E7EA55 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E124EC6F26B6110100E7EA55 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E124EC7726B6113E00E7EA55 /* ListView.swift */,
+				E124EC7826B6113E00E7EA55 /* ListViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		E124EC7026B6110900E7EA55 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E124EC7226B6112F00E7EA55 /* RootView.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E167EBE9267C041A0074E402 /* KMLPlaces (iOS) */ = {
+		E124EC2F26B60F9300E7EA55 /* KMLPlaces (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E167EC18267C041B0074E402 /* Build configuration list for PBXNativeTarget "KMLPlaces (iOS)" */;
+			buildConfigurationList = E124EC5E26B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (iOS)" */;
 			buildPhases = (
-				E167EBE6267C041A0074E402 /* Sources */,
-				E161FFA72683DAFB008E734B /* Add Compiler Warnings for TODOs */,
-				E167EBE7267C041A0074E402 /* Frameworks */,
-				E167EBE8267C041A0074E402 /* Resources */,
+				E124EC2C26B60F9300E7EA55 /* Sources */,
+				E124EC2D26B60F9300E7EA55 /* Frameworks */,
+				E124EC2E26B60F9300E7EA55 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -225,16 +220,16 @@
 			);
 			name = "KMLPlaces (iOS)";
 			productName = "KMLPlaces (iOS)";
-			productReference = E167EBEA267C041A0074E402 /* KMLPlaces.app */;
+			productReference = E124EC3026B60F9300E7EA55 /* KMLPlaces.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E167EBF1267C041A0074E402 /* KMLPlaces (macOS) */ = {
+		E124EC3726B60F9300E7EA55 /* KMLPlaces (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E167EC1B267C041B0074E402 /* Build configuration list for PBXNativeTarget "KMLPlaces (macOS)" */;
+			buildConfigurationList = E124EC6126B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (macOS)" */;
 			buildPhases = (
-				E167EBEE267C041A0074E402 /* Sources */,
-				E167EBEF267C041A0074E402 /* Frameworks */,
-				E167EBF0267C041A0074E402 /* Resources */,
+				E124EC3426B60F9300E7EA55 /* Sources */,
+				E124EC3526B60F9300E7EA55 /* Frameworks */,
+				E124EC3626B60F9300E7EA55 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -242,71 +237,71 @@
 			);
 			name = "KMLPlaces (macOS)";
 			productName = "KMLPlaces (macOS)";
-			productReference = E167EBF2267C041A0074E402 /* KMLPlaces.app */;
+			productReference = E124EC3826B60F9300E7EA55 /* KMLPlaces.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E167EBF9267C041A0074E402 /* Tests iOS */ = {
+		E124EC3F26B60F9300E7EA55 /* Tests iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E167EC1E267C041B0074E402 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildConfigurationList = E124EC6426B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
 			buildPhases = (
-				E167EBF6267C041A0074E402 /* Sources */,
-				E167EBF7267C041A0074E402 /* Frameworks */,
-				E167EBF8267C041A0074E402 /* Resources */,
+				E124EC3C26B60F9300E7EA55 /* Sources */,
+				E124EC3D26B60F9300E7EA55 /* Frameworks */,
+				E124EC3E26B60F9300E7EA55 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E167EBFC267C041A0074E402 /* PBXTargetDependency */,
+				E124EC4226B60F9300E7EA55 /* PBXTargetDependency */,
 			);
 			name = "Tests iOS";
 			productName = "Tests iOS";
-			productReference = E167EBFA267C041A0074E402 /* Tests iOS.xctest */;
+			productReference = E124EC4026B60F9300E7EA55 /* Tests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		E167EC04267C041A0074E402 /* Tests macOS */ = {
+		E124EC4A26B60F9300E7EA55 /* Tests macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E167EC21267C041B0074E402 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildConfigurationList = E124EC6726B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
 			buildPhases = (
-				E167EC01267C041A0074E402 /* Sources */,
-				E167EC02267C041A0074E402 /* Frameworks */,
-				E167EC03267C041A0074E402 /* Resources */,
+				E124EC4726B60F9300E7EA55 /* Sources */,
+				E124EC4826B60F9300E7EA55 /* Frameworks */,
+				E124EC4926B60F9300E7EA55 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E167EC07267C041A0074E402 /* PBXTargetDependency */,
+				E124EC4D26B60F9300E7EA55 /* PBXTargetDependency */,
 			);
 			name = "Tests macOS";
 			productName = "Tests macOS";
-			productReference = E167EC05267C041A0074E402 /* Tests macOS.xctest */;
+			productReference = E124EC4B26B60F9300E7EA55 /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E167EBDB267C04190074E402 /* Project object */ = {
+		E124EC2126B60F9200E7EA55 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					E167EBE9267C041A0074E402 = {
-						CreatedOnToolsVersion = 12.5;
+					E124EC2F26B60F9300E7EA55 = {
+						CreatedOnToolsVersion = 12.5.1;
 					};
-					E167EBF1267C041A0074E402 = {
-						CreatedOnToolsVersion = 12.5;
+					E124EC3726B60F9300E7EA55 = {
+						CreatedOnToolsVersion = 12.5.1;
 					};
-					E167EBF9267C041A0074E402 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = E167EBE9267C041A0074E402;
+					E124EC3F26B60F9300E7EA55 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = E124EC2F26B60F9300E7EA55;
 					};
-					E167EC04267C041A0074E402 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = E167EBF1267C041A0074E402;
+					E124EC4A26B60F9300E7EA55 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = E124EC3726B60F9300E7EA55;
 					};
 				};
 			};
-			buildConfigurationList = E167EBDE267C04190074E402 /* Build configuration list for PBXProject "KMLPlaces" */;
+			buildConfigurationList = E124EC2426B60F9200E7EA55 /* Build configuration list for PBXProject "KMLPlaces" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -314,46 +309,46 @@
 				en,
 				Base,
 			);
-			mainGroup = E167EBDA267C04190074E402;
-			productRefGroup = E167EBEB267C041A0074E402 /* Products */;
+			mainGroup = E124EC2026B60F9200E7EA55;
+			productRefGroup = E124EC3126B60F9300E7EA55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E167EBE9267C041A0074E402 /* KMLPlaces (iOS) */,
-				E167EBF1267C041A0074E402 /* KMLPlaces (macOS) */,
-				E167EBF9267C041A0074E402 /* Tests iOS */,
-				E167EC04267C041A0074E402 /* Tests macOS */,
+				E124EC2F26B60F9300E7EA55 /* KMLPlaces (iOS) */,
+				E124EC3726B60F9300E7EA55 /* KMLPlaces (macOS) */,
+				E124EC3F26B60F9300E7EA55 /* Tests iOS */,
+				E124EC4A26B60F9300E7EA55 /* Tests macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E167EBE8267C041A0074E402 /* Resources */ = {
+		E124EC2E26B60F9300E7EA55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E167EC14267C041B0074E402 /* Assets.xcassets in Resources */,
-				E161FF9D2683CF4E008E734B /* Localizable.strings in Resources */,
+				E124EC5A26B60F9300E7EA55 /* Assets.xcassets in Resources */,
+				E124EC6D26B6108600E7EA55 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E167EBF0267C041A0074E402 /* Resources */ = {
+		E124EC3626B60F9300E7EA55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E167EC15267C041B0074E402 /* Assets.xcassets in Resources */,
-				E161FF9E2683CF4E008E734B /* Localizable.strings in Resources */,
+				E124EC5B26B60F9300E7EA55 /* Assets.xcassets in Resources */,
+				E124EC6E26B6108600E7EA55 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E167EBF8267C041A0074E402 /* Resources */ = {
+		E124EC3E26B60F9300E7EA55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E167EC03267C041A0074E402 /* Resources */ = {
+		E124EC4926B60F9300E7EA55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -362,89 +357,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		E161FFA72683DAFB008E734B /* Add Compiler Warnings for TODOs */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Add Compiler Warnings for TODOs";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "scripts/add-compiler-warnings-for-TODOs.sh\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		E167EBE6267C041A0074E402 /* Sources */ = {
+		E124EC2C26B60F9300E7EA55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E167EC0E267C041B0074E402 /* KMLPlacesApp.swift in Sources */,
-				E167EC12267C041B0074E402 /* Persistence.swift in Sources */,
-				E161FFA52683D110008E734B /* ListViewModel.swift in Sources */,
-				E161FFA22683D06B008E734B /* ListView.swift in Sources */,
-				E167EC0C267C041B0074E402 /* KMLPlaces.xcdatamodeld in Sources */,
-				E167EC10267C041B0074E402 /* ContentView.swift in Sources */,
-				E161FF992683CDA6008E734B /* RootView.swift in Sources */,
+				E124EC5426B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */,
+				E124EC5826B60F9300E7EA55 /* Persistence.swift in Sources */,
+				E124EC7B26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
+				E124EC7926B6113E00E7EA55 /* ListView.swift in Sources */,
+				E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
+				E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E167EBEE267C041A0074E402 /* Sources */ = {
+		E124EC3426B60F9300E7EA55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E167EC0F267C041B0074E402 /* KMLPlacesApp.swift in Sources */,
-				E167EC13267C041B0074E402 /* Persistence.swift in Sources */,
-				E161FFA62683D110008E734B /* ListViewModel.swift in Sources */,
-				E161FFA32683D06B008E734B /* ListView.swift in Sources */,
-				E167EC0D267C041B0074E402 /* KMLPlaces.xcdatamodeld in Sources */,
-				E167EC11267C041B0074E402 /* ContentView.swift in Sources */,
-				E161FF9A2683CDA6008E734B /* RootView.swift in Sources */,
+				E124EC5526B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */,
+				E124EC5926B60F9300E7EA55 /* Persistence.swift in Sources */,
+				E124EC7C26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
+				E124EC7A26B6113E00E7EA55 /* ListView.swift in Sources */,
+				E124EC5326B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
+				E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E167EBF6267C041A0074E402 /* Sources */ = {
+		E124EC3C26B60F9300E7EA55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E167EBFF267C041A0074E402 /* Tests_iOS.swift in Sources */,
+				E124EC4526B60F9300E7EA55 /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E167EC01267C041A0074E402 /* Sources */ = {
+		E124EC4726B60F9300E7EA55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E167EC0A267C041B0074E402 /* Tests_macOS.swift in Sources */,
+				E124EC5026B60F9300E7EA55 /* Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E167EBFC267C041A0074E402 /* PBXTargetDependency */ = {
+		E124EC4226B60F9300E7EA55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E167EBE9267C041A0074E402 /* KMLPlaces (iOS) */;
-			targetProxy = E167EBFB267C041A0074E402 /* PBXContainerItemProxy */;
+			target = E124EC2F26B60F9300E7EA55 /* KMLPlaces (iOS) */;
+			targetProxy = E124EC4126B60F9300E7EA55 /* PBXContainerItemProxy */;
 		};
-		E167EC07267C041A0074E402 /* PBXTargetDependency */ = {
+		E124EC4D26B60F9300E7EA55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E167EBF1267C041A0074E402 /* KMLPlaces (macOS) */;
-			targetProxy = E167EC06267C041A0074E402 /* PBXContainerItemProxy */;
+			target = E124EC3726B60F9300E7EA55 /* KMLPlaces (macOS) */;
+			targetProxy = E124EC4C26B60F9300E7EA55 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		E167EC16267C041B0074E402 /* Debug */ = {
+		E124EC5C26B60F9300E7EA55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -503,7 +475,7 @@
 			};
 			name = Debug;
 		};
-		E167EC17267C041B0074E402 /* Release */ = {
+		E124EC5D26B60F9300E7EA55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -555,13 +527,12 @@
 			};
 			name = Release;
 		};
-		E167EC19267C041B0074E402 /* Debug */ = {
+		E124EC5F26B60F9300E7EA55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -569,7 +540,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.NewKMLPlaces;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlaces;
 				PRODUCT_NAME = KMLPlaces;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -577,13 +548,12 @@
 			};
 			name = Debug;
 		};
-		E167EC1A267C041B0074E402 /* Release */ = {
+		E124EC6026B60F9300E7EA55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -591,7 +561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.NewKMLPlaces;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlaces;
 				PRODUCT_NAME = KMLPlaces;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -600,7 +570,7 @@
 			};
 			name = Release;
 		};
-		E167EC1C267C041B0074E402 /* Debug */ = {
+		E124EC6226B60F9300E7EA55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -608,7 +578,6 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -616,14 +585,14 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.NewKMLPlaces;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlaces;
 				PRODUCT_NAME = KMLPlaces;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		E167EC1D267C041B0074E402 /* Release */ = {
+		E124EC6326B60F9300E7EA55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -631,7 +600,6 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -639,19 +607,18 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.NewKMLPlaces;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlaces;
 				PRODUCT_NAME = KMLPlaces;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		E167EC1F267C041B0074E402 /* Debug */ = {
+		E124EC6526B60F9300E7EA55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -668,12 +635,11 @@
 			};
 			name = Debug;
 		};
-		E167EC20267C041B0074E402 /* Release */ = {
+		E124EC6626B60F9300E7EA55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -691,13 +657,12 @@
 			};
 			name = Release;
 		};
-		E167EC22267C041B0074E402 /* Debug */ = {
+		E124EC6826B60F9300E7EA55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				INFOPLIST_FILE = "Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -713,13 +678,12 @@
 			};
 			name = Debug;
 		};
-		E167EC23267C041B0074E402 /* Release */ = {
+		E124EC6926B60F9300E7EA55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				INFOPLIST_FILE = "Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -738,47 +702,47 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E167EBDE267C04190074E402 /* Build configuration list for PBXProject "KMLPlaces" */ = {
+		E124EC2426B60F9200E7EA55 /* Build configuration list for PBXProject "KMLPlaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E167EC16267C041B0074E402 /* Debug */,
-				E167EC17267C041B0074E402 /* Release */,
+				E124EC5C26B60F9300E7EA55 /* Debug */,
+				E124EC5D26B60F9300E7EA55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E167EC18267C041B0074E402 /* Build configuration list for PBXNativeTarget "KMLPlaces (iOS)" */ = {
+		E124EC5E26B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E167EC19267C041B0074E402 /* Debug */,
-				E167EC1A267C041B0074E402 /* Release */,
+				E124EC5F26B60F9300E7EA55 /* Debug */,
+				E124EC6026B60F9300E7EA55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E167EC1B267C041B0074E402 /* Build configuration list for PBXNativeTarget "KMLPlaces (macOS)" */ = {
+		E124EC6126B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E167EC1C267C041B0074E402 /* Debug */,
-				E167EC1D267C041B0074E402 /* Release */,
+				E124EC6226B60F9300E7EA55 /* Debug */,
+				E124EC6326B60F9300E7EA55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E167EC1E267C041B0074E402 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+		E124EC6426B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E167EC1F267C041B0074E402 /* Debug */,
-				E167EC20267C041B0074E402 /* Release */,
+				E124EC6526B60F9300E7EA55 /* Debug */,
+				E124EC6626B60F9300E7EA55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E167EC21267C041B0074E402 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+		E124EC6726B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E167EC22267C041B0074E402 /* Debug */,
-				E167EC23267C041B0074E402 /* Release */,
+				E124EC6826B60F9300E7EA55 /* Debug */,
+				E124EC6926B60F9300E7EA55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -786,17 +750,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E167EBE0267C04190074E402 /* KMLPlaces.xcdatamodeld */ = {
+		E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E167EBE1267C04190074E402 /* Shared.xcdatamodel */,
+				E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */,
 			);
-			currentVersion = E167EBE1267C04190074E402 /* Shared.xcdatamodel */;
+			currentVersion = E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */;
 			path = KMLPlaces.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = E167EBDB267C04190074E402 /* Project object */;
+	rootObject = E124EC2126B60F9200E7EA55 /* Project object */;
 }
