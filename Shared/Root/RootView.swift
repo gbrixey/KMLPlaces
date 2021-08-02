@@ -3,7 +3,7 @@ import SwiftUI
 struct RootView: View {
     var body: some View {
         TabView {
-            ListView(viewModel: ListViewModel())
+            ListModule.build()
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("tab.bar.list")
@@ -13,7 +13,7 @@ struct RootView: View {
                     Image(systemName: "map")
                     Text("tab.bar.map")
                 }
-            Text("tab.bar.settings")
+            SettingsModule.build()
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("tab.bar.settings")

@@ -8,3 +8,15 @@
 
 "list.title" = "List";
 "list.all.places" = "All Places";
+
+// MARK: - Settings
+
+"settings.title" = "Settings";
+"settings.import.data" = "Import Data";
+
+// MARK: - Data
+
+"default.root.folder.name" = "My Places";
+"default.folder.name" = "Untitled Folder";
+"default.placemark.name" = "Untitled Place";
+"default.placemark.description" = "No Description";

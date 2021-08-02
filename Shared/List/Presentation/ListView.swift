@@ -50,6 +50,6 @@ extension ListView {
 
 struct ListViewPreviews: PreviewProvider {
     static var previews: some View {
-        ListView(viewModel: ListViewModel())
+        ListView(viewModel: ListPreviews.viewModel)
     }
 }

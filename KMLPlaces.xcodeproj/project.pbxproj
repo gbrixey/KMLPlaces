@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,38 @@
 		E124EC7A26B6113E00E7EA55 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7726B6113E00E7EA55 /* ListView.swift */; };
 		E124EC7B26B6113E00E7EA55 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7826B6113E00E7EA55 /* ListViewModel.swift */; };
 		E124EC7C26B6113E00E7EA55 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7826B6113E00E7EA55 /* ListViewModel.swift */; };
+		E124EC7F26B7824300E7EA55 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7E26B7824300E7EA55 /* SettingsView.swift */; };
+		E124EC8026B7824300E7EA55 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7E26B7824300E7EA55 /* SettingsView.swift */; };
+		E124EC8626B7868100E7EA55 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8526B7868100E7EA55 /* SettingsViewModel.swift */; };
+		E124EC8726B7868100E7EA55 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8526B7868100E7EA55 /* SettingsViewModel.swift */; };
+		E124EC8926B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */; };
+		E124EC8A26B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */; };
+		E124EC8C26B788C300E7EA55 /* KMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8B26B788C300E7EA55 /* KMLParser.swift */; };
+		E124EC8D26B788C300E7EA55 /* KMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8B26B788C300E7EA55 /* KMLParser.swift */; };
+		E124EC9126B789E100E7EA55 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = E124EC9026B789E100E7EA55 /* SWXMLHash */; };
+		E124EC9426B789F000E7EA55 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = E124EC9326B789F000E7EA55 /* SWXMLHash */; };
+		E124EC9826B78D4A00E7EA55 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9726B78D4A00E7EA55 /* Logger.swift */; };
+		E124EC9926B78D4A00E7EA55 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9726B78D4A00E7EA55 /* Logger.swift */; };
+		E124EC9C26B790E100E7EA55 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9B26B790E100E7EA55 /* CollectionExtensions.swift */; };
+		E124EC9D26B790E100E7EA55 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9B26B790E100E7EA55 /* CollectionExtensions.swift */; };
+		E124EC9F26B794FC00E7EA55 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9E26B794FC00E7EA55 /* StringExtensions.swift */; };
+		E124ECA026B794FC00E7EA55 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9E26B794FC00E7EA55 /* StringExtensions.swift */; };
+		E124ECA626B7A34100E7EA55 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECA526B7A34100E7EA55 /* SettingsModule.swift */; };
+		E124ECA726B7A34100E7EA55 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECA526B7A34100E7EA55 /* SettingsModule.swift */; };
+		E124ECA926B7A45300E7EA55 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECA826B7A45300E7EA55 /* SettingsRepository.swift */; };
+		E124ECAA26B7A45300E7EA55 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECA826B7A45300E7EA55 /* SettingsRepository.swift */; };
+		E124ECAD26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECAC26B7A4E400E7EA55 /* SettingsPreviews.swift */; };
+		E124ECAE26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECAC26B7A4E400E7EA55 /* SettingsPreviews.swift */; };
+		E124ECB126B7A6C700E7EA55 /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB026B7A6C700E7EA55 /* ListModule.swift */; };
+		E124ECB226B7A6C700E7EA55 /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB026B7A6C700E7EA55 /* ListModule.swift */; };
+		E124ECB426B7A75500E7EA55 /* ListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB326B7A75500E7EA55 /* ListRepository.swift */; };
+		E124ECB526B7A75500E7EA55 /* ListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB326B7A75500E7EA55 /* ListRepository.swift */; };
+		E124ECB726B7ADD000E7EA55 /* FolderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB626B7ADD000E7EA55 /* FolderExtensions.swift */; };
+		E124ECB826B7ADD000E7EA55 /* FolderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB626B7ADD000E7EA55 /* FolderExtensions.swift */; };
+		E124ECBA26B7AE7600E7EA55 /* ListPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */; };
+		E124ECBB26B7AE7600E7EA55 /* ListPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */; };
+		E124ECC026B7B24B00E7EA55 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */; };
+		E124ECC126B7B24B00E7EA55 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +96,23 @@
 		E124EC7226B6112F00E7EA55 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E124EC7726B6113E00E7EA55 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		E124EC7826B6113E00E7EA55 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		E124EC7E26B7824300E7EA55 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E124EC8526B7868100E7EA55 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDocumentPicker.swift; sourceTree = "<group>"; };
+		E124EC8B26B788C300E7EA55 /* KMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLParser.swift; sourceTree = "<group>"; };
+		E124EC9726B78D4A00E7EA55 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		E124EC9B26B790E100E7EA55 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		E124EC9E26B794FC00E7EA55 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		E124ECA126B79BCD00E7EA55 /* Shared2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared2.xcdatamodel; sourceTree = "<group>"; };
+		E124ECA526B7A34100E7EA55 /* SettingsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
+		E124ECA826B7A45300E7EA55 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
+		E124ECAC26B7A4E400E7EA55 /* SettingsPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreviews.swift; sourceTree = "<group>"; };
+		E124ECB026B7A6C700E7EA55 /* ListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
+		E124ECB326B7A75500E7EA55 /* ListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepository.swift; sourceTree = "<group>"; };
+		E124ECB626B7ADD000E7EA55 /* FolderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderExtensions.swift; sourceTree = "<group>"; };
+		E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPreviews.swift; sourceTree = "<group>"; };
+		E124ECBC26B7B15900E7EA55 /* Shared3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared3.xcdatamodel; sourceTree = "<group>"; };
+		E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E124EC9126B789E100E7EA55 /* SWXMLHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E124EC9426B789F000E7EA55 /* SWXMLHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +158,7 @@
 				E124EC4326B60F9300E7EA55 /* Tests iOS */,
 				E124EC4E26B60F9300E7EA55 /* Tests macOS */,
 				E124EC3126B60F9300E7EA55 /* Products */,
+				E124EC9226B789F000E7EA55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,8 +168,9 @@
 				E124EC6A26B6102300E7EA55 /* Core */,
 				E124EC7026B6110900E7EA55 /* Root */,
 				E124EC6F26B6110100E7EA55 /* List */,
+				E124EC7D26B7820600E7EA55 /* Settings */,
 				E124EC6B26B6105A00E7EA55 /* Resources */,
-				E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */,
+				E124EC9A26B790B500E7EA55 /* Util */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -172,7 +225,10 @@
 			isa = PBXGroup;
 			children = (
 				E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */,
+				E124EC8B26B788C300E7EA55 /* KMLParser.swift */,
 				E124EC2A26B60F9200E7EA55 /* Persistence.swift */,
+				E124EC9726B78D4A00E7EA55 /* Logger.swift */,
+				E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -189,8 +245,9 @@
 		E124EC6F26B6110100E7EA55 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				E124EC7726B6113E00E7EA55 /* ListView.swift */,
-				E124EC7826B6113E00E7EA55 /* ListViewModel.swift */,
+				E124ECB026B7A6C700E7EA55 /* ListModule.swift */,
+				E124ECB326B7A75500E7EA55 /* ListRepository.swift */,
+				E124ECAF26B7A6A300E7EA55 /* Presentation */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -203,6 +260,71 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		E124EC7D26B7820600E7EA55 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E124ECA526B7A34100E7EA55 /* SettingsModule.swift */,
+				E124ECA826B7A45300E7EA55 /* SettingsRepository.swift */,
+				E124ECAB26B7A49300E7EA55 /* Presentation */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E124EC9226B789F000E7EA55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E124EC9A26B790B500E7EA55 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E124ECBE26B7B22F00E7EA55 /* Extensions */,
+				E124ECBD26B7B22300E7EA55 /* FoundationExtensions */,
+				E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E124ECAB26B7A49300E7EA55 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E124EC7E26B7824300E7EA55 /* SettingsView.swift */,
+				E124EC8526B7868100E7EA55 /* SettingsViewModel.swift */,
+				E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */,
+				E124ECAC26B7A4E400E7EA55 /* SettingsPreviews.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E124ECAF26B7A6A300E7EA55 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E124EC7726B6113E00E7EA55 /* ListView.swift */,
+				E124EC7826B6113E00E7EA55 /* ListViewModel.swift */,
+				E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E124ECBD26B7B22300E7EA55 /* FoundationExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				E124EC9B26B790E100E7EA55 /* CollectionExtensions.swift */,
+				E124EC9E26B794FC00E7EA55 /* StringExtensions.swift */,
+			);
+			path = FoundationExtensions;
+			sourceTree = "<group>";
+		};
+		E124ECBE26B7B22F00E7EA55 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E124ECB626B7ADD000E7EA55 /* FolderExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,6 +333,7 @@
 			buildConfigurationList = E124EC5E26B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (iOS)" */;
 			buildPhases = (
 				E124EC2C26B60F9300E7EA55 /* Sources */,
+				E124EC8E26B7890600E7EA55 /* Add compiler warnings for TODOs */,
 				E124EC2D26B60F9300E7EA55 /* Frameworks */,
 				E124EC2E26B60F9300E7EA55 /* Resources */,
 			);
@@ -219,6 +342,9 @@
 			dependencies = (
 			);
 			name = "KMLPlaces (iOS)";
+			packageProductDependencies = (
+				E124EC9026B789E100E7EA55 /* SWXMLHash */,
+			);
 			productName = "KMLPlaces (iOS)";
 			productReference = E124EC3026B60F9300E7EA55 /* KMLPlaces.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +354,7 @@
 			buildConfigurationList = E124EC6126B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (macOS)" */;
 			buildPhases = (
 				E124EC3426B60F9300E7EA55 /* Sources */,
+				E124EC9526B78A0100E7EA55 /* Add compiler warnings for TODOs */,
 				E124EC3526B60F9300E7EA55 /* Frameworks */,
 				E124EC3626B60F9300E7EA55 /* Resources */,
 			);
@@ -236,6 +363,9 @@
 			dependencies = (
 			);
 			name = "KMLPlaces (macOS)";
+			packageProductDependencies = (
+				E124EC9326B789F000E7EA55 /* SWXMLHash */,
+			);
 			productName = "KMLPlaces (macOS)";
 			productReference = E124EC3826B60F9300E7EA55 /* KMLPlaces.app */;
 			productType = "com.apple.product-type.application";
@@ -310,6 +440,9 @@
 				Base,
 			);
 			mainGroup = E124EC2026B60F9200E7EA55;
+			packageReferences = (
+				E124EC8F26B789E100E7EA55 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
+			);
 			productRefGroup = E124EC3126B60F9300E7EA55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -357,17 +490,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E124EC8E26B7890600E7EA55 /* Add compiler warnings for TODOs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Add compiler warnings for TODOs";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "scripts/add-compiler-warnings-for-TODOs.sh\n";
+		};
+		E124EC9526B78A0100E7EA55 /* Add compiler warnings for TODOs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Add compiler warnings for TODOs";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "scripts/add-compiler-warnings-for-TODOs.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E124EC2C26B60F9300E7EA55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E124EC7F26B7824300E7EA55 /* SettingsView.swift in Sources */,
+				E124EC9C26B790E100E7EA55 /* CollectionExtensions.swift in Sources */,
+				E124EC9826B78D4A00E7EA55 /* Logger.swift in Sources */,
 				E124EC5426B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */,
 				E124EC5826B60F9300E7EA55 /* Persistence.swift in Sources */,
 				E124EC7B26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
+				E124ECB726B7ADD000E7EA55 /* FolderExtensions.swift in Sources */,
+				E124ECB126B7A6C700E7EA55 /* ListModule.swift in Sources */,
 				E124EC7926B6113E00E7EA55 /* ListView.swift in Sources */,
+				E124ECAD26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */,
+				E124ECC026B7B24B00E7EA55 /* NotificationName.swift in Sources */,
+				E124EC8926B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
 				E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
+				E124EC8C26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */,
+				E124ECB426B7A75500E7EA55 /* ListRepository.swift in Sources */,
+				E124EC9F26B794FC00E7EA55 /* StringExtensions.swift in Sources */,
+				E124ECA626B7A34100E7EA55 /* SettingsModule.swift in Sources */,
+				E124EC8626B7868100E7EA55 /* SettingsViewModel.swift in Sources */,
+				E124ECBA26B7AE7600E7EA55 /* ListPreviews.swift in Sources */,
+				E124ECA926B7A45300E7EA55 /* SettingsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,12 +562,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E124EC8026B7824300E7EA55 /* SettingsView.swift in Sources */,
+				E124EC9D26B790E100E7EA55 /* CollectionExtensions.swift in Sources */,
+				E124EC9926B78D4A00E7EA55 /* Logger.swift in Sources */,
 				E124EC5526B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */,
 				E124EC5926B60F9300E7EA55 /* Persistence.swift in Sources */,
 				E124EC7C26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
+				E124ECB826B7ADD000E7EA55 /* FolderExtensions.swift in Sources */,
+				E124ECB226B7A6C700E7EA55 /* ListModule.swift in Sources */,
 				E124EC7A26B6113E00E7EA55 /* ListView.swift in Sources */,
+				E124ECAE26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */,
+				E124ECC126B7B24B00E7EA55 /* NotificationName.swift in Sources */,
+				E124EC8A26B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
 				E124EC5326B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
+				E124EC8D26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */,
+				E124ECB526B7A75500E7EA55 /* ListRepository.swift in Sources */,
+				E124ECA026B794FC00E7EA55 /* StringExtensions.swift in Sources */,
+				E124ECA726B7A34100E7EA55 /* SettingsModule.swift in Sources */,
+				E124EC8726B7868100E7EA55 /* SettingsViewModel.swift in Sources */,
+				E124ECBB26B7AE7600E7EA55 /* ListPreviews.swift in Sources */,
+				E124ECAA26B7A45300E7EA55 /* SettingsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +672,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -522,6 +725,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -533,6 +737,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -554,6 +759,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W23Z7PC8J5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -749,13 +955,39 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		E124EC8F26B789E100E7EA55 /* XCRemoteSwiftPackageReference "SWXMLHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/drmohundro/SWXMLHash.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E124EC9026B789E100E7EA55 /* SWXMLHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E124EC8F26B789E100E7EA55 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
+			productName = SWXMLHash;
+		};
+		E124EC9326B789F000E7EA55 /* SWXMLHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E124EC8F26B789E100E7EA55 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
+			productName = SWXMLHash;
+		};
+/* End XCSwiftPackageProductDependency section */
+
 /* Begin XCVersionGroup section */
 		E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E124ECBC26B7B15900E7EA55 /* Shared3.xcdatamodel */,
+				E124ECA126B79BCD00E7EA55 /* Shared2.xcdatamodel */,
 				E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */,
 			);
-			currentVersion = E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */;
+			currentVersion = E124ECBC26B7B15900E7EA55 /* Shared3.xcdatamodel */;
 			path = KMLPlaces.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -3,7 +3,6 @@ TODO list:
 
 Match functionality of old app
 ------------------------------
-- Copy over KML parsing code
 - List
 - Map
 - Details page
