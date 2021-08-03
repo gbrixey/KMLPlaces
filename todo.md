@@ -4,6 +4,7 @@ TODO list:
 Match functionality of old app
 ------------------------------
 - List
+  - All places button?
 - Map
 - Details page
 - Text search
@@ -42,4 +43,5 @@ New functionality
         - If adding, select whether to update existing entries with the same name or add duplicates
     - Add a loading modal view
     - Keep a copy of the KML on device to re-parse when app is updated?
+- Accessibility
 - Add README

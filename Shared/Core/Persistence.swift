@@ -9,30 +9,30 @@ struct PersistenceController {
         container.viewContext
     }
 
-    /// Controller for SwiftUI previews
+    /// Controller for SwiftUI previews.
+    /// - todo: Figure out why this isn't working
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
         let context = controller.context
-        for index in 0..<10 {
-            let rootFolder = Folder(context: context)
-            rootFolder.name = "My Places"
-            let folder = Folder(context: context)
-            folder.parentFolder = rootFolder
-            let placemark1 = Placemark(context: context)
-            placemark1.name = "My House"
-            placemark1.folder = folder
-            let point = Point(context: context)
-            point.latitude = 40.78318
-            point.longitude = -73.95403
-            point.placemark = placemark1
-            // TODO: Add paths and polygons
-//            let placemark2 = Placemark(context: context)
-//            placemark2.name = "My Street"
-//            placemark2.folder = folder
-//            let placemark3 = Placemark(context: context)
-//            placemark3.name = "My Neighborhood"
-//            placemark3.folder = folder
-        }
+        let rootFolder = Folder(context: context)
+        rootFolder.name = "My Places"
+        let folder = Folder(context: context)
+        folder.name = "My Folder"
+        folder.parentFolder = rootFolder
+        let placemark1 = Placemark(context: context)
+        placemark1.name = "My House"
+        placemark1.folder = rootFolder
+        let point = Point(context: context)
+        point.latitude = 40.78318
+        point.longitude = -73.95403
+        point.placemark = placemark1
+        // TODO: Add paths and polygons
+//        let placemark2 = Placemark(context: context)
+//        placemark2.name = "My Street"
+//        placemark2.folder = folder
+//        let placemark3 = Placemark(context: context)
+//        placemark3.name = "My Neighborhood"
+//        placemark3.folder = folder
         controller.saveContext()
         return controller
     }()

@@ -1,24 +1,26 @@
 import SwiftUI
 
 struct ListView: View {
-    @StateObject var viewModel: ListViewModel
 
+    // MARK: - Public
+
+    @StateObject var viewModel: ListViewModel
+    
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(enumeratedItems, id: \.0) { index, item in
-                    ListItemView(item: item, onTap: {
-                        viewModel.itemTapped(at: index)
-                    })
+        List {
+            ForEach(viewModel.folders, id: \.name) { folder in
+                NavigationLink(destination: ListModule.build(folder: folder)) {
+                    FolderView(name: folder.name ?? String(key: "default.folder.name"))
                 }
             }
-            // TODO: Add .searchable in iOS 15
-            .navigationTitle(viewModel.title)
+            ForEach(viewModel.places, id: \.id) { place in
+                NavigationLink(destination: DetailsModule.build(place: place)) {
+                    PlaceView(name: place.name ?? String(key: "default.placemark.name"))
+                }
+            }
         }
-    }
-
-    private var enumeratedItems: [(index: Int, item: ListViewModel.ListItem)] {
-        viewModel.items.enumerated().map { ($0, $1) }
+        // TODO: Add .searchable in iOS 15
+        .navigationTitle(viewModel.title)
     }
 }
 
@@ -26,22 +28,37 @@ struct ListView: View {
 
 extension ListView {
 
-    struct ListItemView: View {
-        let item: ListViewModel.ListItem
-        let onTap: () -> Void
+    struct FolderView: View {
+        let name: String
 
         var body: some View {
             HStack(spacing: 0) {
-                Image(systemName: item.systemIcon)
+                Image(systemName: "folder")
                     .frame(width: 50)
-                    .foregroundColor(item.nameColor)
-                Text(item.name)
-                    .foregroundColor(item.nameColor)
+                    .foregroundColor(.blue)
+                Text(name)
+                    .foregroundColor(.blue)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .onTapGesture(perform: onTap)
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel(item.name)
+            .accessibilityLabel(name)
+        }
+    }
+
+    struct PlaceView: View {
+        let name: String
+
+        var body: some View {
+            HStack(spacing: 0) {
+                Image(systemName: "mappin")
+                    .frame(width: 50)
+                    .foregroundColor(.primary)
+                Text(name)
+                    .foregroundColor(.primary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(name)
         }
     }
 }

@@ -3,7 +3,7 @@ import SwiftUI
 struct RootView: View {
     var body: some View {
         TabView {
-            ListModule.build()
+            ListModule.buildNavigationView()
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("tab.bar.list")
