@@ -105,7 +105,7 @@ class KMLParser {
                 // TODO: Parse polygons
                 break
             default:
-                return
+                continue
             }
         }
     }

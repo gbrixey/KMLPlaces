@@ -1,3 +1,5 @@
+import CoreLocation
+
 extension Folder {
 
     var isRootFolder: Bool {
@@ -10,5 +12,19 @@ extension Folder {
 
     var placesArray: [Placemark] {
         return (places?.allObjects as? [Placemark]) ?? []
+    }
+}
+
+extension Placemark {
+
+    var coordinate: CLLocationCoordinate2D? {
+        point?.coordinate
+    }
+}
+
+extension Point {
+
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }

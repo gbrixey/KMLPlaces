@@ -6,7 +6,6 @@ Match functionality of old app
 - List
   - All places button?
 - Map
-- Details page
 - Text search
 - Nearby search
 

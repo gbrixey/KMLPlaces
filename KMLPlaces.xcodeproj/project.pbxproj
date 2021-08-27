@@ -51,8 +51,8 @@
 		E124ECB226B7A6C700E7EA55 /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB026B7A6C700E7EA55 /* ListModule.swift */; };
 		E124ECB426B7A75500E7EA55 /* ListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB326B7A75500E7EA55 /* ListRepository.swift */; };
 		E124ECB526B7A75500E7EA55 /* ListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB326B7A75500E7EA55 /* ListRepository.swift */; };
-		E124ECB726B7ADD000E7EA55 /* FolderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB626B7ADD000E7EA55 /* FolderExtensions.swift */; };
-		E124ECB826B7ADD000E7EA55 /* FolderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB626B7ADD000E7EA55 /* FolderExtensions.swift */; };
+		E124ECB726B7ADD000E7EA55 /* ManagedObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB626B7ADD000E7EA55 /* ManagedObjectExtensions.swift */; };
+		E124ECB826B7ADD000E7EA55 /* ManagedObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB626B7ADD000E7EA55 /* ManagedObjectExtensions.swift */; };
 		E124ECBA26B7AE7600E7EA55 /* ListPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */; };
 		E124ECBB26B7AE7600E7EA55 /* ListPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */; };
 		E124ECC026B7B24B00E7EA55 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */; };
@@ -63,6 +63,12 @@
 		E124ECCC26B8C49E00E7EA55 /* DetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */; };
 		E124ECCF26B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */; };
 		E124ECD026B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */; };
+		E19D30AF26D8764200AC3B95 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */; };
+		E19D30B026D8764200AC3B95 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */; };
+		E19D30B226D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B126D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift */; };
+		E19D30B326D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B126D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift */; };
+		E19D30B526D87A6500AC3B95 /* DetailsPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B426D87A6500AC3B95 /* DetailsPreviews.swift */; };
+		E19D30B626D87A6500AC3B95 /* DetailsPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B426D87A6500AC3B95 /* DetailsPreviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,13 +121,16 @@
 		E124ECAC26B7A4E400E7EA55 /* SettingsPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreviews.swift; sourceTree = "<group>"; };
 		E124ECB026B7A6C700E7EA55 /* ListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
 		E124ECB326B7A75500E7EA55 /* ListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepository.swift; sourceTree = "<group>"; };
-		E124ECB626B7ADD000E7EA55 /* FolderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderExtensions.swift; sourceTree = "<group>"; };
+		E124ECB626B7ADD000E7EA55 /* ManagedObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectExtensions.swift; sourceTree = "<group>"; };
 		E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPreviews.swift; sourceTree = "<group>"; };
 		E124ECBC26B7B15900E7EA55 /* Shared3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared3.xcdatamodel; sourceTree = "<group>"; };
 		E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		E124ECC326B8C16900E7EA55 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModule.swift; sourceTree = "<group>"; };
 		E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationView.swift; sourceTree = "<group>"; };
+		E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		E19D30B126D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensions.swift; sourceTree = "<group>"; };
+		E19D30B426D87A6500AC3B95 /* DetailsPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPreviews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,8 +299,7 @@
 		E124EC9A26B790B500E7EA55 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				E124ECBE26B7B22F00E7EA55 /* Extensions */,
-				E124ECBD26B7B22300E7EA55 /* FoundationExtensions */,
+				E124ECBD26B7B22300E7EA55 /* Extensions */,
 				E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */,
 			);
 			path = Util;
@@ -319,19 +327,13 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		E124ECBD26B7B22300E7EA55 /* FoundationExtensions */ = {
+		E124ECBD26B7B22300E7EA55 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				E124EC9B26B790E100E7EA55 /* CollectionExtensions.swift */,
+				E19D30B126D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift */,
+				E124ECB626B7ADD000E7EA55 /* ManagedObjectExtensions.swift */,
 				E124EC9E26B794FC00E7EA55 /* StringExtensions.swift */,
-			);
-			path = FoundationExtensions;
-			sourceTree = "<group>";
-		};
-		E124ECBE26B7B22F00E7EA55 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E124ECB626B7ADD000E7EA55 /* FolderExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				E124ECC326B8C16900E7EA55 /* DetailsView.swift */,
+				E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */,
+				E19D30B426D87A6500AC3B95 /* DetailsPreviews.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -568,12 +572,15 @@
 				E124EC5426B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */,
 				E124EC5826B60F9300E7EA55 /* Persistence.swift in Sources */,
 				E124EC7B26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
-				E124ECB726B7ADD000E7EA55 /* FolderExtensions.swift in Sources */,
+				E124ECB726B7ADD000E7EA55 /* ManagedObjectExtensions.swift in Sources */,
+				E19D30B526D87A6500AC3B95 /* DetailsPreviews.swift in Sources */,
 				E124ECB126B7A6C700E7EA55 /* ListModule.swift in Sources */,
 				E124EC7926B6113E00E7EA55 /* ListView.swift in Sources */,
 				E124ECAD26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */,
 				E124ECC026B7B24B00E7EA55 /* NotificationName.swift in Sources */,
+				E19D30B226D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift in Sources */,
 				E124EC8926B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
+				E19D30AF26D8764200AC3B95 /* DetailsViewModel.swift in Sources */,
 				E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
 				E124EC8C26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */,
@@ -599,12 +606,15 @@
 				E124EC5526B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */,
 				E124EC5926B60F9300E7EA55 /* Persistence.swift in Sources */,
 				E124EC7C26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
-				E124ECB826B7ADD000E7EA55 /* FolderExtensions.swift in Sources */,
+				E124ECB826B7ADD000E7EA55 /* ManagedObjectExtensions.swift in Sources */,
+				E19D30B626D87A6500AC3B95 /* DetailsPreviews.swift in Sources */,
 				E124ECB226B7A6C700E7EA55 /* ListModule.swift in Sources */,
 				E124EC7A26B6113E00E7EA55 /* ListView.swift in Sources */,
 				E124ECAE26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */,
 				E124ECC126B7B24B00E7EA55 /* NotificationName.swift in Sources */,
+				E19D30B326D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift in Sources */,
 				E124EC8A26B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
+				E19D30B026D8764200AC3B95 /* DetailsViewModel.swift in Sources */,
 				E124EC5326B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
 				E124EC8D26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */,

@@ -67,6 +67,8 @@ extension ListView {
 
 struct ListViewPreviews: PreviewProvider {
     static var previews: some View {
-        ListView(viewModel: ListPreviews.viewModel)
+        NavigationView {
+            ListView(viewModel: ListPreviews.viewModel)
+        }
     }
 }
