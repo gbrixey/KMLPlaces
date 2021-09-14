@@ -26,13 +26,20 @@ struct PersistenceController {
         point.latitude = 40.78318
         point.longitude = -73.95403
         point.placemark = placemark1
-        // TODO: Add paths and polygons
-//        let placemark2 = Placemark(context: context)
-//        placemark2.name = "My Street"
-//        placemark2.folder = folder
-//        let placemark3 = Placemark(context: context)
-//        placemark3.name = "My Neighborhood"
-//        placemark3.folder = folder
+        let placemark2 = Placemark(context: context)
+        placemark2.name = "My Street"
+        placemark2.folder = folder
+        let lineString = LineString(context: context)
+        lineString.coordinates = "-73.951523,40.781961,0 -73.958012,40.784706,0"
+        lineString.placemark = placemark2
+        let placemark3 = Placemark(context: context)
+        placemark3.name = "My Neighborhood"
+        placemark3.folder = folder
+        let polygon = Polygon(context: context)
+        polygon.placemark = placemark3
+        let linearRing = LinearRing(context: context)
+        linearRing.coordinates = "-73.955780,40.787880,0 -73.949308,40.785194,0 -73.953953,40.778803,0 -73.960404,40.781546,0 -73.955780,40.787880,0"
+        linearRing.outerPolygon = polygon
         controller.saveContext()
         return controller
     }()

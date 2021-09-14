@@ -99,11 +99,9 @@ class KMLParser {
             case KMLNames.point:
                 parsePoint(child, placemark: placemark)
             case KMLNames.lineString:
-                // TODO: Parse paths
-                break
+                parseLineString(child, placemark: placemark)
             case KMLNames.polygon:
-                // TODO: Parse polygons
-                break
+                parsePolygon(child, placemark: placemark)
             default:
                 continue
             }
@@ -118,6 +116,30 @@ class KMLParser {
         point.latitude = coordinate.latitude
         point.longitude = coordinate.longitude
         point.placemark = placemark
+    }
+
+    /// Parse a `<LineString>` KML element
+    private class func parseLineString(_ lineStringKML: XMLIndexer, placemark: Placemark) {
+        guard let coordinatesText = lineStringKML.coordinatesText else { return }
+        let coordinates = parseCoordinates(coordinatesText)
+        guard coordinates.count >= 2 else { return }
+        let lineString = LineString(context: context)
+        lineString.coordinates = coordinatesText
+        lineString.placemark = placemark
+    }
+
+    /// Parse a `<Polygon>` KML element
+    private class func parsePolygon(_ polygonKML: XMLIndexer, placemark: Placemark) {
+        guard let outerBoundaryKML = polygonKML.firstChildElement(withName: KMLNames.outerBoundaryIs),
+              let linearRingKML = outerBoundaryKML.firstChildElement(withName: KMLNames.linearRing),
+              let coordinatesText = linearRingKML.coordinatesText else { return }
+        let coordinates = parseCoordinates(coordinatesText)
+        guard coordinates.count >= 3 else { return }
+        let polygon = Polygon(context: context)
+        polygon.placemark = placemark
+        let linearRing = LinearRing(context: context)
+        linearRing.coordinates = coordinatesText
+        linearRing.outerPolygon = polygon
     }
 
     /// Parse text from a `<coordinates>` KML element into an array of coordinate structs
