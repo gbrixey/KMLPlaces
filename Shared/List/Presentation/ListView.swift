@@ -15,12 +15,23 @@ struct ListView: View {
             }
             ForEach(viewModel.places, id: \.id) { place in
                 NavigationLink(destination: DetailsModule.build(place: place)) {
-                    PlaceView(name: place.name ?? String(key: "default.placemark.name"))
+                    PlaceView(name: place.name ?? String(key: "default.placemark.name"),
+                              imageName: imageName(for: place))
                 }
             }
         }
         // TODO: Add .searchable in iOS 15
         .navigationTitle(viewModel.title)
+    }
+
+    private func imageName(for place: Placemark) -> String {
+        if place.polygon != nil {
+            return "square.dashed"
+        } else if place.lineString != nil {
+            return "scribble"
+        } else {
+            return "mappin"
+        }
     }
 }
 
@@ -48,10 +59,11 @@ extension ListView {
 
     struct PlaceView: View {
         let name: String
+        let imageName: String
 
         var body: some View {
             HStack(spacing: 0) {
-                Image(systemName: "mappin")
+                Image(systemName: imageName)
                     .frame(width: 30)
                     .padding(.trailing, 10)
                     .foregroundColor(.primary)

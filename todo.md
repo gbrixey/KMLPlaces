@@ -39,6 +39,9 @@ New functionality
         - If adding, select whether to update existing entries with the same name or add duplicates
     - Add a loading modal view
     - Keep a copy of the KML on device to re-parse when app is updated?
+- Tutorial
+    - Prompt user to import data when first launching the app 
+    - Use sample data as a default?
 - Accessibility
 - Add README
 

@@ -1,6 +1,6 @@
 import SwiftUI
 
-// - todo: Pop navigation view to root when a new data set is uploaded
+/// - todo: Pop navigation view to root when a new data set is uploaded.
 struct ListNavigationView: View {
 
     // MARK: - Public
