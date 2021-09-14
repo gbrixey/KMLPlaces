@@ -15,7 +15,9 @@ struct MapView: View {
                 MapPin(coordinate: annotationItem.coordinate)
             }
             .navigationTitle(viewModel.title)
+            .ignoresSafeArea(edges: .horizontal)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

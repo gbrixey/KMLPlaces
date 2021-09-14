@@ -15,6 +15,7 @@ struct SettingsView: View {
             }
             .navigationTitle("settings.title")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $viewModel.showDocumentPicker) {
             SettingsDocumentPicker(delegate: viewModel)
         }

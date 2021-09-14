@@ -11,6 +11,7 @@ struct ListNavigationView: View {
         NavigationView {
             ListView(viewModel: viewModel)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
