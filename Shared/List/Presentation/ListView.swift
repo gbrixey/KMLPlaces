@@ -34,7 +34,8 @@ extension ListView {
         var body: some View {
             HStack(spacing: 0) {
                 Image(systemName: "folder")
-                    .frame(width: 50)
+                    .frame(width: 30)
+                    .padding(.trailing, 10)
                     .foregroundColor(.blue)
                 Text(name)
                     .foregroundColor(.blue)
@@ -51,7 +52,8 @@ extension ListView {
         var body: some View {
             HStack(spacing: 0) {
                 Image(systemName: "mappin")
-                    .frame(width: 50)
+                    .frame(width: 30)
+                    .padding(.trailing, 10)
                     .foregroundColor(.primary)
                 Text(name)
                     .foregroundColor(.primary)

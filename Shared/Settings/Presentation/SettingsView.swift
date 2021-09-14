@@ -6,9 +6,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
-                Text("settings.import.data")
-                    .foregroundColor(.blue)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                SettingsItemView(imageName: "square.and.arrow.down", name: "settings.import.data")
                     .onTapGesture {
                         viewModel.importDataTapped()
                     }
@@ -18,6 +16,31 @@ struct SettingsView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $viewModel.showDocumentPicker) {
             SettingsDocumentPicker(delegate: viewModel)
+        }
+    }
+}
+
+// MARK: - Additional views
+
+extension SettingsView {
+
+    struct SettingsItemView: View {
+        let imageName: String
+        let name: LocalizedStringKey
+
+        var body: some View {
+            HStack(spacing: 0) {
+                Image(systemName: imageName)
+                    .frame(width: 30)
+                    .padding(.trailing, 10)
+                    .foregroundColor(.blue)
+                Text(name)
+                    .foregroundColor(.blue)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(name)
+            .contentShape(Rectangle())
         }
     }
 }
