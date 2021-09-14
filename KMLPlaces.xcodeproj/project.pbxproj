@@ -63,6 +63,16 @@
 		E124ECCC26B8C49E00E7EA55 /* DetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */; };
 		E124ECCF26B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */; };
 		E124ECD026B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */; };
+		E12999C826F12DEE009DC840 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999C726F12DEE009DC840 /* MapModule.swift */; };
+		E12999C926F12DEE009DC840 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999C726F12DEE009DC840 /* MapModule.swift */; };
+		E12999CC26F12E8D009DC840 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CB26F12E8D009DC840 /* MapView.swift */; };
+		E12999CD26F12E8D009DC840 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CB26F12E8D009DC840 /* MapView.swift */; };
+		E12999CF26F12F44009DC840 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CE26F12F44009DC840 /* MapViewModel.swift */; };
+		E12999D026F12F44009DC840 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CE26F12F44009DC840 /* MapViewModel.swift */; };
+		E12999D226F130CC009DC840 /* MapPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D126F130CC009DC840 /* MapPreviews.swift */; };
+		E12999D326F130CC009DC840 /* MapPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D126F130CC009DC840 /* MapPreviews.swift */; };
+		E12999D926F1381D009DC840 /* MapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D826F1381D009DC840 /* MapRepository.swift */; };
+		E12999DA26F1381D009DC840 /* MapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D826F1381D009DC840 /* MapRepository.swift */; };
 		E19D30AF26D8764200AC3B95 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */; };
 		E19D30B026D8764200AC3B95 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */; };
 		E19D30B226D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B126D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift */; };
@@ -128,6 +138,11 @@
 		E124ECC326B8C16900E7EA55 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModule.swift; sourceTree = "<group>"; };
 		E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationView.swift; sourceTree = "<group>"; };
+		E12999C726F12DEE009DC840 /* MapModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModule.swift; sourceTree = "<group>"; };
+		E12999CB26F12E8D009DC840 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E12999CE26F12F44009DC840 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		E12999D126F130CC009DC840 /* MapPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviews.swift; sourceTree = "<group>"; };
+		E12999D826F1381D009DC840 /* MapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRepository.swift; sourceTree = "<group>"; };
 		E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		E19D30B126D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensions.swift; sourceTree = "<group>"; };
 		E19D30B426D87A6500AC3B95 /* DetailsPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPreviews.swift; sourceTree = "<group>"; };
@@ -186,6 +201,7 @@
 				E124EC6A26B6102300E7EA55 /* Core */,
 				E124EC7026B6110900E7EA55 /* Root */,
 				E124EC6F26B6110100E7EA55 /* List */,
+				E12999C626F12DCD009DC840 /* Map */,
 				E124ECC226B8C13B00E7EA55 /* Details */,
 				E124EC7D26B7820600E7EA55 /* Settings */,
 				E124EC6B26B6105A00E7EA55 /* Resources */,
@@ -353,6 +369,26 @@
 				E124ECC326B8C16900E7EA55 /* DetailsView.swift */,
 				E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */,
 				E19D30B426D87A6500AC3B95 /* DetailsPreviews.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E12999C626F12DCD009DC840 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E12999C726F12DEE009DC840 /* MapModule.swift */,
+				E12999D826F1381D009DC840 /* MapRepository.swift */,
+				E12999CA26F12E82009DC840 /* Presentation */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		E12999CA26F12E82009DC840 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E12999CB26F12E8D009DC840 /* MapView.swift */,
+				E12999CE26F12F44009DC840 /* MapViewModel.swift */,
+				E12999D126F130CC009DC840 /* MapPreviews.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -573,17 +609,22 @@
 				E124EC5826B60F9300E7EA55 /* Persistence.swift in Sources */,
 				E124EC7B26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
 				E124ECB726B7ADD000E7EA55 /* ManagedObjectExtensions.swift in Sources */,
+				E12999D226F130CC009DC840 /* MapPreviews.swift in Sources */,
 				E19D30B526D87A6500AC3B95 /* DetailsPreviews.swift in Sources */,
 				E124ECB126B7A6C700E7EA55 /* ListModule.swift in Sources */,
 				E124EC7926B6113E00E7EA55 /* ListView.swift in Sources */,
 				E124ECAD26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */,
+				E12999D926F1381D009DC840 /* MapRepository.swift in Sources */,
+				E12999CF26F12F44009DC840 /* MapViewModel.swift in Sources */,
 				E124ECC026B7B24B00E7EA55 /* NotificationName.swift in Sources */,
 				E19D30B226D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift in Sources */,
 				E124EC8926B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
+				E12999CC26F12E8D009DC840 /* MapView.swift in Sources */,
 				E19D30AF26D8764200AC3B95 /* DetailsViewModel.swift in Sources */,
 				E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
 				E124EC8C26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */,
+				E12999C826F12DEE009DC840 /* MapModule.swift in Sources */,
 				E124ECB426B7A75500E7EA55 /* ListRepository.swift in Sources */,
 				E124ECCF26B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */,
 				E124EC9F26B794FC00E7EA55 /* StringExtensions.swift in Sources */,
@@ -607,17 +648,22 @@
 				E124EC5926B60F9300E7EA55 /* Persistence.swift in Sources */,
 				E124EC7C26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
 				E124ECB826B7ADD000E7EA55 /* ManagedObjectExtensions.swift in Sources */,
+				E12999D326F130CC009DC840 /* MapPreviews.swift in Sources */,
 				E19D30B626D87A6500AC3B95 /* DetailsPreviews.swift in Sources */,
 				E124ECB226B7A6C700E7EA55 /* ListModule.swift in Sources */,
 				E124EC7A26B6113E00E7EA55 /* ListView.swift in Sources */,
 				E124ECAE26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */,
+				E12999DA26F1381D009DC840 /* MapRepository.swift in Sources */,
+				E12999D026F12F44009DC840 /* MapViewModel.swift in Sources */,
 				E124ECC126B7B24B00E7EA55 /* NotificationName.swift in Sources */,
 				E19D30B326D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift in Sources */,
 				E124EC8A26B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
+				E12999CD26F12E8D009DC840 /* MapView.swift in Sources */,
 				E19D30B026D8764200AC3B95 /* DetailsViewModel.swift in Sources */,
 				E124EC5326B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
 				E124EC8D26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */,
+				E12999C926F12DEE009DC840 /* MapModule.swift in Sources */,
 				E124ECB526B7A75500E7EA55 /* ListRepository.swift in Sources */,
 				E124ECD026B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */,
 				E124ECA026B794FC00E7EA55 /* StringExtensions.swift in Sources */,

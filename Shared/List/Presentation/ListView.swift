@@ -5,7 +5,7 @@ struct ListView: View {
     // MARK: - Public
 
     @StateObject var viewModel: ListViewModel
-    
+
     var body: some View {
         List {
             ForEach(viewModel.folders, id: \.name) { folder in

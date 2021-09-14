@@ -8,7 +8,7 @@ struct RootView: View {
                     Image(systemName: "list.bullet")
                     Text("tab.bar.list")
                 }
-            Text("tab.bar.map")
+            MapModule.build()
                 .tabItem {
                     Image(systemName: "map")
                     Text("tab.bar.map")
