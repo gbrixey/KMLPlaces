@@ -21,7 +21,7 @@ extension MapRepository: MapDataStore {
         let fetchRequest: NSFetchRequest<Folder> = Folder.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "parentFolder = nil")
         do {
-            let context = PersistenceController.shared.context
+            let context = controller.context
             let fetchResults = try context.fetch(fetchRequest)
             return fetchResults.first
         } catch {

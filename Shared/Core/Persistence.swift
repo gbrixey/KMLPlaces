@@ -10,7 +10,6 @@ struct PersistenceController {
     }
 
     /// Controller for SwiftUI previews.
-    /// - todo: Figure out why this isn't working
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
         let context = controller.context
@@ -28,13 +27,13 @@ struct PersistenceController {
         point.placemark = placemark1
         let placemark2 = Placemark(context: context)
         placemark2.name = "My Street"
-        placemark2.folder = folder
+        placemark2.folder = rootFolder
         let lineString = LineString(context: context)
         lineString.coordinates = "-73.951523,40.781961,0 -73.958012,40.784706,0"
         lineString.placemark = placemark2
         let placemark3 = Placemark(context: context)
         placemark3.name = "My Neighborhood"
-        placemark3.folder = folder
+        placemark3.folder = rootFolder
         let polygon = Polygon(context: context)
         polygon.placemark = placemark3
         let linearRing = LinearRing(context: context)
