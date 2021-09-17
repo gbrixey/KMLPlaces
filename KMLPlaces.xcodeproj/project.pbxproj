@@ -63,6 +63,10 @@
 		E124ECCC26B8C49E00E7EA55 /* DetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */; };
 		E124ECCF26B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */; };
 		E124ECD026B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */; };
+		E125A62A26F54DE60078CBC0 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62926F54DE60078CBC0 /* StyleManager.swift */; };
+		E125A62B26F54DE60078CBC0 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62926F54DE60078CBC0 /* StyleManager.swift */; };
+		E125A62D26F550550078CBC0 /* KMLPlacesAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */; };
+		E125A62E26F550550078CBC0 /* KMLPlacesAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */; };
 		E12999C826F12DEE009DC840 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999C726F12DEE009DC840 /* MapModule.swift */; };
 		E12999C926F12DEE009DC840 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999C726F12DEE009DC840 /* MapModule.swift */; };
 		E12999CC26F12E8D009DC840 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CB26F12E8D009DC840 /* MapView.swift */; };
@@ -138,6 +142,9 @@
 		E124ECC326B8C16900E7EA55 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModule.swift; sourceTree = "<group>"; };
 		E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationView.swift; sourceTree = "<group>"; };
+		E125A62826F540240078CBC0 /* Shared4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared4.xcdatamodel; sourceTree = "<group>"; };
+		E125A62926F54DE60078CBC0 /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
+		E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesAppDelegate.swift; sourceTree = "<group>"; };
 		E12999C726F12DEE009DC840 /* MapModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModule.swift; sourceTree = "<group>"; };
 		E12999CB26F12E8D009DC840 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E12999CE26F12F44009DC840 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -260,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */,
+				E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */,
 				E124EC8B26B788C300E7EA55 /* KMLParser.swift */,
 				E124EC2A26B60F9200E7EA55 /* Persistence.swift */,
 				E124EC9726B78D4A00E7EA55 /* Logger.swift */,
@@ -317,6 +325,7 @@
 			children = (
 				E124ECBD26B7B22300E7EA55 /* Extensions */,
 				E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */,
+				E125A62926F54DE60078CBC0 /* StyleManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -609,7 +618,9 @@
 				E124EC5826B60F9300E7EA55 /* Persistence.swift in Sources */,
 				E124EC7B26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
 				E124ECB726B7ADD000E7EA55 /* ManagedObjectExtensions.swift in Sources */,
+				E125A62D26F550550078CBC0 /* KMLPlacesAppDelegate.swift in Sources */,
 				E12999D226F130CC009DC840 /* MapPreviews.swift in Sources */,
+				E125A62A26F54DE60078CBC0 /* StyleManager.swift in Sources */,
 				E19D30B526D87A6500AC3B95 /* DetailsPreviews.swift in Sources */,
 				E124ECB126B7A6C700E7EA55 /* ListModule.swift in Sources */,
 				E124EC7926B6113E00E7EA55 /* ListView.swift in Sources */,
@@ -648,7 +659,9 @@
 				E124EC5926B60F9300E7EA55 /* Persistence.swift in Sources */,
 				E124EC7C26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
 				E124ECB826B7ADD000E7EA55 /* ManagedObjectExtensions.swift in Sources */,
+				E125A62E26F550550078CBC0 /* KMLPlacesAppDelegate.swift in Sources */,
 				E12999D326F130CC009DC840 /* MapPreviews.swift in Sources */,
+				E125A62B26F54DE60078CBC0 /* StyleManager.swift in Sources */,
 				E19D30B626D87A6500AC3B95 /* DetailsPreviews.swift in Sources */,
 				E124ECB226B7A6C700E7EA55 /* ListModule.swift in Sources */,
 				E124EC7A26B6113E00E7EA55 /* ListView.swift in Sources */,
@@ -1073,11 +1086,12 @@
 		E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E125A62826F540240078CBC0 /* Shared4.xcdatamodel */,
 				E124ECBC26B7B15900E7EA55 /* Shared3.xcdatamodel */,
 				E124ECA126B79BCD00E7EA55 /* Shared2.xcdatamodel */,
 				E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */,
 			);
-			currentVersion = E124ECBC26B7B15900E7EA55 /* Shared3.xcdatamodel */;
+			currentVersion = E125A62826F540240078CBC0 /* Shared4.xcdatamodel */;
 			path = KMLPlaces.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

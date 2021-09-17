@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="parentFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="subfolders" inverseEntity="Folder"/>
+        <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Placemark" inverseName="folder" inverseEntity="Placemark"/>
+        <relationship name="subfolders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Folder" inverseName="parentFolder" inverseEntity="Folder"/>
+    </entity>
+    <entity name="LinearRing" representedClassName="LinearRing" syncable="YES" codeGenerationType="class">
+        <attribute name="coordinates" attributeType="String" defaultValueString=""/>
+        <relationship name="outerPolygon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Polygon" inverseName="outerBoundary" inverseEntity="Polygon"/>
+    </entity>
+    <entity name="LineString" representedClassName="LineString" syncable="YES" codeGenerationType="class">
+        <attribute name="coordinates" attributeType="String" defaultValueString=""/>
+        <relationship name="placemark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Placemark" inverseName="lineString" inverseEntity="Placemark"/>
+    </entity>
+    <entity name="Placemark" representedClassName="Placemark" syncable="YES" codeGenerationType="class">
+        <attribute name="kmlDescription" attributeType="String" defaultValueString=""/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="styleUrl" optional="YES" attributeType="String"/>
+        <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="places" inverseEntity="Folder"/>
+        <relationship name="lineString" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LineString" inverseName="placemark" inverseEntity="LineString"/>
+        <relationship name="point" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Point" inverseName="placemark" inverseEntity="Point"/>
+        <relationship name="polygon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Polygon" inverseName="placemark" inverseEntity="Polygon"/>
+    </entity>
+    <entity name="Point" representedClassName="Point" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="placemark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Placemark" inverseName="point" inverseEntity="Placemark"/>
+    </entity>
+    <entity name="Polygon" representedClassName="Polygon" syncable="YES" codeGenerationType="class">
+        <relationship name="outerBoundary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LinearRing" inverseName="outerPolygon" inverseEntity="LinearRing"/>
+        <relationship name="placemark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Placemark" inverseName="polygon" inverseEntity="Placemark"/>
+    </entity>
+    <entity name="Style" representedClassName="Style" syncable="YES" codeGenerationType="class">
+        <attribute name="hotspotX" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="hotspotXUnits" attributeType="String" defaultValueString=""/>
+        <attribute name="hotspotY" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="hotspotYUnits" attributeType="String" defaultValueString=""/>
+        <attribute name="icon" attributeType="String" defaultValueString=""/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="scale" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="StyleMap" representedClassName="StyleMap" syncable="YES" codeGenerationType="class">
+        <attribute name="highlighted" attributeType="String" defaultValueString=""/>
+        <attribute name="id" attributeType="String" defaultValueString=""/>
+        <attribute name="normal" attributeType="String" defaultValueString=""/>
+    </entity>
+    <elements>
+        <element name="Folder" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="LinearRing" positionX="-9" positionY="63" width="128" height="59"/>
+        <element name="LineString" positionX="27" positionY="108" width="128" height="59"/>
+        <element name="Placemark" positionX="-27" positionY="27" width="128" height="134"/>
+        <element name="Point" positionX="0" positionY="90" width="128" height="74"/>
+        <element name="Polygon" positionX="-18" positionY="54" width="128" height="59"/>
+        <element name="Style" positionX="-18" positionY="72" width="128" height="134"/>
+        <element name="StyleMap" positionX="-9" positionY="81" width="128" height="74"/>
+    </elements>
+</model>

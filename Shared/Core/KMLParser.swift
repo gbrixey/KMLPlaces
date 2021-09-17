@@ -33,6 +33,10 @@ class KMLParser {
                     parseFolder(child, parentFolder: folder)
                 case KMLNames.placemark:
                     parsePlacemark(child, folder: folder)
+                case KMLNames.style:
+                    parseStyle(child)
+                case KMLNames.styleMap:
+                    parseStyleMap(child)
                 default:
                     break
                 }
@@ -68,6 +72,68 @@ class KMLParser {
     }
 
     // MARK: - Private - Parsing methods
+
+    /// Parse a `<Style>` KML element
+    private class func parseStyle(_ styleKML: XMLIndexer) {
+        guard let element = styleKML.element,
+              let id = element.attribute(by: KMLAttributes.id)?.text,
+              !id.isEmpty,
+              let iconStyleKML = styleKML.firstChildElement(withName: KMLNames.iconStyle),
+              let iconKML = iconStyleKML.firstChildElement(withName: KMLNames.icon),
+              let iconURLString = iconKML.firstChildElement(withName: KMLNames.href)?.text,
+              let iconURL = URL(string: iconURLString) else {
+            return
+        }
+        let style = Style(context: context)
+        style.id = id
+        style.icon = iconURL.absoluteString
+        if let scaleText = iconStyleKML.firstChildElement(withName: KMLNames.scale)?.text,
+           let scale = Double(scaleText) {
+            style.scale = scale
+        }
+        if let hotspot = iconStyleKML.firstChildElement(withName: KMLNames.hotSpot)?.element,
+           let hotspotXString = hotspot.attribute(by: KMLAttributes.x)?.text,
+           let hotspotX = Double(hotspotXString),
+           let hotspotYString = hotspot.attribute(by: KMLAttributes.y)?.text,
+           let hotspotY = Double(hotspotYString),
+           let hotspotXUnitsString = hotspot.attribute(by: KMLAttributes.xUnits)?.text,
+           let hotspotXUnits = HotspotUnits(rawValue: hotspotXUnitsString),
+           let hotspotYUnitsString = hotspot.attribute(by: KMLAttributes.yUnits)?.text,
+           let hotspotYUnits = HotspotUnits(rawValue: hotspotYUnitsString) {
+            style.hotspotX = hotspotX
+            style.hotspotY = hotspotY
+            style.hotspotXUnits = hotspotXUnits.rawValue
+            style.hotspotYUnits = hotspotYUnits.rawValue
+        }
+    }
+
+    /// Parse a `<StyleMap>` KML element
+    private class func parseStyleMap(_ styleMapKML: XMLIndexer) {
+        guard let element = styleMapKML.element,
+              let id = element.attribute(by: KMLAttributes.id)?.text,
+              !id.isEmpty else {
+            return
+        }
+        let styleMap = StyleMap(context: context)
+        styleMap.id = id
+        let pairs = styleMapKML.children.filter { $0.element?.name.lowercased() == KMLNames.pair }
+        pairs.forEach { pair in
+            guard let key = pair.firstChildElement(withName: KMLNames.key)?.text,
+                  !key.isEmpty,
+                  let styleURL = pair.firstChildElement(withName: KMLNames.styleURL)?.text,
+                  !styleURL.isEmpty else {
+                return
+            }
+            switch key {
+            case "normal":
+                styleMap.normal = styleURL
+            case "highlight":
+                styleMap.highlighted = styleURL
+            default:
+                return
+            }
+        }
+    }
 
     /// Parse a `<Folder>` KML element
     private class func parseFolder(_ folderKML: XMLIndexer, parentFolder: Folder? = nil) {
@@ -186,19 +252,37 @@ private extension XMLIndexer {
     }
 }
 
-// MARK: - KMLNames
+// MARK: - KML strings
 
 struct KMLNames {
     static let coordinates = "coordinates"
     static let description = "description"
     static let document = "Document"
     static let folder = "Folder"
+    static let hotSpot = "hotSpot"
+    static let href = "href"
+    static let icon = "Icon"
+    static let iconStyle = "IconStyle"
+    static let key = "key"
     static let kml = "kml"
     static let linearRing = "LinearRing"
     static let lineString = "LineString"
     static let name = "name"
     static let outerBoundaryIs = "outerBoundaryIs"
+    static let pair = "Pair"
     static let placemark = "Placemark"
     static let point = "Point"
     static let polygon = "Polygon"
+    static let scale = "scale"
+    static let style = "Style"
+    static let styleMap = "StyleMap"
+    static let styleURL = "styleUrl"
+}
+
+struct KMLAttributes {
+    static let id = "id"
+    static let x = "x"
+    static let xUnits = "xunits"
+    static let y = "y"
+    static let yUnits = "yunits"
 }
