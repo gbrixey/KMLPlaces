@@ -20,31 +20,7 @@ class KMLParser {
         }
         let kml = SWXMLHash.parse(kmlData)
         let documentKML = kml[KMLNames.kml][KMLNames.document]
-        let documentHasMultipleFolders = documentKML.children.containsMultiple(where: { $0.element?.name == KMLNames.folder })
-        let documentHasPlacemarks = documentKML.children.contains(where: { $0.element?.name == KMLNames.placemark })
-        let shouldCreateNewRootFolder = documentHasPlacemarks || documentHasMultipleFolders
-        if shouldCreateNewRootFolder {
-            let folder = Folder(context: context)
-            folder.name = documentKML.documentName
-            for child in documentKML.children {
-                guard let element = child.element else { continue }
-                switch element.name {
-                case KMLNames.folder:
-                    parseFolder(child, parentFolder: folder)
-                case KMLNames.placemark:
-                    parsePlacemark(child, folder: folder)
-                case KMLNames.style:
-                    parseStyle(child)
-                case KMLNames.styleMap:
-                    parseStyleMap(child)
-                default:
-                    break
-                }
-            }
-        } else {
-            let rootFolderKML = documentKML[KMLNames.folder]
-            parseFolder(rootFolderKML)
-        }
+        parseDocument(documentKML)
         controller.saveContext()
     }
 
@@ -72,6 +48,44 @@ class KMLParser {
     }
 
     // MARK: - Private - Parsing methods
+
+    /// Parse the root `<Document>` KML element
+    private class func parseDocument(_ documentKML: XMLIndexer) {
+        // Parse style elements
+        for child in documentKML.children {
+            guard let element = child.element else { continue }
+            switch element.name {
+            case KMLNames.style:
+                parseStyle(child)
+            case KMLNames.styleMap:
+                parseStyleMap(child)
+            default:
+                break
+            }
+        }
+        let children = documentKML.children
+        let documentHasMultipleFolders = children.containsMultiple(where: { $0.element?.name == KMLNames.folder })
+        let documentHasPlacemarks = children.contains(where: { $0.element?.name == KMLNames.placemark })
+        let shouldCreateNewRootFolder = documentHasPlacemarks || documentHasMultipleFolders
+        if shouldCreateNewRootFolder {
+            let folder = Folder(context: context)
+            folder.name = documentKML.documentName
+            for child in documentKML.children {
+                guard let element = child.element else { continue }
+                switch element.name {
+                case KMLNames.folder:
+                    parseFolder(child, parentFolder: folder)
+                case KMLNames.placemark:
+                    parsePlacemark(child, folder: folder)
+                default:
+                    break
+                }
+            }
+        } else {
+            let rootFolderKML = documentKML[KMLNames.folder]
+            parseFolder(rootFolderKML)
+        }
+    }
 
     /// Parse a `<Style>` KML element
     private class func parseStyle(_ styleKML: XMLIndexer) {
@@ -116,7 +130,7 @@ class KMLParser {
         }
         let styleMap = StyleMap(context: context)
         styleMap.id = id
-        let pairs = styleMapKML.children.filter { $0.element?.name.lowercased() == KMLNames.pair }
+        let pairs = styleMapKML.children.filter { $0.element?.name.lowercased() == KMLNames.pair.lowercased() }
         pairs.forEach { pair in
             guard let key = pair.firstChildElement(withName: KMLNames.key)?.text,
                   !key.isEmpty,
@@ -158,6 +172,7 @@ class KMLParser {
         let placemark = Placemark(context: context)
         placemark.name = placemarkKML.nameText ?? String(key: "default.placemark.name")
         placemark.kmlDescription = placemarkKML.kmlDescription ?? String(key: "default.placemark.description")
+        placemark.styleUrl = placemarkKML.firstChildElement(withName: KMLNames.styleURL)?.text
         placemark.folder = folder
         for child in placemarkKML.children {
             guard let elementName = child.element?.name else { continue }

@@ -17,8 +17,24 @@ extension Folder {
 
 extension Placemark {
 
+    enum PlacemarkType {
+        case point
+        case lineString
+        case polygon
+    }
+
     var coordinate: CLLocationCoordinate2D? {
         point?.coordinate
+    }
+
+    var type: PlacemarkType {
+        if polygon != nil {
+            return .polygon
+        } else if lineString != nil {
+            return .lineString
+        } else {
+            return .point
+        }
     }
 }
 

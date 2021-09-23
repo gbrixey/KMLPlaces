@@ -1,4 +1,5 @@
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ListView: View {
 
@@ -16,22 +17,13 @@ struct ListView: View {
             ForEach(viewModel.places, id: \.id) { place in
                 NavigationLink(destination: DetailsModule.build(place: place)) {
                     PlaceView(name: place.name ?? String(key: "default.placemark.name"),
-                              imageName: imageName(for: place))
+                              styleURL: viewModel.styleURL(for: place),
+                              defaultIconName: viewModel.defaultIconName(for: place))
                 }
             }
         }
         // TODO: Add .searchable in iOS 15
         .navigationTitle(viewModel.title)
-    }
-
-    private func imageName(for place: Placemark) -> String {
-        if place.polygon != nil {
-            return "square.dashed"
-        } else if place.lineString != nil {
-            return "scribble"
-        } else {
-            return "mappin"
-        }
     }
 }
 
@@ -59,12 +51,16 @@ extension ListView {
 
     struct PlaceView: View {
         let name: String
-        let imageName: String
+        let styleURL: String?
+        let defaultIconName: String
 
         var body: some View {
             HStack(spacing: 0) {
-                Image(systemName: imageName)
-                    .frame(width: 30)
+                WebImage(url: StyleManager.shared.iconURL(styleURL: styleURL))
+                    .placeholder(Image(systemName: defaultIconName))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
                     .padding(.trailing, 10)
                     .foregroundColor(.primary)
                 Text(name)

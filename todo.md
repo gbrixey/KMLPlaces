@@ -6,24 +6,20 @@ Match functionality of old app
 - List
     - All places button?
     - Nearby search
+        - Need to figure out how to calculate distance to paths and polygons
 - Map
     - Button to show user's current location
 
 New functionality
 -----------------
-- Show paths/polygons in list and on details page
-    - Figure out how to calculate distance for nearby search
+- Show paths/polygons in the map image on the details page
 - Parse Styles from KML
-    - Display icons specified in KML on map and list
-        - SDWebImage
-    - Use a different icon in list for folders, paths, and polylines
-    - Use a default icon (SF Symbols pin in list)
+    - Display icons specified in KML on map and details page
 - Ensure app looks OK in dark mode
-- Update text search to search for folders as well
-    - Maybe opening a folder from text search should open the whole folder hierarchy
+- Check app on macOS?
 - Render HTML descriptions in details page?
     - https://developers.google.com/kml/documentation/kml_tut
-- Camera angle?
+- Use camera position and angle from <Camera> and <LookAt> elements?
 - Allow users to show/hide places and folders on map and/or list
 - Map settings
     - Layers (satellite)
@@ -49,6 +45,8 @@ Things that are not currently supported by SwiftUI
 --------------------------------------------------
 - List
     - Text search (will be available in iOS 15)
+        - Search for folders as well as places
+        - Maybe opening a folder from text search should open the whole folder hierarchy
 - Map
     - Tap annotation to show name and navigate to details page
     - Display paths and areas on map as polylines and overlays

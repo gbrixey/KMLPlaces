@@ -77,6 +77,8 @@
 		E12999D326F130CC009DC840 /* MapPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D126F130CC009DC840 /* MapPreviews.swift */; };
 		E12999D926F1381D009DC840 /* MapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D826F1381D009DC840 /* MapRepository.swift */; };
 		E12999DA26F1381D009DC840 /* MapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D826F1381D009DC840 /* MapRepository.swift */; };
+		E12DB8FD26F8D7B4001DDDF3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E12DB8FC26F8D7B4001DDDF3 /* SDWebImageSwiftUI */; };
+		E12DB8FF26F8D7C7001DDDF3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E12DB8FE26F8D7C7001DDDF3 /* SDWebImageSwiftUI */; };
 		E19D30AF26D8764200AC3B95 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */; };
 		E19D30B026D8764200AC3B95 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */; };
 		E19D30B226D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B126D8783A00AC3B95 /* CLLocationCoordinate2DExtensions.swift */; };
@@ -160,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12DB8FD26F8D7B4001DDDF3 /* SDWebImageSwiftUI in Frameworks */,
 				E124EC9126B789E100E7EA55 /* SWXMLHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12DB8FF26F8D7C7001DDDF3 /* SDWebImageSwiftUI in Frameworks */,
 				E124EC9426B789F000E7EA55 /* SWXMLHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +425,7 @@
 			name = "KMLPlaces (iOS)";
 			packageProductDependencies = (
 				E124EC9026B789E100E7EA55 /* SWXMLHash */,
+				E12DB8FC26F8D7B4001DDDF3 /* SDWebImageSwiftUI */,
 			);
 			productName = "KMLPlaces (iOS)";
 			productReference = E124EC3026B60F9300E7EA55 /* KMLPlaces.app */;
@@ -442,6 +447,7 @@
 			name = "KMLPlaces (macOS)";
 			packageProductDependencies = (
 				E124EC9326B789F000E7EA55 /* SWXMLHash */,
+				E12DB8FE26F8D7C7001DDDF3 /* SDWebImageSwiftUI */,
 			);
 			productName = "KMLPlaces (macOS)";
 			productReference = E124EC3826B60F9300E7EA55 /* KMLPlaces.app */;
@@ -519,6 +525,7 @@
 			mainGroup = E124EC2026B60F9200E7EA55;
 			packageReferences = (
 				E124EC8F26B789E100E7EA55 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
+				E12DB8FB26F8D7B4001DDDF3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = E124EC3126B60F9300E7EA55 /* Products */;
 			projectDirPath = "";
@@ -1067,6 +1074,14 @@
 				minimumVersion = 5.0.2;
 			};
 		};
+		E12DB8FB26F8D7B4001DDDF3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1079,6 +1094,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E124EC8F26B789E100E7EA55 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
 			productName = SWXMLHash;
+		};
+		E12DB8FC26F8D7B4001DDDF3 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E12DB8FB26F8D7B4001DDDF3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		E12DB8FE26F8D7C7001DDDF3 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E12DB8FB26F8D7B4001DDDF3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 

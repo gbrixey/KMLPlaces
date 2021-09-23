@@ -1,5 +1,6 @@
 import UIKit
 import CoreData
+import SDWebImage
 
 /// Class that is responsible for storing style information from the KML in memory for quick access.
 class StyleManager {
@@ -8,7 +9,8 @@ class StyleManager {
 
     static let shared = StyleManager()
 
-    func iconURL(styleURL: String, highlighted: Bool = false) -> URL? {
+    func iconURL(styleURL: String?, highlighted: Bool = false) -> URL? {
+        guard let styleURL = styleURL else { return nil }
         let styleMapID = styleURL.removingLeadingHash
         guard let styleMap = styleMaps[styleMapID] else { return nil }
         let styleID = (highlighted ? styleMap.highlighted : styleMap.normal).removingLeadingHash
@@ -18,6 +20,7 @@ class StyleManager {
     func loadStyles() {
         styles = [:]
         styleMaps = [:]
+        SDWebImagePrefetcher.shared.cancelPrefetching()
         let styleFetchRequest: NSFetchRequest<KMLPlaces.Style> = KMLPlaces.Style.fetchRequest()
         let styleMapFetchRequest: NSFetchRequest<KMLPlaces.StyleMap> = KMLPlaces.StyleMap.fetchRequest()
         do {
@@ -28,6 +31,7 @@ class StyleManager {
                 guard let id = styleObject.id, let style = styleObject.style else { return }
                 styles[id] = style
             }
+            prefetchIcons()
             styleMapFetchResults.forEach { styleMapObject in
                 guard let id = styleMapObject.id, let styleMap = styleMapObject.styleMap else { return }
                 styleMaps[id] = styleMap
@@ -41,6 +45,11 @@ class StyleManager {
 
     private var styles: [String: Style] = [:]
     private var styleMaps: [String: StyleMap] = [:]
+
+    private func prefetchIcons() {
+        let allIconURLs = styles.values.map { $0.iconURL }
+        SDWebImagePrefetcher.shared.prefetchURLs(allIconURLs)
+    }
 }
 
 // MARK: - Subtypes
