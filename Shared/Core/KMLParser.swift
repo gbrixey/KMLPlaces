@@ -1,4 +1,5 @@
 import CoreData
+import CoreLocation
 import SWXMLHash
 
 /// Class that parses KML files and stores the data in Core Data using the shared `PersistenceController`.
@@ -36,12 +37,14 @@ class KMLParser {
 
     /// Delete everything in Core Data
     private class func deleteAllData() throws {
-        let fetchRequests = [Folder.fetchRequest(),
-                             LinearRing.fetchRequest(),
-                             LineString.fetchRequest(),
-                             Placemark.fetchRequest(),
-                             Point.fetchRequest(),
-                             Polygon.fetchRequest()]
+        let fetchRequests: [NSFetchRequest<NSFetchRequestResult>] = [
+            Folder.fetchRequest(),
+            LinearRing.fetchRequest(),
+            LineString.fetchRequest(),
+            Placemark.fetchRequest(),
+            Point.fetchRequest(),
+            Polygon.fetchRequest()
+        ]
         for request in fetchRequests {
             try context.execute(NSBatchDeleteRequest(fetchRequest: request))
         }
