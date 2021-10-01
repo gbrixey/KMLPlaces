@@ -16,6 +16,8 @@ New functionality
 - Parse Styles from KML
     - Display icons specified in KML on map and details page
 - Ensure app looks OK in dark mode
+- Check app on iPad?
+    - Use master-detail navigation for iPad?
 - Check app on macOS?
 - Render HTML descriptions in details page?
     - https://developers.google.com/kml/documentation/kml_tut
