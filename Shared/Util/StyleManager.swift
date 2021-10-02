@@ -10,12 +10,43 @@ class StyleManager {
     static let shared = StyleManager()
 
     func iconURL(styleURL: String?, highlighted: Bool = false) -> URL? {
-        guard let styleURL = styleURL else { return nil }
-        let styleMapID = styleURL.removingLeadingHash
+        style(url: styleURL, highlighted: highlighted)?.iconURL
+    }
+
+    func style(url: String?, highlighted: Bool = false) -> Style? {
+        guard let url = url else { return nil }
+        let styleMapID = url.removingLeadingHash
         guard let styleMap = styleMaps[styleMapID] else { return nil }
         let styleID = (highlighted ? styleMap.highlighted : styleMap.normal).removingLeadingHash
-        return styles[styleID]?.iconURL
+        return styles[styleID]
     }
+
+    /// Get the coordinates of the hotspot of the given style image, in the frame of the image itself.
+    /// The `size` parameter needs to be determined by downloading the image first.
+    /// Entering an arbitrary size will not work for all styles.
+    func hotspotCoordinates(style: Style, size: CGSize) -> CGPoint {
+        let hotspot = style.hotspot
+        let x: CGFloat
+        let y: CGFloat
+        switch hotspot.xUnits {
+        case .pixels:
+            x = hotspot.x
+        case .insetPixels:
+            x = size.width - hotspot.x
+        case .fraction:
+            x = size.width * hotspot.x
+        }
+        switch hotspot.yUnits {
+        case .pixels:
+            y = size.height - hotspot.y
+        case .insetPixels:
+            y = hotspot.y
+        case .fraction:
+            y = size.height * (1 - hotspot.y)
+        }
+        return CGPoint(x: x, y: y)
+    }
+
 
     func loadStyles() {
         styles = [:]

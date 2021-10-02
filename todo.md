@@ -14,7 +14,7 @@ New functionality
 -----------------
 - Show paths/polygons in the map image on the details page
 - Parse Styles from KML
-    - Display icons specified in KML on map and details page
+    - Display style icons on map
 - Ensure app looks OK in dark mode
 - Check app on iPad?
     - Use master-detail navigation for iPad?

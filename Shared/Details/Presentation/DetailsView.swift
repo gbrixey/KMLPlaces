@@ -12,6 +12,8 @@ struct DetailsView: View {
                         Image(uiImage: image)
                         if let pinImage = viewModel.pinImage {
                             Image(uiImage: pinImage)
+                                .padding(viewModel.pinImagePadding)
+                                .scaleEffect(viewModel.pinImageScale)
                         }
                     } else {
                         let size = DetailsViewModel.mapImageSize

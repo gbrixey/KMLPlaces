@@ -1,3 +1,5 @@
+import Foundation
+
 extension Collection {
 
     func containsMultiple(where predicate: (Element) -> Bool) -> Bool {
@@ -11,5 +13,12 @@ extension Collection {
             }
         }
         return false
+    }
+}
+
+extension String {
+
+    init(key: String) {
+        self = NSLocalizedString(key, comment: "")
     }
 }

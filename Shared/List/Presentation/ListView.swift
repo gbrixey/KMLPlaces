@@ -62,7 +62,6 @@ extension ListView {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
                     .padding(.trailing, 10)
-                    .foregroundColor(.primary)
                 Text(name)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
