@@ -1,4 +1,5 @@
 import CoreLocation
+import CoreData
 
 extension Folder {
 
@@ -23,8 +24,19 @@ extension Placemark {
         case polygon
     }
 
-    var coordinate: CLLocationCoordinate2D? {
-        point?.coordinate
+    /// Returns an array of all coordinates associated with this Placemark.
+    var allCoordinates: [CLLocationCoordinate2D] {
+        switch type {
+        case .point:
+            guard let coordinate = point?.coordinate else { return [] }
+            return [coordinate]
+        case .lineString:
+            guard let coordinatesString = lineString?.coordinates else { return [] }
+            return KMLParser.parseCoordinates(coordinatesString)
+        case .polygon:
+            guard let coordinatesString = polygon?.outerBoundary?.coordinates else { return [] }
+            return KMLParser.parseCoordinates(coordinatesString)
+        }
     }
 
     var type: PlacemarkType {

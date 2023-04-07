@@ -27,7 +27,7 @@ class DetailsViewModel: ObservableObject {
 
     /// - todo: Handle paths and polygons
     func createMapImage() {
-        guard let coordinate = place.coordinate, coordinate != .zero else { return }
+        guard let coordinate = place.point?.coordinate, coordinate != .zero else { return }
         let options = MKMapSnapshotter.Options()
         options.region = MKCoordinateRegion(center: coordinate,
                                             latitudinalMeters: 500,

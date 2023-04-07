@@ -1,28 +1,43 @@
 import SwiftUI
 import MapKit
+import CoreData
 
 class MapViewModel: ObservableObject {
 
     // MARK: - Public
 
-    @Published var title: String
+    @Published var title: String = ""
     @Published var coordinateRegion = MKCoordinateRegion()
     @Published var annotationItems: [AnnotationItem] = []
 
-    init(dataStore: MapDataStore) {
+    init(dataStore: MapDataStore,
+         notificationCenter: NotificationCenter) {
         self.dataStore = dataStore
+        self.notificationCenter = notificationCenter
+        refreshMapItems()
+        notificationCenter.addObserver(self, selector: #selector(dataChanged), name: .dataChanged, object: nil)
+    }
+
+    // MARK: - Actions
+
+    @objc private func dataChanged() {
+        refreshMapItems()
+    }
+
+    // MARK: - Private
+
+    private let dataStore: MapDataStore
+    private let notificationCenter: NotificationCenter
+    private var rootFolder: Folder?
+    private var places: [Placemark] = []
+
+    private func refreshMapItems() {
         rootFolder = dataStore.fetchRootFolder()
         title = rootFolder?.name ?? ""
         updatePlaces()
         updateAnnotationItems()
         setEnclosingRegion()
     }
-
-    // MARK: - Private
-
-    private let dataStore: MapDataStore
-    private var rootFolder: Folder?
-    private var places: [Placemark] = []
 
     /// Update `places` with the flattened list of places from `rootFolder`.
     private func updatePlaces() {
@@ -38,16 +53,15 @@ class MapViewModel: ObservableObject {
     /// Update `annotationItems` with the data in `places`.
     private func updateAnnotationItems() {
         annotationItems = places.compactMap { place -> AnnotationItem? in
-            guard let coordinate = place.coordinate else { return nil }
-            return AnnotationItem(coordinate: coordinate)
+            guard let coordinate = place.point?.coordinate else { return nil }
+            return AnnotationItem(place: place, coordinate: coordinate)
         }
     }
 
     /// Set `coordinateRegion` so that it encloses all places.
     private func setEnclosingRegion() {
-        // TODO: support polygons and paths
-        guard annotationItems.count > 0 else { return }
-        let allCoordinates = annotationItems.map { $0.coordinate }
+        guard places.count > 0 else { return }
+        let allCoordinates = places.flatMap { $0.allCoordinates }
         let allLatitudes = allCoordinates.map { $0.latitude }
         let allLongitudes = allCoordinates.map { $0.longitude }
         let minLatitude = allLatitudes.min()!
@@ -68,7 +82,11 @@ class MapViewModel: ObservableObject {
 extension MapViewModel {
 
     struct AnnotationItem: Identifiable {
-        let id = UUID()
+        let place: Placemark
         let coordinate: CLLocationCoordinate2D
+
+        var id: NSManagedObjectID {
+            place.objectID
+        }
     }
 }

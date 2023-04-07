@@ -25,6 +25,16 @@ class KMLParser {
         controller.saveContext()
     }
 
+    /// Parse text from a `<coordinates>` KML element into an array of coordinate structs
+    class func parseCoordinates(_ coordinatesText: String) -> [CLLocationCoordinate2D] {
+        let coordinates = coordinatesText.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
+        return coordinates.compactMap { coordinateText -> CLLocationCoordinate2D? in
+            let components = coordinateText.components(separatedBy: ",")
+            guard let longitude = Double(components[0]), let latitude = Double(components[1]) else { return nil }
+            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
+    }
+
     // MARK: - Private
 
     private class var controller: PersistenceController {
@@ -224,16 +234,6 @@ class KMLParser {
         let linearRing = LinearRing(context: context)
         linearRing.coordinates = coordinatesText
         linearRing.outerPolygon = polygon
-    }
-
-    /// Parse text from a `<coordinates>` KML element into an array of coordinate structs
-    private class func parseCoordinates(_ coordinatesText: String) -> [CLLocationCoordinate2D] {
-        let coordinates = coordinatesText.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
-        return coordinates.compactMap { coordinateText -> CLLocationCoordinate2D? in
-            let components = coordinateText.components(separatedBy: ",")
-            guard let longitude = Double(components[0]), let latitude = Double(components[1]) else { return nil }
-            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        }
     }
 }
 

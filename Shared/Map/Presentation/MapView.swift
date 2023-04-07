@@ -13,11 +13,27 @@ struct MapView: View {
                 showsUserLocation: true,
                 annotationItems: viewModel.annotationItems) { annotationItem in
                 MapPin(coordinate: annotationItem.coordinate)
+//                MapAnnotation(coordinate: annotationItem.coordinate) {
+//                    MapAnnotationView(annotationItem: annotationItem)
+//                }
             }
             .navigationTitle(viewModel.title)
             .ignoresSafeArea(edges: .horizontal)
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+}
+
+// MARK: - Additional views
+
+extension MapView {
+
+    struct MapAnnotationView: View {
+        let annotationItem: MapViewModel.AnnotationItem
+
+        var body: some View {
+            Image(systemName: "mappin.circle.fill")
+        }
     }
 }
 
