@@ -22,6 +22,11 @@ struct ListView: View {
                 }
             }
         }
+        .overlay {
+            if viewModel.folders.isEmpty && viewModel.places.isEmpty {
+                PlaceholderView()
+            }
+        }
         // TODO: Add .searchable in iOS 15
         .navigationTitle(viewModel.title)
     }
@@ -30,6 +35,23 @@ struct ListView: View {
 // MARK: - Additional views
 
 extension ListView {
+
+    struct PlaceholderView: View {
+        var body: some View {
+            VStack(spacing: 12) {
+                Image(systemName: "questionmark.circle.dashed")
+                    .font(.system(size: 48))
+                    .foregroundColor(.secondary)
+                Text("No place data")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                Text("Import a KML file from Settings\u{00a0}\(Image(systemName: "gearshape.fill"))\nto see your places here.")
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+            }
+        }
+    }
 
     struct FolderView: View {
         let name: String
