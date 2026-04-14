@@ -16,6 +16,13 @@ class SettingsViewModel: NSObject, ObservableObject {
         showDocumentPicker = true
     }
 
+    func useTestDataTapped() {
+        let path = Bundle.main.path(forResource: "Test", ofType: "kml")!
+        let testDataURL = URL(fileURLWithPath: path)
+        dataStore.parseKMLFile(at: testDataURL)
+        notificationCenter.post(name: .dataChanged, object: nil)
+    }
+
     // MARK: - Private
 
     private let dataStore: SettingsDataStore

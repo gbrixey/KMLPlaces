@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EC60BAB2F8DE60E006E1B68 /* Test.kml in Sources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
+		7EC60BAC2F8DE60E006E1B68 /* Test.kml in Sources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
+		7EC60BAD2F8DEADC006E1B68 /* Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
+		7EC60BAE2F8DEAE5006E1B68 /* Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
 		E124EC4526B60F9300E7EA55 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4426B60F9300E7EA55 /* Tests_iOS.swift */; };
 		E124EC5026B60F9300E7EA55 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */; };
 		E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */; };
@@ -105,6 +109,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7EC60BAA2F8DE601006E1B68 /* Test.kml */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Test.kml; sourceTree = "<group>"; };
 		E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesApp.swift; sourceTree = "<group>"; };
 		E124EC2A26B60F9200E7EA55 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -285,6 +290,7 @@
 			children = (
 				E124EC2B26B60F9300E7EA55 /* Assets.xcassets */,
 				E124EC6C26B6108600E7EA55 /* Localizable.strings */,
+				7EC60BAA2F8DE601006E1B68 /* Test.kml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -544,6 +550,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EC60BAD2F8DEADC006E1B68 /* Test.kml in Resources */,
 				E124EC5A26B60F9300E7EA55 /* Assets.xcassets in Resources */,
 				E124EC6D26B6108600E7EA55 /* Localizable.strings in Resources */,
 			);
@@ -553,6 +560,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EC60BAE2F8DEAE5006E1B68 /* Test.kml in Resources */,
 				E124EC5B26B60F9300E7EA55 /* Assets.xcassets in Resources */,
 				E124EC6E26B6108600E7EA55 /* Localizable.strings in Resources */,
 			);
@@ -636,6 +644,7 @@
 				E1748CA22707D95C00E30EBD /* SwiftUIExtensions.swift in Sources */,
 				E12999CF26F12F44009DC840 /* MapViewModel.swift in Sources */,
 				E124ECC026B7B24B00E7EA55 /* NotificationName.swift in Sources */,
+				7EC60BAB2F8DE60E006E1B68 /* Test.kml in Sources */,
 				E19D30B226D8783A00AC3B95 /* CoreLocationExtensions.swift in Sources */,
 				E124EC8926B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
 				E12999CC26F12E8D009DC840 /* MapView.swift in Sources */,
@@ -677,6 +686,7 @@
 				E1748CA32707D95C00E30EBD /* SwiftUIExtensions.swift in Sources */,
 				E12999D026F12F44009DC840 /* MapViewModel.swift in Sources */,
 				E124ECC126B7B24B00E7EA55 /* NotificationName.swift in Sources */,
+				7EC60BAC2F8DE60E006E1B68 /* Test.kml in Sources */,
 				E19D30B326D8783A00AC3B95 /* CoreLocationExtensions.swift in Sources */,
 				E124EC8A26B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
 				E12999CD26F12E8D009DC840 /* MapView.swift in Sources */,

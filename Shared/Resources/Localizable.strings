@@ -12,6 +12,7 @@
 
 "settings.title" = "Settings";
 "settings.import.data" = "Import Data";
+"settings.test.data" = "Use Test Data";
 
 // MARK: - Data
 

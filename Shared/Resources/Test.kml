@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Test Places</name>
+
+    <Style id="icon-park">
+      <IconStyle>
+        <scale>1.0</scale>
+        <Icon>
+          <href>https://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+        </Icon>
+        <hotSpot x="16" y="0" xunits="pixels" yunits="pixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-restaurant">
+      <IconStyle>
+        <scale>1.0</scale>
+        <Icon>
+          <href>https://maps.google.com/mapfiles/kml/shapes/dining.png</href>
+        </Icon>
+        <hotSpot x="32" y="32" xunits="pixels" yunits="pixels"/>
+      </IconStyle>
+    </Style>
+    <Style id="icon-trail">
+      <IconStyle>
+        <scale>1.0</scale>
+        <Icon>
+          <href>https://maps.google.com/mapfiles/kml/shapes/trail.png</href>
+        </Icon>
+        <hotSpot x="32" y="32" xunits="pixels" yunits="pixels"/>
+      </IconStyle>
+    </Style>
+
+    <StyleMap id="stylemap-park">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-park</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-park</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="stylemap-restaurant">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-restaurant</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-restaurant</styleUrl>
+      </Pair>
+    </StyleMap>
+
+    <Folder>
+      <name>Parks &amp; Nature</name>
+
+      <Folder>
+        <name>National Parks</name>
+        <Placemark>
+          <name>Yosemite Valley</name>
+          <description>Iconic valley in Yosemite National Park</description>
+          <styleUrl>#stylemap-park</styleUrl>
+          <Point>
+            <coordinates>-119.5936,37.7456,0</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Grand Canyon South Rim</name>
+          <description>South Rim viewpoint of the Grand Canyon</description>
+          <styleUrl>#stylemap-park</styleUrl>
+          <Point>
+            <coordinates>-112.1129,36.0544,0</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Yellowstone Old Faithful</name>
+          <description>Famous geyser in Yellowstone National Park</description>
+          <styleUrl>#stylemap-park</styleUrl>
+          <Point>
+            <coordinates>-110.8281,44.4605,0</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Yosemite Boundary</name>
+          <description>Approximate boundary of Yosemite Valley</description>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>-119.6100,37.7550,0 -119.5800,37.7550,0 -119.5800,37.7350,0 -119.6100,37.7350,0 -119.6100,37.7550,0</coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+        </Placemark>
+      </Folder>
+
+      <Folder>
+        <name>City Parks</name>
+        <Placemark>
+          <name>Central Park</name>
+          <description>Large public park in Manhattan, New York City</description>
+          <styleUrl>#stylemap-park</styleUrl>
+          <Point>
+            <coordinates>-73.9654,40.7829,0</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Golden Gate Park</name>
+          <description>Urban park in San Francisco</description>
+          <styleUrl>#stylemap-park</styleUrl>
+          <Point>
+            <coordinates>-122.4862,37.7694,0</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Central Park Perimeter</name>
+          <description>Walking path around Central Park</description>
+          <LineString>
+            <coordinates>-73.9819,40.7681,0 -73.9580,40.7681,0 -73.9580,40.8006,0 -73.9819,40.8006,0 -73.9819,40.7681,0</coordinates>
+          </LineString>
+        </Placemark>
+        <Placemark>
+          <name>Golden Gate Park Boundary</name>
+          <description>Outline of Golden Gate Park</description>
+          <Polygon>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates>-122.5108,37.7694,0 -122.4534,37.7694,0 -122.4534,37.7660,0 -122.5108,37.7660,0 -122.5108,37.7694,0</coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+        </Placemark>
+      </Folder>
+    </Folder>
+
+    <Folder>
+      <name>Food &amp; Dining</name>
+
+      <Folder>
+        <name>San Francisco</name>
+        <Placemark>
+          <name>Tartine Bakery</name>
+          <description>Popular bakery in the Mission District</description>
+          <styleUrl>#stylemap-restaurant</styleUrl>
+          <Point>
+            <coordinates>-122.4240,37.7614,0</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Swan Oyster Depot</name>
+          <description>Classic seafood counter in Nob Hill</description>
+          <styleUrl>#stylemap-restaurant</styleUrl>
+          <Point>
+            <coordinates>-122.4210,37.7907,0</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Fisherman's Wharf</name>
+          <description>Waterfront dining area</description>
+          <styleUrl>#stylemap-restaurant</styleUrl>
+          <Point>
+            <coordinates>-122.4169,37.8080,0</coordinates>
+          </Point>
+        </Placemark>
+      </Folder>
+
+      <Folder>
+        <name>New York</name>
+        <Placemark>
+          <name>Joe's Pizza</name>
+          <description>Iconic New York slice in Greenwich Village</description>
+          <styleUrl>#stylemap-restaurant</styleUrl>
+          <Point>
+            <coordinates>-74.0015,40.7306,0</coordinates>
+          </Point>
+        </Placemark>
+        <Placemark>
+          <name>Katz's Delicatessen</name>
+          <description>Historic deli on the Lower East Side</description>
+          <styleUrl>#stylemap-restaurant</styleUrl>
+          <Point>
+            <coordinates>-73.9874,40.7223,0</coordinates>
+          </Point>
+        </Placemark>
+      </Folder>
+    </Folder>
+
+    <Folder>
+      <name>Hiking Trails</name>
+      <Placemark>
+        <name>Half Dome Trail Start</name>
+        <description>Trailhead for the Half Dome hike in Yosemite</description>
+        <styleUrl>#icon-trail</styleUrl>
+        <Point>
+          <coordinates>-119.5584,37.7268,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Half Dome Trail</name>
+        <description>Trail route from Happy Isles to Half Dome summit</description>
+        <LineString>
+          <coordinates>-119.5584,37.7268,0 -119.5550,37.7300,0 -119.5510,37.7340,0 -119.5460,37.7390,0 -119.5340,37.7450,0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Bright Angel Trailhead</name>
+        <description>Starting point for Bright Angel Trail at Grand Canyon</description>
+        <styleUrl>#icon-trail</styleUrl>
+        <Point>
+          <coordinates>-112.1438,36.0575,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bright Angel Trail</name>
+        <description>Trail from the South Rim down into the Grand Canyon</description>
+        <LineString>
+          <coordinates>-112.1438,36.0575,0 -112.1460,36.0520,0 -112.1490,36.0460,0 -112.1510,36.0400,0</coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+
+  </Document>
+</kml>

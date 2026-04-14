@@ -10,6 +10,13 @@ struct SettingsView: View {
                     .onTapGesture {
                         viewModel.importDataTapped()
                     }
+                #if DEBUG
+                // TODO: Add some kind of success view when the data is successfully parsed.
+                SettingsItemView(imageName: "wrench.and.screwdriver.fill", name: "settings.test.data")
+                    .onTapGesture {
+                        viewModel.useTestDataTapped()
+                    }
+                #endif
             }
             .navigationTitle("settings.title")
         }
