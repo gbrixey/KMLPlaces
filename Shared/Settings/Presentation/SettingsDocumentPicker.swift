@@ -5,7 +5,7 @@ struct SettingsDocumentPicker: UIViewControllerRepresentable {
     weak var delegate: UIDocumentPickerDelegate?
 
     func makeUIViewController(context: Context) -> some UIViewController {
-        let contentTypeKML = UTType("public.kml")
+        let contentTypeKML = UTType(filenameExtension: "kml")
         let contentTypes = [contentTypeKML].compactMap { $0 }
         let controller = UIDocumentPickerViewController(forOpeningContentTypes: contentTypes, asCopy: true)
         controller.delegate = delegate
