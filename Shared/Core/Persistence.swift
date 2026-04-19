@@ -29,7 +29,13 @@ struct PersistenceController {
         placemark2.name = "My Street"
         placemark2.folder = rootFolder
         let lineString = LineString(context: context)
-        lineString.coordinates = "-73.951523,40.781961,0 -73.958012,40.784706,0"
+        let lineStringPoint1 = Point(context: context)
+        lineStringPoint1.latitude = 40.781961
+        lineStringPoint1.longitude = -73.951523
+        let lineStringPoint2 = Point(context: context)
+        lineStringPoint2.latitude = 40.784706
+        lineStringPoint2.longitude = -73.958012
+        lineString.points = [lineStringPoint1, lineStringPoint2]
         lineString.placemark = placemark2
         let placemark3 = Placemark(context: context)
         placemark3.name = "My Neighborhood"
@@ -37,7 +43,26 @@ struct PersistenceController {
         let polygon = Polygon(context: context)
         polygon.placemark = placemark3
         let linearRing = LinearRing(context: context)
-        linearRing.coordinates = "-73.955780,40.787880,0 -73.949308,40.785194,0 -73.953953,40.778803,0 -73.960404,40.781546,0 -73.955780,40.787880,0"
+        let linearRingPoint1 = Point(context: context)
+        linearRingPoint1.latitude = 40.787880
+        linearRingPoint1.longitude = -73.955780
+        let linearRingPoint2 = Point(context: context)
+        linearRingPoint2.latitude = 40.785194
+        linearRingPoint2.longitude = -73.949308
+        let linearRingPoint3 = Point(context: context)
+        linearRingPoint3.latitude = 40.778803
+        linearRingPoint3.longitude = -73.953953
+        let linearRingPoint4 = Point(context: context)
+        linearRingPoint4.latitude = 40.781546
+        linearRingPoint4.longitude = -73.960404
+        let linearRingPoint5 = Point(context: context)
+        linearRingPoint5.latitude = 40.787880
+        linearRingPoint5.longitude = -73.955780
+        linearRing.points = [linearRingPoint1,
+                             linearRingPoint2,
+                             linearRingPoint3,
+                             linearRingPoint4,
+                             linearRingPoint5]
         linearRing.outerPolygon = polygon
         controller.saveContext()
         return controller

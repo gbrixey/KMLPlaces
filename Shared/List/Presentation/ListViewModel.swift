@@ -31,7 +31,7 @@ class ListViewModel: ObservableObject {
         case .point:
             return "mappin"
         case .lineString:
-            return "scribble"
+            return "point.bottomleft.forward.to.point.topright.scurvepath"
         case .polygon:
             return "square.dashed"
         }

@@ -1,5 +1,6 @@
 import SwiftUI
 import MapKit
+import SDWebImageSwiftUI
 
 struct MapView: View {
 
@@ -9,13 +10,48 @@ struct MapView: View {
 
     var body: some View {
         NavigationView {
-            Map(coordinateRegion: $viewModel.coordinateRegion,
-                showsUserLocation: true,
-                annotationItems: viewModel.annotationItems) { annotationItem in
-                MapPin(coordinate: annotationItem.coordinate)
-//                MapAnnotation(coordinate: annotationItem.coordinate) {
-//                    MapAnnotationView(annotationItem: annotationItem)
-//                }
+            Map {
+                ForEach(viewModel.annotationItems, id: \.id) { item in
+                    if let coordinate = item.place.point?.coordinate {
+                        Annotation(coordinate: coordinate) {
+                            MapAnnotationView(annotationItem: item)
+                        } label: {
+                            if let name = item.place.name {
+                                Text(name)
+                            } else {
+                                EmptyView()
+                            }
+                        }
+                    }
+                    if let lineString = item.place.lineString {
+                        MapPolyline(coordinates: lineString.coordinates)
+                            .stroke(
+                                .blue,
+                                style: StrokeStyle(
+                                    lineWidth: 4,
+                                    lineCap: .round,
+                                    lineJoin: .round
+                                )
+                            )
+                    }
+                    if let polygon = item.place.polygon {
+                        MapPolygon(coordinates: polygon.coordinates)
+                            .stroke(
+                                .black,
+                                style: StrokeStyle(
+                                    lineWidth: 1,
+                                    lineCap: .round,
+                                    lineJoin: .round
+                                )
+                            )
+                            .foregroundStyle(.yellow.opacity(0.3))
+                    }
+                }
+            }
+            .mapControls {
+                MapUserLocationButton()
+                MapCompass()
+                MapPitchToggle()
             }
             .navigationTitle(viewModel.title)
             .ignoresSafeArea(edges: .horizontal)
@@ -32,7 +68,15 @@ extension MapView {
         let annotationItem: MapViewModel.AnnotationItem
 
         var body: some View {
-            Image(systemName: "mappin.circle.fill")
+            let defaultImage = Image(systemName: "mappin.circle.fill")
+            if let styleURL = annotationItem.place.styleUrl {
+                WebImage(url: StyleManager.shared.iconURL(styleURL: styleURL))
+                    .placeholder(defaultImage)
+                    .resizable()
+                    .frame(width: 30, height: 30)
+            } else {
+                defaultImage
+            }
         }
     }
 }

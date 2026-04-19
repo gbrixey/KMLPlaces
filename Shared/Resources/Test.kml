@@ -51,6 +51,16 @@
         <styleUrl>#icon-restaurant</styleUrl>
       </Pair>
     </StyleMap>
+    <StyleMap id="stylemap-trail">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-trail</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-trail</styleUrl>
+      </Pair>
+    </StyleMap>
 
     <Folder>
       <name>Parks &amp; Nature</name>
@@ -190,7 +200,7 @@
       <Placemark>
         <name>Half Dome Trail Start</name>
         <description>Trailhead for the Half Dome hike in Yosemite</description>
-        <styleUrl>#icon-trail</styleUrl>
+        <styleUrl>#stylemap-trail</styleUrl>
         <Point>
           <coordinates>-119.5584,37.7268,0</coordinates>
         </Point>
@@ -205,7 +215,7 @@
       <Placemark>
         <name>Bright Angel Trailhead</name>
         <description>Starting point for Bright Angel Trail at Grand Canyon</description>
-        <styleUrl>#icon-trail</styleUrl>
+        <styleUrl>#stylemap-trail</styleUrl>
         <Point>
           <coordinates>-112.1438,36.0575,0</coordinates>
         </Point>

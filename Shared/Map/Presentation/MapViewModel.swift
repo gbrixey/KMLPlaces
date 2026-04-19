@@ -52,9 +52,8 @@ class MapViewModel: ObservableObject {
 
     /// Update `annotationItems` with the data in `places`.
     private func updateAnnotationItems() {
-        annotationItems = places.compactMap { place -> AnnotationItem? in
-            guard let coordinate = place.point?.coordinate else { return nil }
-            return AnnotationItem(place: place, coordinate: coordinate)
+        annotationItems = places.map { place -> AnnotationItem in
+            AnnotationItem(place: place)
         }
     }
 
@@ -83,7 +82,6 @@ extension MapViewModel {
 
     struct AnnotationItem: Identifiable {
         let place: Placemark
-        let coordinate: CLLocationCoordinate2D
 
         var id: NSManagedObjectID {
             place.objectID

@@ -25,16 +25,6 @@ class KMLParser {
         controller.saveContext()
     }
 
-    /// Parse text from a `<coordinates>` KML element into an array of coordinate structs
-    class func parseCoordinates(_ coordinatesText: String) -> [CLLocationCoordinate2D] {
-        let coordinates = coordinatesText.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
-        return coordinates.compactMap { coordinateText -> CLLocationCoordinate2D? in
-            let components = coordinateText.components(separatedBy: ",")
-            guard let longitude = Double(components[0]), let latitude = Double(components[1]) else { return nil }
-            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        }
-    }
-
     // MARK: - Private
 
     private class var controller: PersistenceController {
@@ -218,7 +208,7 @@ class KMLParser {
         let coordinates = parseCoordinates(coordinatesText)
         guard coordinates.count >= 2 else { return }
         let lineString = LineString(context: context)
-        lineString.coordinates = coordinatesText
+        lineString.points = NSOrderedSet(array: points(from: coordinates))
         lineString.placemark = placemark
     }
 
@@ -232,8 +222,27 @@ class KMLParser {
         let polygon = Polygon(context: context)
         polygon.placemark = placemark
         let linearRing = LinearRing(context: context)
-        linearRing.coordinates = coordinatesText
+        linearRing.points = NSOrderedSet(array: points(from: coordinates))
         linearRing.outerPolygon = polygon
+    }
+
+    /// Parse text from a `<coordinates>` KML element into an array of coordinate structs
+    private class func parseCoordinates(_ coordinatesText: String) -> [CLLocationCoordinate2D] {
+        let coordinates = coordinatesText.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
+        return coordinates.compactMap { coordinateText -> CLLocationCoordinate2D? in
+            let components = coordinateText.components(separatedBy: ",")
+            guard let longitude = Double(components[0]), let latitude = Double(components[1]) else { return nil }
+            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
+    }
+
+    private class func points(from coordinates: [CLLocationCoordinate2D]) -> [Point] {
+        coordinates.map { coordinate -> Point in
+            let point = Point(context: context)
+            point.latitude = coordinate.latitude
+            point.longitude = coordinate.longitude
+            return point
+        }
     }
 }
 

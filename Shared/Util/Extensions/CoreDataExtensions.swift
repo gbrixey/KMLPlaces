@@ -8,11 +8,11 @@ extension Folder {
     }
 
     var subfoldersArray: [Folder] {
-        return (subfolders?.allObjects as? [Folder]) ?? []
+        return (subfolders?.array as? [Folder]) ?? []
     }
 
     var placesArray: [Placemark] {
-        return (places?.allObjects as? [Placemark]) ?? []
+        return (places?.array as? [Placemark]) ?? []
     }
 }
 
@@ -26,17 +26,14 @@ extension Placemark {
 
     /// Returns an array of all coordinates associated with this Placemark.
     var allCoordinates: [CLLocationCoordinate2D] {
-        switch type {
-        case .point:
-            guard let coordinate = point?.coordinate else { return [] }
+        if let polygon = polygon {
+            return polygon.coordinates
+        } else if let lineString = lineString {
+            return lineString.coordinates
+        } else if let coordinate = point?.coordinate {
             return [coordinate]
-        case .lineString:
-            guard let coordinatesString = lineString?.coordinates else { return [] }
-            return KMLParser.parseCoordinates(coordinatesString)
-        case .polygon:
-            guard let coordinatesString = polygon?.outerBoundary?.coordinates else { return [] }
-            return KMLParser.parseCoordinates(coordinatesString)
         }
+        return []
     }
 
     var type: PlacemarkType {
@@ -54,5 +51,19 @@ extension Point {
 
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}
+
+extension LineString {
+
+    var coordinates: [CLLocationCoordinate2D] {
+        points?.compactMap { ($0 as? Point)?.coordinate } ?? []
+    }
+}
+
+extension Polygon {
+
+    var coordinates: [CLLocationCoordinate2D] {
+        outerBoundary?.points?.compactMap { ($0 as? Point)?.coordinate } ?? []
     }
 }
