@@ -4,7 +4,7 @@ struct SettingsView: View {
     @StateObject var viewModel: SettingsViewModel
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 SettingsItemView(imageName: "square.and.arrow.down", name: "settings.import.data")
                     .onTapGesture {
@@ -20,7 +20,6 @@ struct SettingsView: View {
             }
             .navigationTitle("settings.title")
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $viewModel.showDocumentPicker) {
             SettingsDocumentPicker(delegate: viewModel)
         }
@@ -54,8 +53,6 @@ extension SettingsView {
 
 // MARK: - Previews
 
-struct SettingsViewPreviews: PreviewProvider {
-    static var previews: some View {
-        SettingsView(viewModel: SettingsPreviews.viewModel)
-    }
+#Preview {
+    SettingsView(viewModel: SettingsPreviews.viewModel)
 }

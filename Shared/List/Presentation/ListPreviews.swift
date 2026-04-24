@@ -1,7 +1,10 @@
+import SwiftUI
+
 struct ListPreviews {
 
     static var viewModel: ListViewModel {
-        let dataStore = ListRepository(controller: .preview)
-        return ListViewModel(folder: nil, dataStore: dataStore, notificationCenter: .default)
+        let repository = ListNavigationRepository(controller: .preview)
+        let folder = repository.fetchRootFolder()
+        return ListViewModel(folder: folder, path: .constant([]))
     }
 }

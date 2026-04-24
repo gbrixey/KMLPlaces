@@ -6,9 +6,10 @@ protocol MapDataStore {
 
 class MapModule {
 
-    class func build() -> some View {
+    class func build(listPath: Binding<[ListItem]>) -> some View {
         let dataStore = MapRepository(controller: .shared)
-        let viewModel = MapViewModel(dataStore: dataStore,
+        let viewModel = MapViewModel(listPath: listPath,
+                                     dataStore: dataStore,
                                      notificationCenter: .default)
         return MapView(viewModel: viewModel)
     }

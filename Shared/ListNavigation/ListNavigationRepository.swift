@@ -1,6 +1,6 @@
 import CoreData
 
-class ListRepository {
+class ListNavigationRepository {
 
     // MARK: - Public
 
@@ -13,9 +13,9 @@ class ListRepository {
     private let controller: PersistenceController
 }
 
-// MARK: - ListDataStore
+// MARK: - ListNavigationDataStore
 
-extension ListRepository: ListDataStore {
+extension ListNavigationRepository: ListNavigationDataStore {
 
     func fetchRootFolder() -> Folder? {
         let fetchRequest: NSFetchRequest<Folder> = Folder.fetchRequest()

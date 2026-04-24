@@ -7,7 +7,7 @@ struct KMLPlacesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            RootModule.build()
         }
     }
 }

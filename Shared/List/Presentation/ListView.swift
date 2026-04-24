@@ -5,17 +5,21 @@ struct ListView: View {
 
     // MARK: - Public
 
-    @StateObject var viewModel: ListViewModel
+    @ObservedObject var viewModel: ListViewModel
 
     var body: some View {
         List {
             ForEach(viewModel.folders, id: \.name) { folder in
-                NavigationLink(destination: ListModule.build(folder: folder)) {
+                Button {
+                    viewModel.folderTapped(folder)
+                } label: {
                     FolderView(name: folder.name ?? String(key: "default.folder.name"))
                 }
             }
             ForEach(viewModel.places, id: \.id) { place in
-                NavigationLink(destination: DetailsModule.build(place: place)) {
+                Button {
+                    viewModel.placemarkTapped(place)
+                } label: {
                     PlaceView(name: place.name ?? String(key: "default.placemark.name"),
                               styleURL: viewModel.styleURL(for: place),
                               defaultIconName: viewModel.defaultIconName(for: place))
@@ -96,10 +100,6 @@ extension ListView {
 
 // MARK: - Previews
 
-struct ListViewPreviews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ListView(viewModel: ListPreviews.viewModel)
-        }
-    }
+#Preview {
+    ListView(viewModel: ListPreviews.viewModel)
 }

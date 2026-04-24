@@ -2,6 +2,7 @@ import SwiftUI
 import MapKit
 import SDWebImageSwiftUI
 
+// TODO: Present a callout view when an annotation, polygon, or polyline is tapped. The callout should have some UI control that pushes a details view onto the navigation stack.
 struct MapView: View {
 
     // MARK: - Public
@@ -9,7 +10,7 @@ struct MapView: View {
     @StateObject var viewModel: MapViewModel
 
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $viewModel.path) {
             Map {
                 ForEach(viewModel.annotationItems, id: \.id) { item in
                     if let coordinate = item.place.point?.coordinate {
@@ -54,9 +55,14 @@ struct MapView: View {
                 MapPitchToggle()
             }
             .navigationTitle(viewModel.title)
+            .navigationDestination(for: Placemark.self) { place in
+                DetailsModule.build(place: place)
+            }
             .ignoresSafeArea(edges: .horizontal)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            viewModel.viewDidAppear()
+        }
     }
 }
 
@@ -83,8 +89,6 @@ extension MapView {
 
 // MARK: - Previews
 
-struct MapViewPreviews: PreviewProvider {
-    static var previews: some View {
-        MapView(viewModel: MapPreviews.viewModel)
-    }
+#Preview {
+    MapView(viewModel: MapPreviews.viewModel)
 }

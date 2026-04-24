@@ -91,6 +91,13 @@ class KMLParser {
     }
 
     /// Parse a `<Style>` KML element
+    /// - todo: Parse `<LineStyle>` and `<PolyStyle>` elements
+    // Both of these can have a <color> element, which is a hex string in ABGR format.
+    // The color in <LineStyle> indicates the color of a polyline, or of the outline of a polygon.
+    // The color in <PolyStyle> indicates the fill color of the polygon.
+    // <LineStyle> can also have a <width> element which is a float.
+    // <PolyStyle> can also have <fill>0</fill> which means the polygon is not filled,
+    // or <outline>0</outline> which means the polygon outline is not drawn.
     private class func parseStyle(_ styleKML: XMLIndexer) {
         guard let element = styleKML.element,
               let id = element.attribute(by: KMLAttributes.id)?.text,

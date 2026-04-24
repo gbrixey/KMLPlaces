@@ -38,10 +38,6 @@ struct DetailsView: View {
 
 // MARK: - Previews
 
-struct DetailsViewPreviews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            DetailsView(viewModel: DetailsPreviews.viewModel)
-        }
-    }
+#Preview {
+    DetailsView(viewModel: DetailsPreviews.viewModel)
 }

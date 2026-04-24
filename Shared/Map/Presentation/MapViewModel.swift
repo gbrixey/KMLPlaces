@@ -6,42 +6,56 @@ class MapViewModel: ObservableObject {
 
     // MARK: - Public
 
+    @Published var path = NavigationPath()
     @Published var title: String = ""
     @Published var coordinateRegion = MKCoordinateRegion()
     @Published var annotationItems: [AnnotationItem] = []
 
-    init(dataStore: MapDataStore,
+    init(listPath: Binding<[ListItem]>,
+         dataStore: MapDataStore,
          notificationCenter: NotificationCenter) {
+        self._listPath = listPath
         self.dataStore = dataStore
-        self.notificationCenter = notificationCenter
+        self.rootFolder = dataStore.fetchRootFolder()
+        self.currentFolder = self.rootFolder
         refreshMapItems()
         notificationCenter.addObserver(self, selector: #selector(dataChanged), name: .dataChanged, object: nil)
+    }
+
+    func viewDidAppear() {
+        let currentFolderInList = listPath.compactMap { $0.asFolder }.last ?? rootFolder
+        if currentFolder != currentFolderInList {
+            currentFolder = currentFolderInList
+            refreshMapItems()
+        }
     }
 
     // MARK: - Actions
 
     @objc private func dataChanged() {
+        rootFolder = dataStore.fetchRootFolder()
+        currentFolder = rootFolder
         refreshMapItems()
     }
 
     // MARK: - Private
 
+    @Binding var listPath: [ListItem]
     private let dataStore: MapDataStore
-    private let notificationCenter: NotificationCenter
     private var rootFolder: Folder?
+    private var currentFolder: Folder?
     private var places: [Placemark] = []
 
     private func refreshMapItems() {
-        rootFolder = dataStore.fetchRootFolder()
-        title = rootFolder?.name ?? ""
+        title = currentFolder?.name ?? ""
         updatePlaces()
         updateAnnotationItems()
         setEnclosingRegion()
     }
 
-    /// Update `places` with the flattened list of places from `rootFolder`.
+    /// Update `places` with the flattened list of places from `currentFolder`.
     private func updatePlaces() {
-        guard let folder = rootFolder else { return }
+        guard let folder = currentFolder else { return }
         places = flattenedPlaces(in: folder)
     }
 

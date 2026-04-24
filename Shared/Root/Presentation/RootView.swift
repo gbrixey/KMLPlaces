@@ -1,14 +1,19 @@
 import SwiftUI
 
 struct RootView: View {
+
+    // MARK: - Public
+
+    @StateObject var viewModel: RootViewModel
+
     var body: some View {
         TabView {
-            ListModule.buildNavigationView()
+            ListNavigationModule.build(path: $viewModel.listPath)
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("tab.bar.list")
                 }
-            MapModule.build()
+            MapModule.build(listPath: $viewModel.listPath)
                 .tabItem {
                     Image(systemName: "map")
                     Text("tab.bar.map")
@@ -24,8 +29,6 @@ struct RootView: View {
 
 // MARK: - Previews
 
-struct RootViewPreviews: PreviewProvider {
-    static var previews: some View {
-        RootView()
-    }
+#Preview {
+    RootView(viewModel: RootViewModel())
 }
