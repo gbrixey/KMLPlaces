@@ -8,8 +8,12 @@ class MapViewModel: ObservableObject {
 
     @Published var path = NavigationPath()
     @Published var title: String = ""
-    @Published var coordinateRegion = MKCoordinateRegion()
+    @Published var cameraPosition = MapCameraPosition.automatic
     @Published var annotationItems: [AnnotationItem] = []
+    @Published var popoverData: PopoverData?
+
+    /// The view updates this property when the map is moved.
+    var currentCameraRect = MKMapRect()
 
     init(listPath: Binding<[ListItem]>,
          dataStore: MapDataStore,
@@ -27,6 +31,27 @@ class MapViewModel: ObservableObject {
         if currentFolder != currentFolderInList {
             currentFolder = currentFolderInList
             refreshMapItems()
+        }
+    }
+
+    func handleTap(at tapCoordinate: CLLocationCoordinate2D, unitPoint: UnitPoint) {
+        let tapPoint = MKMapPoint(tapCoordinate)
+        for item in annotationItems {
+            if let lineString = item.place.lineString {
+                let polyline = MKPolyline(coordinates: lineString.coordinates,
+                                          count: lineString.coordinates.count)
+                guard currentCameraRect.intersects(polyline.boundingMapRect) else { continue }
+                // TODO: Determine distance from the point to the polyline and present popover if it's below a certain threshold
+            }
+            if let polygon = item.place.polygon {
+                let mapKitPolygon = MKPolygon(coordinates: polygon.coordinates,
+                                              count: polygon.coordinates.count)
+                guard currentCameraRect.intersects(mapKitPolygon.boundingMapRect) else { continue }
+                if mapKitPolygon.contains(tapPoint) {
+                    popoverData = PopoverData(point: unitPoint, place: item.place)
+                    return
+                }
+            }
         }
     }
 
@@ -71,7 +96,7 @@ class MapViewModel: ObservableObject {
         }
     }
 
-    /// Set `coordinateRegion` so that it encloses all places.
+    /// Set map camera position so that all places are visible.
     private func setEnclosingRegion() {
         guard places.count > 0 else { return }
         let allCoordinates = places.flatMap { $0.allCoordinates }
@@ -86,7 +111,7 @@ class MapViewModel: ObservableObject {
         let paddingMultiplier = 1.2
         let span = MKCoordinateSpan(latitudeDelta: (maxLatitude - minLatitude) * paddingMultiplier,
                                     longitudeDelta: (maxLongitude - minLongitude) * paddingMultiplier)
-        self.coordinateRegion = MKCoordinateRegion(center: center, span: span)
+        cameraPosition = .region(MKCoordinateRegion(center: center, span: span))
     }
 }
 
@@ -95,6 +120,15 @@ class MapViewModel: ObservableObject {
 extension MapViewModel {
 
     struct AnnotationItem: Identifiable {
+        let place: Placemark
+
+        var id: NSManagedObjectID {
+            place.objectID
+        }
+    }
+
+    struct PopoverData: Identifiable {
+        let point: UnitPoint
         let place: Placemark
 
         var id: NSManagedObjectID {

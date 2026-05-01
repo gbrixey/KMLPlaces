@@ -23,6 +23,8 @@
 		7EE6950D2F9C26B3007E1A07 /* RootModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950B2F9C26B1007E1A07 /* RootModule.swift */; };
 		7EE6950F2F9C26CF007E1A07 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */; };
 		7EE695102F9C26CF007E1A07 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */; };
+		7EE695152FA40B06007E1A07 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */; };
+		7EE695162FA40B06007E1A07 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */; };
 		E124EC4526B60F9300E7EA55 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4426B60F9300E7EA55 /* Tests_iOS.swift */; };
 		E124EC5026B60F9300E7EA55 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */; };
 		E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */; };
@@ -129,6 +131,7 @@
 		7EE695072F9C2611007E1A07 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		7EE6950B2F9C26B1007E1A07 /* RootModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModule.swift; sourceTree = "<group>"; };
 		7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesApp.swift; sourceTree = "<group>"; };
 		E124EC2A26B60F9200E7EA55 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -417,6 +420,7 @@
 				E124ECB626B7ADD000E7EA55 /* CoreDataExtensions.swift */,
 				E19D30B126D8783A00AC3B95 /* CoreLocationExtensions.swift */,
 				E124EC9B26B790E100E7EA55 /* FoundationExtensions.swift */,
+				7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */,
 				E1748CA12707D95C00E30EBD /* SwiftUIExtensions.swift */,
 			);
 			path = Extensions;
@@ -704,6 +708,7 @@
 				E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
 				E124EC8C26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */,
+				7EE695152FA40B06007E1A07 /* MapKitExtensions.swift in Sources */,
 				7EE695062F9C1AD3007E1A07 /* ListNavigationPreviews.swift in Sources */,
 				7EE6950C2F9C26B3007E1A07 /* RootModule.swift in Sources */,
 				E12999C826F12DEE009DC840 /* MapModule.swift in Sources */,
@@ -752,6 +757,7 @@
 				E124EC5326B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
 				E124EC8D26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */,
+				7EE695162FA40B06007E1A07 /* MapKitExtensions.swift in Sources */,
 				7EE695052F9C1AD3007E1A07 /* ListNavigationPreviews.swift in Sources */,
 				7EE6950D2F9C26B3007E1A07 /* RootModule.swift in Sources */,
 				E12999C926F12DEE009DC840 /* MapModule.swift in Sources */,
