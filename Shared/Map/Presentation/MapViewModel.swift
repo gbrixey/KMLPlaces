@@ -9,7 +9,9 @@ class MapViewModel: ObservableObject {
     @Published var path = NavigationPath()
     @Published var title: String = ""
     @Published var cameraPosition = MapCameraPosition.automatic
-    @Published var annotationItems: [AnnotationItem] = []
+    @Published var annotationModels: [Annotation] = []
+    @Published var polylineModels: [Polyline] = []
+    @Published var polygonModels: [Polygon] = []
     @Published var popoverData: PopoverData?
 
     /// The view updates this property when the map is moved.
@@ -36,21 +38,24 @@ class MapViewModel: ObservableObject {
 
     func handleTap(at tapCoordinate: CLLocationCoordinate2D, unitPoint: UnitPoint) {
         let tapPoint = MKMapPoint(tapCoordinate)
-        for item in annotationItems {
-            if let lineString = item.place.lineString {
-                let polyline = MKPolyline(coordinates: lineString.coordinates,
-                                          count: lineString.coordinates.count)
-                guard currentCameraRect.intersects(polyline.boundingMapRect) else { continue }
-                // TODO: Determine distance from the point to the polyline and present popover if it's below a certain threshold
-            }
-            if let polygon = item.place.polygon {
-                let mapKitPolygon = MKPolygon(coordinates: polygon.coordinates,
-                                              count: polygon.coordinates.count)
-                guard currentCameraRect.intersects(mapKitPolygon.boundingMapRect) else { continue }
-                if mapKitPolygon.contains(tapPoint) {
-                    popoverData = PopoverData(point: unitPoint, place: item.place)
-                    return
-                }
+        for polyline in polylineModels {
+            let mapKitPolyline = MKPolyline(coordinates: polyline.coordinates,
+                                            count: polyline.coordinates.count)
+            guard currentCameraRect.intersects(mapKitPolyline.boundingMapRect) else { continue }
+            // TODO: Determine distance from the point to the polyline and present popover if it's below a certain threshold
+        }
+        for polygon in polygonModels {
+            let mapKitPolygon = MKPolygon(coordinates: polygon.coordinates,
+                                          count: polygon.coordinates.count)
+            guard currentCameraRect.intersects(mapKitPolygon.boundingMapRect) else { continue }
+            if mapKitPolygon.contains(tapPoint) {
+                popoverData = PopoverData(
+                    id: polygon.id,
+                    point: unitPoint,
+                    title: polygon.title,
+                    description: polygon.description
+                )
+                return
             }
         }
     }
@@ -70,6 +75,12 @@ class MapViewModel: ObservableObject {
     private var rootFolder: Folder?
     private var currentFolder: Folder?
     private var places: [Placemark] = []
+
+    private let defaultPolylineStrokeColor: Color = .blue
+    private let defaultPolylineStrokeWidth: CGFloat = 4
+    private let defaultPolygonStrokeColor: Color = .black
+    private let defaultPolygonStrokeWidth: CGFloat = 1
+    private let defaultPolygonFillColor: Color = .yellow.opacity(0.3)
 
     private func refreshMapItems() {
         title = currentFolder?.name ?? ""
@@ -91,8 +102,42 @@ class MapViewModel: ObservableObject {
 
     /// Update `annotationItems` with the data in `places`.
     private func updateAnnotationItems() {
-        annotationItems = places.map { place -> AnnotationItem in
-            AnnotationItem(place: place)
+        annotationModels.removeAll()
+        polylineModels.removeAll()
+        polygonModels.removeAll()
+        for place in places {
+            let style = StyleManager.shared.style(url: place.styleUrl)
+            if let coordinate = place.point?.coordinate {
+                let annotation = Annotation(
+                    id: place.objectID,
+                    coordinate: coordinate,
+                    iconURL: style?.iconURL,
+                    title: place.name,
+                    description: place.kmlDescription
+                )
+                annotationModels.append(annotation)
+            } else if let lineString = place.lineString {
+                let polylineModel = Polyline(
+                    id: place.objectID,
+                    coordinates: lineString.coordinates,
+                    strokeColor: style?.strokeColor ?? defaultPolylineStrokeColor,
+                    strokeWidth: style?.strokeWidth.nilIfZero ?? defaultPolylineStrokeWidth,
+                    title: place.name,
+                    description: place.kmlDescription
+                )
+                polylineModels.append(polylineModel)
+            } else if let polygon = place.polygon {
+                let polygonModel = Polygon(
+                    id: place.objectID,
+                    coordinates: polygon.coordinates,
+                    strokeColor: style?.strokeColor ?? defaultPolygonStrokeColor,
+                    strokeWidth: style?.strokeWidth.nilIfZero ?? defaultPolygonStrokeWidth,
+                    fillColor: style?.fillColor ?? defaultPolygonFillColor,
+                    title: place.name,
+                    description: place.kmlDescription
+                )
+                polygonModels.append(polygonModel)
+            }
         }
     }
 
@@ -119,20 +164,37 @@ class MapViewModel: ObservableObject {
 
 extension MapViewModel {
 
-    struct AnnotationItem: Identifiable {
-        let place: Placemark
+    struct Annotation: Identifiable {
+        let id: NSManagedObjectID
+        let coordinate: CLLocationCoordinate2D
+        let iconURL: URL?
+        let title: String?
+        let description: String?
+    }
 
-        var id: NSManagedObjectID {
-            place.objectID
-        }
+    struct Polyline: Identifiable {
+        let id: NSManagedObjectID
+        let coordinates: [CLLocationCoordinate2D]
+        let strokeColor: Color
+        let strokeWidth: CGFloat
+        let title: String?
+        let description: String?
+    }
+
+    struct Polygon: Identifiable {
+        let id: NSManagedObjectID
+        let coordinates: [CLLocationCoordinate2D]
+        let strokeColor: Color
+        let strokeWidth: CGFloat
+        let fillColor: Color
+        let title: String?
+        let description: String?
     }
 
     struct PopoverData: Identifiable {
+        let id: NSManagedObjectID
         let point: UnitPoint
-        let place: Placemark
-
-        var id: NSManagedObjectID {
-            place.objectID
-        }
+        let title: String?
+        let description: String?
     }
 }

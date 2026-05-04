@@ -13,16 +13,14 @@ struct MapView: View {
             GeometryReader { geometryProxy in
                 MapReader { mapProxy in
                     Map(position: $viewModel.cameraPosition) {
-                        ForEach(viewModel.annotationItems, id: \.id) { item in
-                            if let coordinate = item.place.point?.coordinate {
-                                annotation(place: item.place, coordinate: coordinate)
-                            }
-                            if let lineString = item.place.lineString {
-                                mapPolyline(lineString: lineString)
-                            }
-                            if let polygon = item.place.polygon {
-                                mapPolygon(polygon: polygon)
-                            }
+                        ForEach(viewModel.annotationModels, id: \.id) { annotationModel in
+                            annotation(model: annotationModel)
+                        }
+                        ForEach(viewModel.polylineModels, id: \.id) { polylineModel in
+                            mapPolyline(model: polylineModel)
+                        }
+                        ForEach(viewModel.polygonModels, id: \.id) { polygonModel in
+                            mapPolygon(model: polygonModel)
                         }
                     }
                     .mapControls {
@@ -47,7 +45,12 @@ struct MapView: View {
                     .popover(item: $viewModel.popoverData,
                              attachmentAnchor: .point(viewModel.popoverData?.point ?? .center),
                              arrowEdge: .bottom) { data in
-                        PopoverView(place: data.place)
+                        PopoverView(
+                            shouldShowIcon: false,
+                            iconURL: nil,
+                            title: data.title,
+                            description: data.description
+                        )
                     }
                 }
             }
@@ -59,37 +62,37 @@ struct MapView: View {
 
     // MARK: - Private
 
-    private func annotation(place: Placemark, coordinate: CLLocationCoordinate2D) -> some MapContent {
-        Annotation(coordinate: coordinate) {
-            MapAnnotationView(place: place)
+    private func annotation(model: MapViewModel.Annotation) -> some MapContent {
+        Annotation(coordinate: model.coordinate) {
+            MapAnnotationView(model: model)
         } label: {
-            Text(place.name ?? "")
+            Text(model.title ?? "")
         }
     }
 
-    private func mapPolyline(lineString: LineString) -> some MapContent {
-        MapPolyline(coordinates: lineString.coordinates)
+    private func mapPolyline(model: MapViewModel.Polyline) -> some MapContent {
+        MapPolyline(coordinates: model.coordinates)
             .stroke(
-                .blue,
+                model.strokeColor,
                 style: StrokeStyle(
-                    lineWidth: 4,
+                    lineWidth: model.strokeWidth,
                     lineCap: .round,
                     lineJoin: .round
                 )
             )
     }
 
-    private func mapPolygon(polygon: Polygon) -> some MapContent {
-        MapPolygon(coordinates: polygon.coordinates)
+    private func mapPolygon(model: MapViewModel.Polygon) -> some MapContent {
+        MapPolygon(coordinates: model.coordinates)
             .stroke(
-                .black,
+                model.strokeColor,
                 style: StrokeStyle(
-                    lineWidth: 1,
+                    lineWidth: model.strokeWidth,
                     lineCap: .round,
                     lineJoin: .round
                 )
             )
-            .foregroundStyle(.yellow.opacity(0.3))
+            .foregroundStyle(model.fillColor)
     }
 }
 
@@ -101,16 +104,20 @@ extension MapView {
 
         // MARK: - Public
 
-        let place: Placemark
+        let model: MapViewModel.Annotation
 
         var body: some View {
             Button(action: {
                 showPopover.toggle()
             }) {
-                MapPinImage(place: place)
+                MapPinImage(iconURL: model.iconURL)
             }
             .popover(isPresented: $showPopover, arrowEdge: .bottom) {
-                PopoverView(place: place)
+                PopoverView(
+                    shouldShowIcon: true,
+                    iconURL: model.iconURL, title: model.title,
+                    description: model.description
+                )
             }
         }
 
@@ -120,18 +127,23 @@ extension MapView {
     }
 
     struct PopoverView: View {
-        let place: Placemark
+        let shouldShowIcon: Bool
+        let iconURL: URL?
+        let title: String?
+        let description: String?
 
         var body: some View {
             VStack(alignment: .leading, spacing: 20) {
                 HStack {
-                    MapPinImage(place: place)
-                    Text(place.name ?? "")
+                    if shouldShowIcon {
+                        MapPinImage(iconURL: iconURL)
+                    }
+                    Text(title ?? "")
                         .font(.headline)
                 }
                 // TODO: This needs a width constraint in order to wrap the text on iPad/Mac
                 // TODO: Maybe also a scroll view
-                Text(place.kmlDescription ?? "")
+                Text(description ?? "")
                     .lineLimit(nil)
                     .multilineTextAlignment(.leading)
                 Spacer()
@@ -141,18 +153,14 @@ extension MapView {
     }
 
     struct MapPinImage: View {
-        let place: Placemark
+        let iconURL: URL?
 
         var body: some View {
-            if place.point == nil {
-                EmptyView()
-            } else {
-                WebImage(url: StyleManager.shared.iconURL(styleURL: place.styleUrl))
-                    .placeholder(Image(systemName: "mappin.circle.fill"))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
-            }
+            WebImage(url: iconURL)
+                .placeholder(Image(systemName: "mappin.circle.fill"))
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 30, height: 30)
         }
     }
 }

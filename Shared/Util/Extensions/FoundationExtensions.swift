@@ -1,5 +1,12 @@
 import Foundation
 
+extension Numeric {
+
+    var nilIfZero: Self? {
+        self == 0 ? nil : self
+    }
+}
+
 extension Collection {
 
     func containsMultiple(where predicate: (Element) -> Bool) -> Bool {

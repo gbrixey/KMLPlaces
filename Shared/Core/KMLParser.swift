@@ -27,6 +27,8 @@ class KMLParser {
 
     // MARK: - Private
 
+    private static let clearABGRHexString = "00000000"
+
     private class var controller: PersistenceController {
         .shared
     }
@@ -91,13 +93,6 @@ class KMLParser {
     }
 
     /// Parse a `<Style>` KML element
-    /// - todo: Parse `<LineStyle>` and `<PolyStyle>` elements
-    // Both of these can have a <color> element, which is a hex string in ABGR format.
-    // The color in <LineStyle> indicates the color of a polyline, or of the outline of a polygon.
-    // The color in <PolyStyle> indicates the fill color of the polygon.
-    // <LineStyle> can also have a <width> element which is a float.
-    // <PolyStyle> can also have <fill>0</fill> which means the polygon is not filled,
-    // or <outline>0</outline> which means the polygon outline is not drawn.
     private class func parseStyle(_ styleKML: XMLIndexer) {
         guard let element = styleKML.element,
               let id = element.attribute(by: KMLAttributes.id)?.text,
@@ -128,6 +123,33 @@ class KMLParser {
             style.hotspotY = hotspotY
             style.hotspotXUnits = hotspotXUnits.rawValue
             style.hotspotYUnits = hotspotYUnits.rawValue
+        }
+        if let lineStyle = styleKML.firstChildElement(withName: KMLNames.lineStyle) {
+            if let colorHexString = lineStyle.firstChildElement(withName: KMLNames.color)?.text {
+                style.strokeColorHexString = colorHexString
+            }
+            if let widthString = lineStyle.firstChildElement(withName: KMLNames.width)?.text,
+               let width = Double(widthString) {
+                style.strokeWidth = width
+            }
+        }
+        if let polyStyle = styleKML.firstChildElement(withName: KMLNames.polyStyle) {
+            if let colorHexString = polyStyle.firstChildElement(withName: KMLNames.color)?.text {
+                style.fillColorHexString = colorHexString
+            }
+            // If the PolyStyle has <fill>0</fill> it means the polygon fill is disabled,
+            // and if it has <outline>0</outline> it means the polygon stroke is disabled.
+            // This can be handled by just setting the stroke or fill color to clear.
+            if let fillString = polyStyle.firstChildElement(withName: KMLNames.fill)?.text,
+               let fill = Int(fillString),
+               fill == 0 {
+                style.fillColorHexString = clearABGRHexString
+            }
+            if let outlineString = polyStyle.firstChildElement(withName: KMLNames.outline)?.text,
+               let outline = Int(outlineString),
+               outline == 0 {
+                style.strokeColorHexString = clearABGRHexString
+            }
         }
     }
 
@@ -289,9 +311,11 @@ private extension XMLIndexer {
 // MARK: - KML strings
 
 struct KMLNames {
+    static let color = "color"
     static let coordinates = "coordinates"
     static let description = "description"
     static let document = "Document"
+    static let fill = "fill"
     static let folder = "Folder"
     static let hotSpot = "hotSpot"
     static let href = "href"
@@ -301,16 +325,20 @@ struct KMLNames {
     static let kml = "kml"
     static let linearRing = "LinearRing"
     static let lineString = "LineString"
+    static let lineStyle = "LineStyle"
     static let name = "name"
     static let outerBoundaryIs = "outerBoundaryIs"
+    static let outline = "outline"
     static let pair = "Pair"
     static let placemark = "Placemark"
     static let point = "Point"
     static let polygon = "Polygon"
+    static let polyStyle = "PolyStyle"
     static let scale = "scale"
     static let style = "Style"
     static let styleMap = "StyleMap"
     static let styleURL = "styleUrl"
+    static let width = "width"
 }
 
 struct KMLAttributes {

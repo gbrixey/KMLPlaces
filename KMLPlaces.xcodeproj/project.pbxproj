@@ -132,6 +132,7 @@
 		7EE6950B2F9C26B1007E1A07 /* RootModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModule.swift; sourceTree = "<group>"; };
 		7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
+		7EE6951D2FA8361B007E1A07 /* Shared6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared6.xcdatamodel; sourceTree = "<group>"; };
 		E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesApp.swift; sourceTree = "<group>"; };
 		E124EC2A26B60F9200E7EA55 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -1192,13 +1193,14 @@
 		E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				7EE6951D2FA8361B007E1A07 /* Shared6.xcdatamodel */,
 				7EE694F72F9447DA007E1A07 /* Shared5.xcdatamodel */,
 				E125A62826F540240078CBC0 /* Shared4.xcdatamodel */,
 				E124ECBC26B7B15900E7EA55 /* Shared3.xcdatamodel */,
 				E124ECA126B79BCD00E7EA55 /* Shared2.xcdatamodel */,
 				E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */,
 			);
-			currentVersion = 7EE694F72F9447DA007E1A07 /* Shared5.xcdatamodel */;
+			currentVersion = 7EE6951D2FA8361B007E1A07 /* Shared6.xcdatamodel */;
 			path = KMLPlaces.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

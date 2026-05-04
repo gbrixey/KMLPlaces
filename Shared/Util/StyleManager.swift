@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 import CoreData
 import SDWebImage
 
@@ -91,6 +92,9 @@ extension StyleManager {
         let scale: Double
         let iconURL: URL
         let hotspot: Hotspot
+        let strokeColor: Color?
+        let strokeWidth: Double
+        let fillColor: Color?
     }
 
     struct Hotspot {
@@ -126,13 +130,28 @@ private extension Style {
               let hotspotYUnits = HotspotUnits(rawValue: hotspotYUnitsString) else {
             return nil
         }
-        let hotspot = StyleManager.Hotspot(x: hotspotX,
-                                           y: hotspotY,
-                                           xUnits: hotspotXUnits,
-                                           yUnits: hotspotYUnits)
-        return StyleManager.Style(scale: scale,
-                                  iconURL: iconURL,
-                                  hotspot: hotspot)
+        let hotspot = StyleManager.Hotspot(
+            x: hotspotX,
+            y: hotspotY,
+            xUnits: hotspotXUnits,
+            yUnits: hotspotYUnits
+        )
+        var strokeColor: Color?
+        var fillColor: Color?
+        if let strokeColorHexString = strokeColorHexString {
+            strokeColor = Color(abgrHexString: strokeColorHexString)
+        }
+        if let fillColorHexString = fillColorHexString {
+            fillColor = Color(abgrHexString: fillColorHexString)
+        }
+        return StyleManager.Style(
+            scale: scale,
+            iconURL: iconURL,
+            hotspot: hotspot,
+            strokeColor: strokeColor,
+            strokeWidth: strokeWidth,
+            fillColor: fillColor
+        )
     }
 }
 
