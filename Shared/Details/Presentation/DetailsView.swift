@@ -27,7 +27,7 @@ struct DetailsView: View {
                 Spacer()
             }
             .padding(20)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .navigationTitle(viewModel.name)
         .onAppear {

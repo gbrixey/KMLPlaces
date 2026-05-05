@@ -9,7 +9,7 @@ struct MapView: View {
     @StateObject var viewModel: MapViewModel
 
     var body: some View {
-        NavigationStack(path: $viewModel.path) {
+        ZStack(alignment: .top) {
             GeometryReader { geometryProxy in
                 MapReader { mapProxy in
                     Map(position: $viewModel.cameraPosition) {
@@ -37,10 +37,6 @@ struct MapView: View {
                         let unitPoint = UnitPoint(x: point.x / size.width, y: point.y / size.height)
                         viewModel.handleTap(at: coordinate, unitPoint: unitPoint)
                     }
-                    .navigationTitle(viewModel.title)
-                    .navigationDestination(for: Placemark.self) { place in
-                        DetailsModule.build(place: place)
-                    }
                     .ignoresSafeArea(edges: .horizontal)
                     .popover(item: $viewModel.popoverData,
                              attachmentAnchor: .point(viewModel.popoverData?.point ?? .center),
@@ -54,6 +50,9 @@ struct MapView: View {
                     }
                 }
             }
+            Text(viewModel.title)
+                .font(.title)
+                .fontWeight(.bold)
         }
         .onAppear {
             viewModel.viewDidAppear()
@@ -114,7 +113,7 @@ extension MapView {
             }
             .popover(isPresented: $showPopover, arrowEdge: .bottom) {
                 PopoverView(
-                    shouldShowIcon: true,
+                    shouldShowIcon: horizontalSizeClass == .compact,
                     iconURL: model.iconURL, title: model.title,
                     description: model.description
                 )
@@ -124,6 +123,7 @@ extension MapView {
         // MARK: - Private
 
         @State private var showPopover = false
+        @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     }
 
     struct PopoverView: View {
@@ -133,22 +133,31 @@ extension MapView {
         let description: String?
 
         var body: some View {
-            VStack(alignment: .leading, spacing: 20) {
-                HStack {
-                    if shouldShowIcon {
-                        MapPinImage(iconURL: iconURL)
+            NavigationStack {
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        Text(description ?? "")
+                            .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
+                        Spacer(minLength: 40)
                     }
-                    Text(title ?? "")
-                        .font(.headline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(horizontal: 20)
                 }
-                // TODO: This needs a width constraint in order to wrap the text on iPad/Mac
-                // TODO: Maybe also a scroll view
-                Text(description ?? "")
-                    .lineLimit(nil)
-                    .multilineTextAlignment(.leading)
-                Spacer()
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            if shouldShowIcon {
+                                MapPinImage(iconURL: iconURL)
+                            }
+                            Text(title ?? "")
+                                .font(.headline)
+                        }
+                    }
+                }
+                .frame(maxWidth: 500)
             }
-            .padding(horizontal: 20, vertical: 40)
         }
     }
 

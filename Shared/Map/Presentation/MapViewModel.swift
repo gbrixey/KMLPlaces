@@ -6,7 +6,6 @@ class MapViewModel: ObservableObject {
 
     // MARK: - Public
 
-    @Published var path = NavigationPath()
     @Published var title: String = ""
     @Published var cameraPosition = MapCameraPosition.automatic
     @Published var annotationModels: [Annotation] = []
