@@ -259,21 +259,21 @@ class SettingsRepository {
 
 extension SettingsRepository: SettingsDataStore {
 
-    func parseKMLFile(at url: URL) {
-        guard let kmlData = try? Data(contentsOf: url) else {
-            Logger.logError("Could not load KML file at URL \(url)")
-            return
-        }
+    func parseKMLFile(at url: URL) -> Error? {
+        let kmlData: Data
         do {
+            kmlData = try Data(contentsOf: url)
             try deleteAllData()
         } catch {
             Logger.logError(error)
+            return error
         }
         let kml = SWXMLHash.parse(kmlData)
         let documentKML = kml[KMLNames.kml][KMLNames.document]
         parseDocument(documentKML)
         controller.saveContext()
         StyleManager.shared.loadStyles()
+        return nil
     }
 }
 

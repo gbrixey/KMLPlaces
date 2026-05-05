@@ -5,6 +5,9 @@ class SettingsViewModel: NSObject, ObservableObject {
     // MARK: - Public
 
     @Published var showDocumentPicker = false
+    @Published var showAlert = false
+    @Published var alertTitle = ""
+    @Published var alertMessage = ""
 
     init(dataStore: SettingsDataStore,
          notificationCenter: NotificationCenter) {
@@ -19,14 +22,26 @@ class SettingsViewModel: NSObject, ObservableObject {
     func useTestDataTapped() {
         let path = Bundle.main.path(forResource: "Test", ofType: "kml")!
         let testDataURL = URL(fileURLWithPath: path)
-        dataStore.parseKMLFile(at: testDataURL)
-        notificationCenter.post(name: .dataChanged, object: nil)
+        parseKMLFile(at: testDataURL)
     }
 
     // MARK: - Private
 
     private let dataStore: SettingsDataStore
     private let notificationCenter: NotificationCenter
+
+    private func parseKMLFile(at url: URL) {
+        if let error = dataStore.parseKMLFile(at: url) {
+            alertTitle = String(key: "settings.alert.error.title")
+            let alertMessageFormat = String(key: "settings.alert.error.message")
+            alertMessage = String(format: alertMessageFormat, error.localizedDescription)
+        } else {
+            alertTitle = String(key: "settings.alert.success.title")
+            alertMessage = String(key: "settings.alert.success.message")
+            notificationCenter.post(name: .dataChanged, object: nil)
+        }
+        showAlert = true
+    }
 }
 
 // MARK: - UIDocumentPickerDelegate
@@ -34,7 +49,6 @@ class SettingsViewModel: NSObject, ObservableObject {
 extension SettingsViewModel: UIDocumentPickerDelegate {
 
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        dataStore.parseKMLFile(at: urls[0])
-        notificationCenter.post(name: .dataChanged, object: nil)
+        parseKMLFile(at: urls[0])
     }
 }

@@ -13,6 +13,10 @@
 "settings.title" = "Settings";
 "settings.import.data" = "Import Data";
 "settings.test.data" = "Use Test Data";
+"settings.alert.success.title" = "Success";
+"settings.alert.success.message" = "Data loaded successfully.";
+"settings.alert.error.title" = "Error";
+"settings.alert.error.message" = "The data could not be loaded.\n\n%@";
 
 // MARK: - Data
 

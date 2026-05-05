@@ -1,7 +1,8 @@
 import Foundation
 
 protocol SettingsDataStore {
-    func parseKMLFile(at url: URL)
+    /// Returns nil if the operation was successful.
+    func parseKMLFile(at url: URL) -> Error?
 }
 
 class SettingsModule {
