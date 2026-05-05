@@ -49,8 +49,6 @@
 		E124EC8726B7868100E7EA55 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8526B7868100E7EA55 /* SettingsViewModel.swift */; };
 		E124EC8926B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */; };
 		E124EC8A26B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */; };
-		E124EC8C26B788C300E7EA55 /* KMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8B26B788C300E7EA55 /* KMLParser.swift */; };
-		E124EC8D26B788C300E7EA55 /* KMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8B26B788C300E7EA55 /* KMLParser.swift */; };
 		E124EC9126B789E100E7EA55 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = E124EC9026B789E100E7EA55 /* SWXMLHash */; };
 		E124EC9426B789F000E7EA55 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = E124EC9326B789F000E7EA55 /* SWXMLHash */; };
 		E124EC9826B78D4A00E7EA55 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9726B78D4A00E7EA55 /* Logger.swift */; };
@@ -155,7 +153,6 @@
 		E124EC7E26B7824300E7EA55 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E124EC8526B7868100E7EA55 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDocumentPicker.swift; sourceTree = "<group>"; };
-		E124EC8B26B788C300E7EA55 /* KMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLParser.swift; sourceTree = "<group>"; };
 		E124EC9726B78D4A00E7EA55 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E124EC9B26B790E100E7EA55 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		E124ECA126B79BCD00E7EA55 /* Shared2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared2.xcdatamodel; sourceTree = "<group>"; };
@@ -330,7 +327,6 @@
 			children = (
 				E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */,
 				E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */,
-				E124EC8B26B788C300E7EA55 /* KMLParser.swift */,
 				E124EC2A26B60F9200E7EA55 /* Persistence.swift */,
 				E124EC9726B78D4A00E7EA55 /* Logger.swift */,
 				E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */,
@@ -707,7 +703,6 @@
 				E12999CC26F12E8D009DC840 /* MapView.swift in Sources */,
 				E19D30AF26D8764200AC3B95 /* DetailsViewModel.swift in Sources */,
 				E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
-				E124EC8C26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */,
 				7EE695152FA40B06007E1A07 /* MapKitExtensions.swift in Sources */,
 				7EE695062F9C1AD3007E1A07 /* ListNavigationPreviews.swift in Sources */,
@@ -756,7 +751,6 @@
 				E12999CD26F12E8D009DC840 /* MapView.swift in Sources */,
 				E19D30B026D8764200AC3B95 /* DetailsViewModel.swift in Sources */,
 				E124EC5326B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
-				E124EC8D26B788C300E7EA55 /* KMLParser.swift in Sources */,
 				E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */,
 				7EE695162FA40B06007E1A07 /* MapKitExtensions.swift in Sources */,
 				7EE695052F9C1AD3007E1A07 /* ListNavigationPreviews.swift in Sources */,
