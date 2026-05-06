@@ -14,6 +14,14 @@ extension Folder {
     var placesArray: [Placemark] {
         return (places?.array as? [Placemark]) ?? []
     }
+
+    var flattenedSubfoldersArray: [Folder] {
+        subfoldersArray.reduce(subfoldersArray, { $0 + $1.flattenedSubfoldersArray })
+    }
+
+    var flattenedPlacesArray: [Placemark] {
+        subfoldersArray.reduce(placesArray, { $0 + $1.flattenedPlacesArray })
+    }
 }
 
 extension Placemark {
@@ -43,6 +51,24 @@ extension Placemark {
             return .lineString
         } else {
             return .point
+        }
+    }
+}
+
+extension Array where Element == Folder {
+
+    var sortedByName: [Element] {
+        sorted { folder1, folder2 in
+            folder1.name ?? "" < folder2.name ?? ""
+        }
+    }
+}
+
+extension Array where Element == Placemark {
+
+    var sortedByName: [Element] {
+        sorted { place1, place2 in
+            place1.name ?? "" < place2.name ?? ""
         }
     }
 }

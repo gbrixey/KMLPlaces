@@ -25,14 +25,12 @@ struct ListView: View {
                               defaultIconName: viewModel.defaultIconName(for: place))
                 }
             }
-        }
-        .overlay {
-            if viewModel.folders.isEmpty && viewModel.places.isEmpty {
-                PlaceholderView()
+            if viewModel.folders.isEmpty && viewModel.places.isEmpty && !viewModel.searchText.isEmpty {
+                NoMatchesView()
             }
         }
-        // TODO: Add .searchable in iOS 15
         .navigationTitle(viewModel.title)
+        .searchable(text: $viewModel.searchText, prompt: viewModel.searchPrompt)
     }
 }
 
@@ -40,20 +38,11 @@ struct ListView: View {
 
 extension ListView {
 
-    struct PlaceholderView: View {
+    struct NoMatchesView: View {
         var body: some View {
-            VStack(spacing: 12) {
-                Image(systemName: "questionmark.circle.dashed")
-                    .font(.system(size: 48))
-                    .foregroundColor(.secondary)
-                Text("No place data")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                Text("Import a KML file from Settings\u{00a0}\(Image(systemName: "gearshape.fill"))\nto see your places here.")
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-            }
+            Text("No matching places found.")
+                .frame(minHeight: 30)
+                .padding(.leading, 8)
         }
     }
 
@@ -61,10 +50,9 @@ extension ListView {
         let name: String
 
         var body: some View {
-            HStack(spacing: 0) {
+            HStack(spacing: 10) {
                 Image(systemName: "folder")
                     .frame(width: 30)
-                    .padding(.trailing, 10)
                     .foregroundColor(.blue)
                 Text(name)
                     .foregroundColor(.blue)
@@ -81,13 +69,12 @@ extension ListView {
         let defaultIconName: String
 
         var body: some View {
-            HStack(spacing: 0) {
+            HStack(spacing: 10) {
                 WebImage(url: StyleManager.shared.iconURL(styleURL: styleURL))
                     .placeholder(Image(systemName: defaultIconName))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
-                    .padding(.trailing, 10)
                 Text(name)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)

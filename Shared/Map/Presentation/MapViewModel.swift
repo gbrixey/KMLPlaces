@@ -83,20 +83,9 @@ class MapViewModel: ObservableObject {
 
     private func refreshMapItems() {
         title = currentFolder?.name ?? ""
-        updatePlaces()
+        places = currentFolder?.flattenedPlacesArray ?? []
         updateAnnotationItems()
         setEnclosingRegion()
-    }
-
-    /// Update `places` with the flattened list of places from `currentFolder`.
-    private func updatePlaces() {
-        guard let folder = currentFolder else { return }
-        places = flattenedPlaces(in: folder)
-    }
-
-    /// Return an array of places contained in the given folder and its subfolders.
-    private func flattenedPlaces(in folder: Folder) -> [Placemark] {
-        folder.subfoldersArray.reduce(folder.placesArray, { $0 + flattenedPlaces(in: $1) })
     }
 
     /// Update `annotationItems` with the data in `places`.
@@ -142,7 +131,7 @@ class MapViewModel: ObservableObject {
 
     /// Set map camera position so that all places are visible.
     private func setEnclosingRegion() {
-        guard places.count > 0 else { return }
+        guard !places.isEmpty else { return }
         let allCoordinates = places.flatMap { $0.allCoordinates }
         let allLatitudes = allCoordinates.map { $0.latitude }
         let allLongitudes = allCoordinates.map { $0.longitude }

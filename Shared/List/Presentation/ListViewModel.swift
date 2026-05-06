@@ -5,18 +5,26 @@ class ListViewModel: ObservableObject {
     // MARK: - Public
 
     let title: String
-    let folders: [Folder]
-    let places: [Placemark]
+    var folders: [Folder] = []
+    var places: [Placemark] = []
+    let searchPrompt: String
 
-    init(folder: Folder?, path: Binding<[ListItem]>) {
+    @Published var searchText = "" {
+        didSet {
+            updateFoldersAndPlaces()
+        }
+    }
+
+    init(folder: Folder, path: Binding<[ListItem]>) {
+        self.folder = folder
         _path = path
-        title = folder?.name ?? ""
-        folders = folder?.subfoldersArray.sorted(by: { folder1, folder2 in
-            (folder1.name ?? "") < (folder2.name ?? "")
-        }) ?? []
-        places = folder?.placesArray.sorted(by: { place1, place2 in
-            (place1.name ?? "") < (place2.name ?? "")
-        }) ?? []
+        title = folder.name ?? ""
+        if folder.isRootFolder || title.isEmpty {
+            searchPrompt = "Search"
+        } else {
+            searchPrompt = "Search in \(title)"
+        }
+        updateFoldersAndPlaces()
     }
 
     func placemarkTapped(_ placemark: Placemark) {
@@ -48,4 +56,40 @@ class ListViewModel: ObservableObject {
     // MARK: - Private
 
     @Binding private var path: [ListItem]
+    private let folder: Folder
+    private lazy var sortedFolders: [Folder] = { folder.subfoldersArray.sortedByName }()
+    private lazy var sortedPlaces: [Placemark] = { folder.placesArray.sortedByName }()
+    private lazy var flattenedSubfolders: [Folder] = { folder.flattenedSubfoldersArray.sortedByName }()
+    private lazy var flattenedPlaces: [Placemark] = { folder.flattenedPlacesArray.sortedByName }()
+
+    private func updateFoldersAndPlaces() {
+        if searchText.isEmpty {
+            folders = sortedFolders
+            places = sortedPlaces
+            return
+        }
+        let lowercaseSearchText = searchText.lowercased()
+        var subfoldersStartingWithSearchText: [Folder] = []
+        var subfoldersContainingSearchText: [Folder] = []
+        flattenedSubfolders.forEach { folder in
+            guard let name = folder.name?.lowercased().nilIfEmpty else { return }
+            if name.hasPrefix(lowercaseSearchText) {
+                subfoldersStartingWithSearchText.append(folder)
+            } else if name.contains(lowercaseSearchText) {
+                subfoldersContainingSearchText.append(folder)
+            }
+        }
+        folders = subfoldersStartingWithSearchText + subfoldersContainingSearchText
+        var placesStartingWithSearchText: [Placemark] = []
+        var placesContainingSearchText: [Placemark] = []
+        flattenedPlaces.forEach { place in
+            guard let name = place.name?.lowercased().nilIfEmpty else { return }
+            if name.hasPrefix(lowercaseSearchText) {
+                placesStartingWithSearchText.append(place)
+            } else if name.contains(lowercaseSearchText) {
+                placesContainingSearchText.append(place)
+            }
+        }
+        places = placesStartingWithSearchText + placesContainingSearchText
+    }
 }

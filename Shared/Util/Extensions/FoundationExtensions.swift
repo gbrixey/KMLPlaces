@@ -9,6 +9,10 @@ extension Numeric {
 
 extension Collection {
 
+    var nilIfEmpty: Self? {
+        self.isEmpty ? nil : self
+    }
+
     func containsMultiple(where predicate: (Element) -> Bool) -> Bool {
         var number = 0
         for element in self {
