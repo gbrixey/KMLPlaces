@@ -13,14 +13,14 @@ struct ListView: View {
                 Button {
                     viewModel.folderTapped(folder)
                 } label: {
-                    FolderView(name: folder.name ?? String(key: "default.folder.name"))
+                    FolderView(name: folder.name ?? String(key: "Untitled Folder"))
                 }
             }
             ForEach(viewModel.places, id: \.id) { place in
                 Button {
                     viewModel.placemarkTapped(place)
                 } label: {
-                    PlaceView(name: place.name ?? String(key: "default.placemark.name"),
+                    PlaceView(name: place.name ?? String(key: "Untitled Place"),
                               styleURL: viewModel.styleURL(for: place),
                               defaultIconName: viewModel.defaultIconName(for: place))
                 }

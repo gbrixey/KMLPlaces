@@ -11,17 +11,17 @@ struct RootView: View {
             ListNavigationModule.build(path: $viewModel.listPath)
                 .tabItem {
                     Image(systemName: "list.bullet")
-                    Text("tab.bar.list")
+                    Text("List")
                 }
             MapModule.build(listPath: $viewModel.listPath)
                 .tabItem {
                     Image(systemName: "map")
-                    Text("tab.bar.map")
+                    Text("Map")
                 }
             SettingsModule.build()
                 .tabItem {
                     Image(systemName: "gearshape")
-                    Text("tab.bar.settings")
+                    Text("Settings")
                 }
         }
     }

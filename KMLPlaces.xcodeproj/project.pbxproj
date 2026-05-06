@@ -25,6 +25,8 @@
 		7EE695102F9C26CF007E1A07 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */; };
 		7EE695152FA40B06007E1A07 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */; };
 		7EE695162FA40B06007E1A07 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */; };
+		7EE695282FAABDB8007E1A07 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7EE695272FAABDB8007E1A07 /* Localizable.xcstrings */; };
+		7EE695292FAABDB8007E1A07 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7EE695272FAABDB8007E1A07 /* Localizable.xcstrings */; };
 		E124EC4526B60F9300E7EA55 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4426B60F9300E7EA55 /* Tests_iOS.swift */; };
 		E124EC5026B60F9300E7EA55 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */; };
 		E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */; };
@@ -35,8 +37,6 @@
 		E124EC5926B60F9300E7EA55 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2A26B60F9200E7EA55 /* Persistence.swift */; };
 		E124EC5A26B60F9300E7EA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E124EC2B26B60F9300E7EA55 /* Assets.xcassets */; };
 		E124EC5B26B60F9300E7EA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E124EC2B26B60F9300E7EA55 /* Assets.xcassets */; };
-		E124EC6D26B6108600E7EA55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E124EC6C26B6108600E7EA55 /* Localizable.strings */; };
-		E124EC6E26B6108600E7EA55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E124EC6C26B6108600E7EA55 /* Localizable.strings */; };
 		E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7226B6112F00E7EA55 /* RootView.swift */; };
 		E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7226B6112F00E7EA55 /* RootView.swift */; };
 		E124EC7926B6113E00E7EA55 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7726B6113E00E7EA55 /* ListView.swift */; };
@@ -131,6 +131,7 @@
 		7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		7EE6951D2FA8361B007E1A07 /* Shared6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared6.xcdatamodel; sourceTree = "<group>"; };
+		7EE695272FAABDB8007E1A07 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesApp.swift; sourceTree = "<group>"; };
 		E124EC2A26B60F9200E7EA55 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		E124EC4B26B60F9300E7EA55 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		E124EC5126B60F9300E7EA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E124EC6C26B6108600E7EA55 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E124EC7226B6112F00E7EA55 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E124EC7726B6113E00E7EA55 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		E124EC7826B6113E00E7EA55 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				E124EC2B26B60F9300E7EA55 /* Assets.xcassets */,
-				E124EC6C26B6108600E7EA55 /* Localizable.strings */,
+				7EE695272FAABDB8007E1A07 /* Localizable.xcstrings */,
 				7EC60BAA2F8DE601006E1B68 /* Test.kml */,
 			);
 			path = Resources;
@@ -602,7 +602,7 @@
 			files = (
 				7EC60BAD2F8DEADC006E1B68 /* Test.kml in Resources */,
 				E124EC5A26B60F9300E7EA55 /* Assets.xcassets in Resources */,
-				E124EC6D26B6108600E7EA55 /* Localizable.strings in Resources */,
+				7EE695292FAABDB8007E1A07 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,7 +612,7 @@
 			files = (
 				7EC60BAE2F8DEAE5006E1B68 /* Test.kml in Resources */,
 				E124EC5B26B60F9300E7EA55 /* Assets.xcassets in Resources */,
-				E124EC6E26B6108600E7EA55 /* Localizable.strings in Resources */,
+				7EE695282FAABDB8007E1A07 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +857,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -911,6 +912,7 @@
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;

@@ -17,8 +17,8 @@ class DetailsViewModel: ObservableObject {
 
     init(place: Placemark) {
         self.place = place
-        name = place.name ?? String(key: "default.placemark.name")
-        kmlDescription = place.kmlDescription ?? String(key: "default.placemark.description")
+        name = place.name ?? String(key: "Untitled Place")
+        kmlDescription = place.kmlDescription ?? String(key: "No description")
         if place.type == .point {
             pinImage = UIImage(systemName: "mappin.circle.fill")
             fetchPinImage()

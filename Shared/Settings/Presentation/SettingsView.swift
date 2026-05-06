@@ -6,18 +6,18 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                SettingsItemView(imageName: "square.and.arrow.down", name: "settings.import.data")
+                SettingsItemView(imageName: "square.and.arrow.down", name: "Import Data")
                     .onTapGesture {
                         viewModel.importDataTapped()
                     }
                 #if DEBUG
-                SettingsItemView(imageName: "wrench.and.screwdriver.fill", name: "settings.test.data")
+                SettingsItemView(imageName: "wrench.and.screwdriver.fill", name: "Use Test Data")
                     .onTapGesture {
                         viewModel.useTestDataTapped()
                     }
                 #endif
             }
-            .navigationTitle("settings.title")
+            .navigationTitle("Settings")
         }
         .sheet(isPresented: $viewModel.showDocumentPicker) {
             SettingsDocumentPicker(delegate: viewModel)

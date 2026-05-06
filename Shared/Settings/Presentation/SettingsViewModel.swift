@@ -32,12 +32,12 @@ class SettingsViewModel: NSObject, ObservableObject {
 
     private func parseKMLFile(at url: URL) {
         if let error = dataStore.parseKMLFile(at: url) {
-            alertTitle = String(key: "settings.alert.error.title")
-            let alertMessageFormat = String(key: "settings.alert.error.message")
+            alertTitle = String(key: "Error")
+            let alertMessageFormat = String(key: "The data could not be loaded.\n\n%@")
             alertMessage = String(format: alertMessageFormat, error.localizedDescription)
         } else {
-            alertTitle = String(key: "settings.alert.success.title")
-            alertMessage = String(key: "settings.alert.success.message")
+            alertTitle = String(key: "Success")
+            alertMessage = String(key: "Data loaded successfully.")
             notificationCenter.post(name: .dataChanged, object: nil)
         }
         showAlert = true
