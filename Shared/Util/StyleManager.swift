@@ -10,6 +10,12 @@ class StyleManager {
 
     static let shared = StyleManager()
 
+    static let defaultPolylineStrokeColor: Color = .blue
+    static let defaultPolylineStrokeWidth: CGFloat = 4
+    static let defaultPolygonStrokeColor: Color = .black
+    static let defaultPolygonStrokeWidth: CGFloat = 1
+    static let defaultPolygonFillColor: Color = .yellow.opacity(0.3)
+
     func iconURL(styleURL: String?, highlighted: Bool = false) -> URL? {
         style(url: styleURL, highlighted: highlighted)?.iconURL
     }

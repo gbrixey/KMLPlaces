@@ -75,12 +75,6 @@ class MapViewModel: ObservableObject {
     private var currentFolder: Folder?
     private var places: [Placemark] = []
 
-    private let defaultPolylineStrokeColor: Color = .blue
-    private let defaultPolylineStrokeWidth: CGFloat = 4
-    private let defaultPolygonStrokeColor: Color = .black
-    private let defaultPolygonStrokeWidth: CGFloat = 1
-    private let defaultPolygonFillColor: Color = .yellow.opacity(0.3)
-
     private func refreshMapItems() {
         title = currentFolder?.name ?? ""
         places = currentFolder?.flattenedPlacesArray ?? []
@@ -108,8 +102,8 @@ class MapViewModel: ObservableObject {
                 let polylineModel = Polyline(
                     id: place.objectID,
                     coordinates: lineString.coordinates,
-                    strokeColor: style?.strokeColor ?? defaultPolylineStrokeColor,
-                    strokeWidth: style?.strokeWidth.nilIfZero ?? defaultPolylineStrokeWidth,
+                    strokeColor: style?.strokeColor ?? StyleManager.defaultPolylineStrokeColor,
+                    strokeWidth: style?.strokeWidth.nilIfZero ?? StyleManager.defaultPolylineStrokeWidth,
                     title: place.name,
                     description: place.kmlDescription
                 )
@@ -118,9 +112,9 @@ class MapViewModel: ObservableObject {
                 let polygonModel = Polygon(
                     id: place.objectID,
                     coordinates: polygon.coordinates,
-                    strokeColor: style?.strokeColor ?? defaultPolygonStrokeColor,
-                    strokeWidth: style?.strokeWidth.nilIfZero ?? defaultPolygonStrokeWidth,
-                    fillColor: style?.fillColor ?? defaultPolygonFillColor,
+                    strokeColor: style?.strokeColor ?? StyleManager.defaultPolygonStrokeColor,
+                    strokeWidth: style?.strokeWidth.nilIfZero ?? StyleManager.defaultPolygonStrokeWidth,
+                    fillColor: style?.fillColor ?? StyleManager.defaultPolygonFillColor,
                     title: place.name,
                     description: place.kmlDescription
                 )

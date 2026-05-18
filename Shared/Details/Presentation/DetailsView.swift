@@ -1,26 +1,18 @@
 import SwiftUI
+import SDWebImageSwiftUI
+import MapKit
 
 struct DetailsView: View {
+
+    // MARK: - Public
 
     @StateObject var viewModel: DetailsViewModel
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                ZStack {
-                    if let image = viewModel.mapImage {
-                        Image(uiImage: image)
-                        if let pinImage = viewModel.pinImage {
-                            Image(uiImage: pinImage)
-                                .padding(viewModel.pinImagePadding)
-                                .scaleEffect(viewModel.pinImageScale)
-                        }
-                    } else {
-                        let size = DetailsViewModel.mapImageSize
-                        Color(UIColor.secondarySystemBackground)
-                            .frame(width: size.width, height: size.height)
-                        ProgressView()
-                    }
+                if let mapData = viewModel.mapData {
+                    mapView(mapData: mapData)
                 }
                 Text(viewModel.name).bold()
                 Text(viewModel.kmlDescription)
@@ -30,9 +22,48 @@ struct DetailsView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .navigationTitle(viewModel.name)
-        .onAppear {
-            viewModel.createMapImage()
+    }
+
+    // MARK: - Private
+
+    private func mapView(mapData: DetailsViewModel.MapData) -> some View {
+        Map(position: .constant(mapData.cameraPosition), interactionModes: []) {
+            switch mapData.mapType {
+            case .annotation(let annotation):
+                Annotation(coordinate: annotation.coordinate) {
+                    WebImage(url: annotation.iconURL)
+                        .placeholder(Image(systemName: "mappin.circle.fill"))
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30, height: 30)
+                } label: {
+                    EmptyView()
+                }
+            case .polyline(let polyline):
+                MapPolyline(coordinates: polyline.coordinates)
+                    .stroke(
+                        polyline.strokeColor,
+                        style: StrokeStyle(
+                            lineWidth: polyline.strokeWidth,
+                            lineCap: .round,
+                            lineJoin: .round
+                        )
+                    )
+            case .polygon(let polygon):
+                MapPolygon(coordinates: polygon.coordinates)
+                    .stroke(
+                        polygon.strokeColor,
+                        style: StrokeStyle(
+                            lineWidth: polygon.strokeWidth,
+                            lineCap: .round,
+                            lineJoin: .round
+                        )
+                    )
+                    .foregroundStyle(polygon.fillColor)
+            }
         }
+        .frame(height: 200)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
