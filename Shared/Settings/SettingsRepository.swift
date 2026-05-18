@@ -164,7 +164,7 @@ class SettingsRepository {
     /// Parse a `<Folder>` KML element
     private func parseFolder(_ folderKML: XMLIndexer, parentFolder: Folder? = nil) {
         let folder = Folder(context: context)
-        folder.name = folderKML.nameText ?? String(key: "Untitled Folder")
+        folder.name = folderKML.nameText ?? String(localized: .untitledFolder)
         folder.parentFolder = parentFolder
         for child in folderKML.children {
             guard let elementName = child.element?.name else { continue }
@@ -182,8 +182,8 @@ class SettingsRepository {
     /// Parse a `<Placemark>` KML element
     private func parsePlacemark(_ placemarkKML: XMLIndexer, folder: Folder) {
         let placemark = Placemark(context: context)
-        placemark.name = placemarkKML.nameText ?? String(key: "Untitled Place")
-        placemark.kmlDescription = placemarkKML.kmlDescription ?? String(key: "No description")
+        placemark.name = placemarkKML.nameText ?? String(localized: .untitledPlace)
+        placemark.kmlDescription = placemarkKML.kmlDescription ?? String(localized: .noDescription)
         placemark.styleUrl = placemarkKML.firstChildElement(withName: KMLNames.styleURL)?.text
         placemark.folder = folder
         for child in placemarkKML.children {
@@ -282,7 +282,7 @@ extension SettingsRepository: SettingsDataStore {
 private extension XMLIndexer {
 
     var documentName: String {
-        var documentName = nameText ?? String(key: "My Places")
+        var documentName = nameText ?? String(localized: .myPlaces)
         if documentName.hasSuffix(".kml") {
             documentName = String(documentName.dropLast(4))
         }

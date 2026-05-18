@@ -11,8 +11,8 @@ class DetailsViewModel: ObservableObject {
     @Published var mapData: MapData?
 
     init(place: Placemark) {
-        name = place.name ?? String(key: "Untitled Place")
-        kmlDescription = place.kmlDescription ?? String(key: "No description")
+        name = place.name ?? String(localized: .untitledPlace)
+        kmlDescription = place.kmlDescription ?? String(localized: .noDescription)
         mapData = Self.mapData(for: place)
     }
 

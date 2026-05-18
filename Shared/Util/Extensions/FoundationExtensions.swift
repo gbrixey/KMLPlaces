@@ -26,10 +26,3 @@ extension Collection {
         return false
     }
 }
-
-extension String {
-
-    init(key: String) {
-        self = NSLocalizedString(key, comment: "")
-    }
-}
