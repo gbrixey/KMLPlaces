@@ -61,6 +61,8 @@ struct MapView: View {
 
     // MARK: - Private
 
+    @Namespace private var namespace
+
     private func annotation(model: MapViewModel.Annotation) -> some MapContent {
         Annotation(coordinate: model.coordinate) {
             MapAnnotationView(model: model)
@@ -111,17 +113,20 @@ extension MapView {
             }) {
                 MapPinImage(iconURL: model.iconURL)
             }
+            .matchedTransitionSource(id: "map-popover", in: namespace)
             .popover(isPresented: $showPopover, arrowEdge: .bottom) {
                 PopoverView(
                     shouldShowIcon: horizontalSizeClass == .compact,
                     iconURL: model.iconURL, title: model.title,
                     description: model.description
                 )
+                .navigationTransition(.zoom(sourceID: "map-popover", in: namespace))
             }
         }
 
         // MARK: - Private
 
+        @Namespace private var namespace
         @State private var showPopover = false
         @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     }
@@ -158,6 +163,7 @@ extension MapView {
                 }
                 .frame(maxWidth: 500)
             }
+            .presentationDetents([.medium, .large])
         }
     }
 
