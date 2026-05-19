@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "01ECF550-5A5B-4CC8-9E8C-98B1FE4D38F1",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:KMLPlaces.xcodeproj",
+        "identifier" : "7E68FA4E2FBBEE9D00A18756",
+        "name" : "KMLPlacesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:KMLPlaces.xcodeproj",
+        "identifier" : "7E68FA682FBBF0C500A18756",
+        "name" : "KMLPlacesUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

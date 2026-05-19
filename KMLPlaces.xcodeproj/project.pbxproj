@@ -3,124 +3,78 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7EC60BAB2F8DE60E006E1B68 /* Test.kml in Sources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
-		7EC60BAC2F8DE60E006E1B68 /* Test.kml in Sources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
 		7EC60BAD2F8DEADC006E1B68 /* Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
-		7EC60BAE2F8DEAE5006E1B68 /* Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
 		7EE694FD2F9C16FA007E1A07 /* ListNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE694FC2F9C16F2007E1A07 /* ListNavigationViewModel.swift */; };
-		7EE694FE2F9C16FA007E1A07 /* ListNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE694FC2F9C16F2007E1A07 /* ListNavigationViewModel.swift */; };
-		7EE695022F9C17AE007E1A07 /* ListNavigationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695012F9C17AA007E1A07 /* ListNavigationModule.swift */; };
 		7EE695032F9C17AE007E1A07 /* ListNavigationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695012F9C17AA007E1A07 /* ListNavigationModule.swift */; };
-		7EE695052F9C1AD3007E1A07 /* ListNavigationPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695042F9C1AD0007E1A07 /* ListNavigationPreviews.swift */; };
 		7EE695062F9C1AD3007E1A07 /* ListNavigationPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695042F9C1AD0007E1A07 /* ListNavigationPreviews.swift */; };
 		7EE695082F9C2613007E1A07 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695072F9C2611007E1A07 /* ListItem.swift */; };
-		7EE695092F9C2613007E1A07 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695072F9C2611007E1A07 /* ListItem.swift */; };
 		7EE6950C2F9C26B3007E1A07 /* RootModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950B2F9C26B1007E1A07 /* RootModule.swift */; };
-		7EE6950D2F9C26B3007E1A07 /* RootModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950B2F9C26B1007E1A07 /* RootModule.swift */; };
-		7EE6950F2F9C26CF007E1A07 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */; };
 		7EE695102F9C26CF007E1A07 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */; };
 		7EE695152FA40B06007E1A07 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */; };
-		7EE695162FA40B06007E1A07 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */; };
-		7EE695282FAABDB8007E1A07 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7EE695272FAABDB8007E1A07 /* Localizable.xcstrings */; };
 		7EE695292FAABDB8007E1A07 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7EE695272FAABDB8007E1A07 /* Localizable.xcstrings */; };
-		E124EC4526B60F9300E7EA55 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4426B60F9300E7EA55 /* Tests_iOS.swift */; };
-		E124EC5026B60F9300E7EA55 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */; };
 		E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */; };
-		E124EC5326B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */; };
 		E124EC5426B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */; };
-		E124EC5526B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */; };
 		E124EC5826B60F9300E7EA55 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2A26B60F9200E7EA55 /* Persistence.swift */; };
-		E124EC5926B60F9300E7EA55 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2A26B60F9200E7EA55 /* Persistence.swift */; };
 		E124EC5A26B60F9300E7EA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E124EC2B26B60F9300E7EA55 /* Assets.xcassets */; };
-		E124EC5B26B60F9300E7EA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E124EC2B26B60F9300E7EA55 /* Assets.xcassets */; };
 		E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7226B6112F00E7EA55 /* RootView.swift */; };
-		E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7226B6112F00E7EA55 /* RootView.swift */; };
 		E124EC7926B6113E00E7EA55 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7726B6113E00E7EA55 /* ListView.swift */; };
-		E124EC7A26B6113E00E7EA55 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7726B6113E00E7EA55 /* ListView.swift */; };
 		E124EC7B26B6113E00E7EA55 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7826B6113E00E7EA55 /* ListViewModel.swift */; };
-		E124EC7C26B6113E00E7EA55 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7826B6113E00E7EA55 /* ListViewModel.swift */; };
 		E124EC7F26B7824300E7EA55 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7E26B7824300E7EA55 /* SettingsView.swift */; };
-		E124EC8026B7824300E7EA55 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC7E26B7824300E7EA55 /* SettingsView.swift */; };
 		E124EC8626B7868100E7EA55 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8526B7868100E7EA55 /* SettingsViewModel.swift */; };
-		E124EC8726B7868100E7EA55 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8526B7868100E7EA55 /* SettingsViewModel.swift */; };
 		E124EC8926B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */; };
-		E124EC8A26B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */; };
 		E124EC9126B789E100E7EA55 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = E124EC9026B789E100E7EA55 /* SWXMLHash */; };
-		E124EC9426B789F000E7EA55 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = E124EC9326B789F000E7EA55 /* SWXMLHash */; };
 		E124EC9826B78D4A00E7EA55 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9726B78D4A00E7EA55 /* Logger.swift */; };
-		E124EC9926B78D4A00E7EA55 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9726B78D4A00E7EA55 /* Logger.swift */; };
 		E124EC9C26B790E100E7EA55 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9B26B790E100E7EA55 /* FoundationExtensions.swift */; };
-		E124EC9D26B790E100E7EA55 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC9B26B790E100E7EA55 /* FoundationExtensions.swift */; };
 		E124ECA626B7A34100E7EA55 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECA526B7A34100E7EA55 /* SettingsModule.swift */; };
-		E124ECA726B7A34100E7EA55 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECA526B7A34100E7EA55 /* SettingsModule.swift */; };
 		E124ECA926B7A45300E7EA55 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECA826B7A45300E7EA55 /* SettingsRepository.swift */; };
-		E124ECAA26B7A45300E7EA55 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECA826B7A45300E7EA55 /* SettingsRepository.swift */; };
 		E124ECAD26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECAC26B7A4E400E7EA55 /* SettingsPreviews.swift */; };
-		E124ECAE26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECAC26B7A4E400E7EA55 /* SettingsPreviews.swift */; };
 		E124ECB126B7A6C700E7EA55 /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB026B7A6C700E7EA55 /* ListModule.swift */; };
-		E124ECB226B7A6C700E7EA55 /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB026B7A6C700E7EA55 /* ListModule.swift */; };
 		E124ECB426B7A75500E7EA55 /* ListNavigationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB326B7A75500E7EA55 /* ListNavigationRepository.swift */; };
-		E124ECB526B7A75500E7EA55 /* ListNavigationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB326B7A75500E7EA55 /* ListNavigationRepository.swift */; };
 		E124ECB726B7ADD000E7EA55 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB626B7ADD000E7EA55 /* CoreDataExtensions.swift */; };
-		E124ECB826B7ADD000E7EA55 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB626B7ADD000E7EA55 /* CoreDataExtensions.swift */; };
 		E124ECBA26B7AE7600E7EA55 /* ListPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */; };
-		E124ECBB26B7AE7600E7EA55 /* ListPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */; };
 		E124ECC026B7B24B00E7EA55 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */; };
-		E124ECC126B7B24B00E7EA55 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */; };
 		E124ECC426B8C16900E7EA55 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECC326B8C16900E7EA55 /* DetailsView.swift */; };
-		E124ECC526B8C16900E7EA55 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECC326B8C16900E7EA55 /* DetailsView.swift */; };
 		E124ECCB26B8C49E00E7EA55 /* DetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */; };
-		E124ECCC26B8C49E00E7EA55 /* DetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */; };
 		E124ECCF26B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */; };
-		E124ECD026B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */; };
 		E125A62A26F54DE60078CBC0 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62926F54DE60078CBC0 /* StyleManager.swift */; };
-		E125A62B26F54DE60078CBC0 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62926F54DE60078CBC0 /* StyleManager.swift */; };
 		E125A62D26F550550078CBC0 /* KMLPlacesAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */; };
-		E125A62E26F550550078CBC0 /* KMLPlacesAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */; };
 		E12999C826F12DEE009DC840 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999C726F12DEE009DC840 /* MapModule.swift */; };
-		E12999C926F12DEE009DC840 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999C726F12DEE009DC840 /* MapModule.swift */; };
 		E12999CC26F12E8D009DC840 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CB26F12E8D009DC840 /* MapView.swift */; };
-		E12999CD26F12E8D009DC840 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CB26F12E8D009DC840 /* MapView.swift */; };
 		E12999CF26F12F44009DC840 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CE26F12F44009DC840 /* MapViewModel.swift */; };
-		E12999D026F12F44009DC840 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CE26F12F44009DC840 /* MapViewModel.swift */; };
 		E12999D226F130CC009DC840 /* MapPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D126F130CC009DC840 /* MapPreviews.swift */; };
-		E12999D326F130CC009DC840 /* MapPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D126F130CC009DC840 /* MapPreviews.swift */; };
 		E12999D926F1381D009DC840 /* MapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D826F1381D009DC840 /* MapRepository.swift */; };
-		E12999DA26F1381D009DC840 /* MapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999D826F1381D009DC840 /* MapRepository.swift */; };
 		E12DB8FD26F8D7B4001DDDF3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E12DB8FC26F8D7B4001DDDF3 /* SDWebImageSwiftUI */; };
-		E12DB8FF26F8D7C7001DDDF3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E12DB8FE26F8D7C7001DDDF3 /* SDWebImageSwiftUI */; };
 		E1748CA22707D95C00E30EBD /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1748CA12707D95C00E30EBD /* SwiftUIExtensions.swift */; };
-		E1748CA32707D95C00E30EBD /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1748CA12707D95C00E30EBD /* SwiftUIExtensions.swift */; };
 		E19D30AF26D8764200AC3B95 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */; };
-		E19D30B026D8764200AC3B95 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30AE26D8764200AC3B95 /* DetailsViewModel.swift */; };
 		E19D30B226D8783A00AC3B95 /* CoreLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B126D8783A00AC3B95 /* CoreLocationExtensions.swift */; };
-		E19D30B326D8783A00AC3B95 /* CoreLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B126D8783A00AC3B95 /* CoreLocationExtensions.swift */; };
 		E19D30B526D87A6500AC3B95 /* DetailsPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B426D87A6500AC3B95 /* DetailsPreviews.swift */; };
-		E19D30B626D87A6500AC3B95 /* DetailsPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D30B426D87A6500AC3B95 /* DetailsPreviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E124EC4126B60F9300E7EA55 /* PBXContainerItemProxy */ = {
+		7E68FA532FBBEE9D00A18756 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E124EC2126B60F9200E7EA55 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E124EC2F26B60F9300E7EA55;
-			remoteInfo = "KMLPlaces (iOS)";
+			remoteInfo = KMLPlaces;
 		};
-		E124EC4C26B60F9300E7EA55 /* PBXContainerItemProxy */ = {
+		7E68FA722FBBF0D000A18756 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E124EC2126B60F9200E7EA55 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E124EC3726B60F9300E7EA55;
-			remoteInfo = "KMLPlaces (macOS)";
+			remoteGlobalIDString = E124EC2F26B60F9300E7EA55;
+			remoteInfo = KMLPlaces;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E68FA4F2FBBEE9D00A18756 /* KMLPlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMLPlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E68FA692FBBF0C500A18756 /* KMLPlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMLPlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC60BAA2F8DE601006E1B68 /* Test.kml */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Test.kml; sourceTree = "<group>"; };
 		7EE694F72F9447DA007E1A07 /* Shared5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared5.xcdatamodel; sourceTree = "<group>"; };
 		7EE694FC2F9C16F2007E1A07 /* ListNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationViewModel.swift; sourceTree = "<group>"; };
@@ -139,15 +93,6 @@
 		E124EC2B26B60F9300E7EA55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E124EC3026B60F9300E7EA55 /* KMLPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMLPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E124EC3326B60F9300E7EA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E124EC3826B60F9300E7EA55 /* KMLPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMLPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E124EC3A26B60F9300E7EA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E124EC3B26B60F9300E7EA55 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		E124EC4026B60F9300E7EA55 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E124EC4426B60F9300E7EA55 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
-		E124EC4626B60F9300E7EA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E124EC4B26B60F9300E7EA55 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
-		E124EC5126B60F9300E7EA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E124EC7226B6112F00E7EA55 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E124EC7726B6113E00E7EA55 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		E124EC7826B6113E00E7EA55 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
@@ -183,36 +128,32 @@
 		E19D30B426D87A6500AC3B95 /* DetailsPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPreviews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		7E68FA502FBBEE9D00A18756 /* KMLPlacesTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = KMLPlacesTests; sourceTree = "<group>"; };
+		7E68FA6A2FBBF0C500A18756 /* KMLPlacesUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = KMLPlacesUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		7E68FA4C2FBBEE9D00A18756 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E68FA662FBBF0C500A18756 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E124EC2D26B60F9300E7EA55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E12DB8FD26F8D7B4001DDDF3 /* SDWebImageSwiftUI in Frameworks */,
 				E124EC9126B789E100E7EA55 /* SWXMLHash in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E124EC3526B60F9300E7EA55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E12DB8FF26F8D7C7001DDDF3 /* SDWebImageSwiftUI in Frameworks */,
-				E124EC9426B789F000E7EA55 /* SWXMLHash in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E124EC3D26B60F9300E7EA55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E124EC4826B60F9300E7EA55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,17 +193,15 @@
 			isa = PBXGroup;
 			children = (
 				7EFD9C032FBBD61C00D0B2B0 /* todo.txt */,
-				E124EC2526B60F9200E7EA55 /* Shared */,
-				E124EC3226B60F9300E7EA55 /* iOS */,
-				E124EC3926B60F9300E7EA55 /* macOS */,
-				E124EC4326B60F9300E7EA55 /* Tests iOS */,
-				E124EC4E26B60F9300E7EA55 /* Tests macOS */,
+				E124EC2526B60F9200E7EA55 /* KMLPlaces */,
+				7E68FA502FBBEE9D00A18756 /* KMLPlacesTests */,
+				7E68FA6A2FBBF0C500A18756 /* KMLPlacesUITests */,
 				E124EC3126B60F9300E7EA55 /* Products */,
 				E124EC9226B789F000E7EA55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		E124EC2526B60F9200E7EA55 /* Shared */ = {
+		E124EC2526B60F9200E7EA55 /* KMLPlaces */ = {
 			isa = PBXGroup;
 			children = (
 				E124EC6A26B6102300E7EA55 /* Core */,
@@ -274,54 +213,19 @@
 				E124EC7D26B7820600E7EA55 /* Settings */,
 				E124EC6B26B6105A00E7EA55 /* Resources */,
 				E124EC9A26B790B500E7EA55 /* Util */,
+				E124EC3326B60F9300E7EA55 /* Info.plist */,
 			);
-			path = Shared;
+			path = KMLPlaces;
 			sourceTree = "<group>";
 		};
 		E124EC3126B60F9300E7EA55 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				E124EC3026B60F9300E7EA55 /* KMLPlaces.app */,
-				E124EC3826B60F9300E7EA55 /* KMLPlaces.app */,
-				E124EC4026B60F9300E7EA55 /* Tests iOS.xctest */,
-				E124EC4B26B60F9300E7EA55 /* Tests macOS.xctest */,
+				7E68FA4F2FBBEE9D00A18756 /* KMLPlacesTests.xctest */,
+				7E68FA692FBBF0C500A18756 /* KMLPlacesUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E124EC3226B60F9300E7EA55 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				E124EC3326B60F9300E7EA55 /* Info.plist */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		E124EC3926B60F9300E7EA55 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				E124EC3A26B60F9300E7EA55 /* Info.plist */,
-				E124EC3B26B60F9300E7EA55 /* macOS.entitlements */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		E124EC4326B60F9300E7EA55 /* Tests iOS */ = {
-			isa = PBXGroup;
-			children = (
-				E124EC4426B60F9300E7EA55 /* Tests_iOS.swift */,
-				E124EC4626B60F9300E7EA55 /* Info.plist */,
-			);
-			path = "Tests iOS";
-			sourceTree = "<group>";
-		};
-		E124EC4E26B60F9300E7EA55 /* Tests macOS */ = {
-			isa = PBXGroup;
-			children = (
-				E124EC4F26B60F9300E7EA55 /* Tests_macOS.swift */,
-				E124EC5126B60F9300E7EA55 /* Info.plist */,
-			);
-			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
 		E124EC6A26B6102300E7EA55 /* Core */ = {
@@ -467,9 +371,55 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E124EC2F26B60F9300E7EA55 /* KMLPlaces (iOS) */ = {
+		7E68FA4E2FBBEE9D00A18756 /* KMLPlacesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E124EC5E26B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (iOS)" */;
+			buildConfigurationList = 7E68FA572FBBEE9D00A18756 /* Build configuration list for PBXNativeTarget "KMLPlacesTests" */;
+			buildPhases = (
+				7E68FA4B2FBBEE9D00A18756 /* Sources */,
+				7E68FA4C2FBBEE9D00A18756 /* Frameworks */,
+				7E68FA4D2FBBEE9D00A18756 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E68FA542FBBEE9D00A18756 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				7E68FA502FBBEE9D00A18756 /* KMLPlacesTests */,
+			);
+			name = KMLPlacesTests;
+			packageProductDependencies = (
+			);
+			productName = KMLPlacesTests;
+			productReference = 7E68FA4F2FBBEE9D00A18756 /* KMLPlacesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7E68FA682FBBF0C500A18756 /* KMLPlacesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E68FA6F2FBBF0C500A18756 /* Build configuration list for PBXNativeTarget "KMLPlacesUITests" */;
+			buildPhases = (
+				7E68FA652FBBF0C500A18756 /* Sources */,
+				7E68FA662FBBF0C500A18756 /* Frameworks */,
+				7E68FA672FBBF0C500A18756 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E68FA732FBBF0D000A18756 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				7E68FA6A2FBBF0C500A18756 /* KMLPlacesUITests */,
+			);
+			name = KMLPlacesUITests;
+			packageProductDependencies = (
+			);
+			productName = KMLPlacesUITests;
+			productReference = 7E68FA692FBBF0C500A18756 /* KMLPlacesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E124EC2F26B60F9300E7EA55 /* KMLPlaces */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E124EC5E26B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces" */;
 			buildPhases = (
 				E124EC2C26B60F9300E7EA55 /* Sources */,
 				E124EC8E26B7890600E7EA55 /* Add compiler warnings for TODOs */,
@@ -480,7 +430,7 @@
 			);
 			dependencies = (
 			);
-			name = "KMLPlaces (iOS)";
+			name = KMLPlaces;
 			packageProductDependencies = (
 				E124EC9026B789E100E7EA55 /* SWXMLHash */,
 				E12DB8FC26F8D7B4001DDDF3 /* SDWebImageSwiftUI */,
@@ -489,64 +439,6 @@
 			productReference = E124EC3026B60F9300E7EA55 /* KMLPlaces.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E124EC3726B60F9300E7EA55 /* KMLPlaces (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E124EC6126B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (macOS)" */;
-			buildPhases = (
-				E124EC3426B60F9300E7EA55 /* Sources */,
-				E124EC9526B78A0100E7EA55 /* Add compiler warnings for TODOs */,
-				E124EC3526B60F9300E7EA55 /* Frameworks */,
-				E124EC3626B60F9300E7EA55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "KMLPlaces (macOS)";
-			packageProductDependencies = (
-				E124EC9326B789F000E7EA55 /* SWXMLHash */,
-				E12DB8FE26F8D7C7001DDDF3 /* SDWebImageSwiftUI */,
-			);
-			productName = "KMLPlaces (macOS)";
-			productReference = E124EC3826B60F9300E7EA55 /* KMLPlaces.app */;
-			productType = "com.apple.product-type.application";
-		};
-		E124EC3F26B60F9300E7EA55 /* Tests iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E124EC6426B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
-			buildPhases = (
-				E124EC3C26B60F9300E7EA55 /* Sources */,
-				E124EC3D26B60F9300E7EA55 /* Frameworks */,
-				E124EC3E26B60F9300E7EA55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E124EC4226B60F9300E7EA55 /* PBXTargetDependency */,
-			);
-			name = "Tests iOS";
-			productName = "Tests iOS";
-			productReference = E124EC4026B60F9300E7EA55 /* Tests iOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		E124EC4A26B60F9300E7EA55 /* Tests macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E124EC6726B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
-			buildPhases = (
-				E124EC4726B60F9300E7EA55 /* Sources */,
-				E124EC4826B60F9300E7EA55 /* Frameworks */,
-				E124EC4926B60F9300E7EA55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E124EC4D26B60F9300E7EA55 /* PBXTargetDependency */,
-			);
-			name = "Tests macOS";
-			productName = "Tests macOS";
-			productReference = E124EC4B26B60F9300E7EA55 /* Tests macOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -554,22 +446,19 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 2650;
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
-					E124EC2F26B60F9300E7EA55 = {
-						CreatedOnToolsVersion = 12.5.1;
-					};
-					E124EC3726B60F9300E7EA55 = {
-						CreatedOnToolsVersion = 12.5.1;
-					};
-					E124EC3F26B60F9300E7EA55 = {
-						CreatedOnToolsVersion = 12.5.1;
+					7E68FA4E2FBBEE9D00A18756 = {
+						CreatedOnToolsVersion = 26.5;
 						TestTargetID = E124EC2F26B60F9300E7EA55;
 					};
-					E124EC4A26B60F9300E7EA55 = {
+					7E68FA682FBBF0C500A18756 = {
+						CreatedOnToolsVersion = 26.5;
+						TestTargetID = E124EC2F26B60F9300E7EA55;
+					};
+					E124EC2F26B60F9300E7EA55 = {
 						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = E124EC3726B60F9300E7EA55;
 					};
 				};
 			};
@@ -590,15 +479,28 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E124EC2F26B60F9300E7EA55 /* KMLPlaces (iOS) */,
-				E124EC3726B60F9300E7EA55 /* KMLPlaces (macOS) */,
-				E124EC3F26B60F9300E7EA55 /* Tests iOS */,
-				E124EC4A26B60F9300E7EA55 /* Tests macOS */,
+				E124EC2F26B60F9300E7EA55 /* KMLPlaces */,
+				7E68FA4E2FBBEE9D00A18756 /* KMLPlacesTests */,
+				7E68FA682FBBF0C500A18756 /* KMLPlacesUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7E68FA4D2FBBEE9D00A18756 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E68FA672FBBF0C500A18756 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E124EC2E26B60F9300E7EA55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -606,30 +508,6 @@
 				7EC60BAD2F8DEADC006E1B68 /* Test.kml in Resources */,
 				E124EC5A26B60F9300E7EA55 /* Assets.xcassets in Resources */,
 				7EE695292FAABDB8007E1A07 /* Localizable.xcstrings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E124EC3626B60F9300E7EA55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7EC60BAE2F8DEAE5006E1B68 /* Test.kml in Resources */,
-				E124EC5B26B60F9300E7EA55 /* Assets.xcassets in Resources */,
-				7EE695282FAABDB8007E1A07 /* Localizable.xcstrings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E124EC3E26B60F9300E7EA55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E124EC4926B60F9300E7EA55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,27 +533,23 @@
 			shellPath = /bin/sh;
 			shellScript = "scripts/add-compiler-warnings-for-TODOs.sh\n";
 		};
-		E124EC9526B78A0100E7EA55 /* Add compiler warnings for TODOs */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Add compiler warnings for TODOs";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "scripts/add-compiler-warnings-for-TODOs.sh\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7E68FA4B2FBBEE9D00A18756 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E68FA652FBBF0C500A18756 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E124EC2C26B60F9300E7EA55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -724,86 +598,147 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E124EC3426B60F9300E7EA55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E124EC8026B7824300E7EA55 /* SettingsView.swift in Sources */,
-				E124EC9D26B790E100E7EA55 /* FoundationExtensions.swift in Sources */,
-				E124EC9926B78D4A00E7EA55 /* Logger.swift in Sources */,
-				E124EC5526B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */,
-				E124EC5926B60F9300E7EA55 /* Persistence.swift in Sources */,
-				E124EC7C26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
-				E124ECB826B7ADD000E7EA55 /* CoreDataExtensions.swift in Sources */,
-				E125A62E26F550550078CBC0 /* KMLPlacesAppDelegate.swift in Sources */,
-				E12999D326F130CC009DC840 /* MapPreviews.swift in Sources */,
-				E125A62B26F54DE60078CBC0 /* StyleManager.swift in Sources */,
-				E19D30B626D87A6500AC3B95 /* DetailsPreviews.swift in Sources */,
-				7EE695022F9C17AE007E1A07 /* ListNavigationModule.swift in Sources */,
-				E124ECB226B7A6C700E7EA55 /* ListModule.swift in Sources */,
-				E124EC7A26B6113E00E7EA55 /* ListView.swift in Sources */,
-				E124ECAE26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */,
-				E12999DA26F1381D009DC840 /* MapRepository.swift in Sources */,
-				E1748CA32707D95C00E30EBD /* SwiftUIExtensions.swift in Sources */,
-				E12999D026F12F44009DC840 /* MapViewModel.swift in Sources */,
-				E124ECC126B7B24B00E7EA55 /* NotificationName.swift in Sources */,
-				7EE6950F2F9C26CF007E1A07 /* RootViewModel.swift in Sources */,
-				7EC60BAC2F8DE60E006E1B68 /* Test.kml in Sources */,
-				E19D30B326D8783A00AC3B95 /* CoreLocationExtensions.swift in Sources */,
-				7EE694FE2F9C16FA007E1A07 /* ListNavigationViewModel.swift in Sources */,
-				E124EC8A26B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
-				E12999CD26F12E8D009DC840 /* MapView.swift in Sources */,
-				E19D30B026D8764200AC3B95 /* DetailsViewModel.swift in Sources */,
-				E124EC5326B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
-				E124EC7626B6112F00E7EA55 /* RootView.swift in Sources */,
-				7EE695162FA40B06007E1A07 /* MapKitExtensions.swift in Sources */,
-				7EE695052F9C1AD3007E1A07 /* ListNavigationPreviews.swift in Sources */,
-				7EE6950D2F9C26B3007E1A07 /* RootModule.swift in Sources */,
-				E12999C926F12DEE009DC840 /* MapModule.swift in Sources */,
-				E124ECB526B7A75500E7EA55 /* ListNavigationRepository.swift in Sources */,
-				E124ECD026B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */,
-				E124ECCC26B8C49E00E7EA55 /* DetailsModule.swift in Sources */,
-				E124ECC526B8C16900E7EA55 /* DetailsView.swift in Sources */,
-				E124ECA726B7A34100E7EA55 /* SettingsModule.swift in Sources */,
-				E124EC8726B7868100E7EA55 /* SettingsViewModel.swift in Sources */,
-				7EE695092F9C2613007E1A07 /* ListItem.swift in Sources */,
-				E124ECBB26B7AE7600E7EA55 /* ListPreviews.swift in Sources */,
-				E124ECAA26B7A45300E7EA55 /* SettingsRepository.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E124EC3C26B60F9300E7EA55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E124EC4526B60F9300E7EA55 /* Tests_iOS.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E124EC4726B60F9300E7EA55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E124EC5026B60F9300E7EA55 /* Tests_macOS.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E124EC4226B60F9300E7EA55 /* PBXTargetDependency */ = {
+		7E68FA542FBBEE9D00A18756 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E124EC2F26B60F9300E7EA55 /* KMLPlaces (iOS) */;
-			targetProxy = E124EC4126B60F9300E7EA55 /* PBXContainerItemProxy */;
+			target = E124EC2F26B60F9300E7EA55 /* KMLPlaces */;
+			targetProxy = 7E68FA532FBBEE9D00A18756 /* PBXContainerItemProxy */;
 		};
-		E124EC4D26B60F9300E7EA55 /* PBXTargetDependency */ = {
+		7E68FA732FBBF0D000A18756 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E124EC3726B60F9300E7EA55 /* KMLPlaces (macOS) */;
-			targetProxy = E124EC4C26B60F9300E7EA55 /* PBXContainerItemProxy */;
+			target = E124EC2F26B60F9300E7EA55 /* KMLPlaces */;
+			targetProxy = 7E68FA722FBBF0D000A18756 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		7E68FA552FBBEE9D00A18756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W23Z7PC8J5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlacesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMLPlaces.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KMLPlaces";
+				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		7E68FA562FBBEE9D00A18756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W23Z7PC8J5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlacesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMLPlaces.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KMLPlaces";
+				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
+		7E68FA702FBBF0C500A18756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W23Z7PC8J5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlacesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KMLPlaces;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		7E68FA712FBBF0C500A18756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W23Z7PC8J5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlacesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KMLPlaces;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
 		E124EC5C26B60F9300E7EA55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -936,7 +871,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_FILE = KMLPlaces/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -957,7 +892,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_FILE = KMLPlaces/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -972,134 +907,27 @@
 			};
 			name = Release;
 		};
-		E124EC6226B60F9300E7EA55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlaces;
-				PRODUCT_NAME = KMLPlaces;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		E124EC6326B60F9300E7EA55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.KMLPlaces;
-				PRODUCT_NAME = KMLPlaces;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		E124EC6526B60F9300E7EA55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.glenb.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "KMLPlaces (iOS)";
-			};
-			name = Debug;
-		};
-		E124EC6626B60F9300E7EA55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.glenb.Tests-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "KMLPlaces (iOS)";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		E124EC6826B60F9300E7EA55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.glenb.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "KMLPlaces (macOS)";
-			};
-			name = Debug;
-		};
-		E124EC6926B60F9300E7EA55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.glenb.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "KMLPlaces (macOS)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7E68FA572FBBEE9D00A18756 /* Build configuration list for PBXNativeTarget "KMLPlacesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E68FA552FBBEE9D00A18756 /* Debug */,
+				7E68FA562FBBEE9D00A18756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E68FA6F2FBBF0C500A18756 /* Build configuration list for PBXNativeTarget "KMLPlacesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E68FA702FBBF0C500A18756 /* Debug */,
+				7E68FA712FBBF0C500A18756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E124EC2426B60F9200E7EA55 /* Build configuration list for PBXProject "KMLPlaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1109,38 +937,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E124EC5E26B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (iOS)" */ = {
+		E124EC5E26B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E124EC5F26B60F9300E7EA55 /* Debug */,
 				E124EC6026B60F9300E7EA55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E124EC6126B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "KMLPlaces (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E124EC6226B60F9300E7EA55 /* Debug */,
-				E124EC6326B60F9300E7EA55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E124EC6426B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E124EC6526B60F9300E7EA55 /* Debug */,
-				E124EC6626B60F9300E7EA55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E124EC6726B60F9300E7EA55 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E124EC6826B60F9300E7EA55 /* Debug */,
-				E124EC6926B60F9300E7EA55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1172,17 +973,7 @@
 			package = E124EC8F26B789E100E7EA55 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
 			productName = SWXMLHash;
 		};
-		E124EC9326B789F000E7EA55 /* SWXMLHash */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E124EC8F26B789E100E7EA55 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
-			productName = SWXMLHash;
-		};
 		E12DB8FC26F8D7B4001DDDF3 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E12DB8FB26F8D7B4001DDDF3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
-		E12DB8FE26F8D7C7001DDDF3 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E12DB8FB26F8D7B4001DDDF3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
