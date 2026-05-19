@@ -8,21 +8,15 @@ struct RootView: View {
 
     var body: some View {
         TabView {
-            ListNavigationModule.build(path: $viewModel.listPath)
-                .tabItem {
-                    Image(systemName: "list.bullet")
-                    Text("List")
-                }
-            MapModule.build(listPath: $viewModel.listPath)
-                .tabItem {
-                    Image(systemName: "map")
-                    Text("Map")
-                }
-            SettingsModule.build()
-                .tabItem {
-                    Image(systemName: "gearshape")
-                    Text("Settings")
-                }
+            Tab("List", systemImage: "list.bullet") {
+                ListNavigationModule.build(path: $viewModel.listPath)
+            }
+            Tab("Map", systemImage: "map") {
+                MapModule.build(listPath: $viewModel.listPath)
+            }
+            Tab("Settings", systemImage: "gearshape") {
+                SettingsModule.build()
+            }
         }
     }
 }
