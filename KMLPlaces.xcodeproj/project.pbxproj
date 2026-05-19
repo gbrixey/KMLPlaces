@@ -132,6 +132,7 @@
 		7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		7EE6951D2FA8361B007E1A07 /* Shared6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared6.xcdatamodel; sourceTree = "<group>"; };
 		7EE695272FAABDB8007E1A07 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		7EFD9C032FBBD61C00D0B2B0 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesApp.swift; sourceTree = "<group>"; };
 		E124EC2A26B60F9200E7EA55 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 		E124EC2026B60F9200E7EA55 = {
 			isa = PBXGroup;
 			children = (
+				7EFD9C032FBBD61C00D0B2B0 /* todo.txt */,
 				E124EC2526B60F9200E7EA55 /* Shared */,
 				E124EC3226B60F9300E7EA55 /* iOS */,
 				E124EC3926B60F9300E7EA55 /* macOS */,
