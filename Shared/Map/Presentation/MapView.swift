@@ -9,7 +9,7 @@ struct MapView: View {
     @StateObject var viewModel: MapViewModel
 
     var body: some View {
-        ZStack(alignment: .top) {
+        ZStack(alignment: .topLeading) {
             GeometryReader { geometryProxy in
                 MapReader { mapProxy in
                     Map(position: $viewModel.cameraPosition) {
@@ -53,6 +53,10 @@ struct MapView: View {
             Text(viewModel.title)
                 .font(.title)
                 .fontWeight(.bold)
+                .lineLimit(1)
+                .padding(horizontal: 20, vertical: 8)
+                .glassEffect()
+                .padding(EdgeInsets(top: 12, leading: 16, bottom: 0, trailing: 80))
         }
         .onAppear {
             viewModel.viewDidAppear()
