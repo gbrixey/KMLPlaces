@@ -54,6 +54,7 @@ struct MapView: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .lineLimit(1)
+                .accessibilityAddTraits(.isHeader)
                 .padding(horizontal: 20, vertical: 8)
                 .glassEffect()
                 .padding(EdgeInsets(top: 12, leading: 16, bottom: 0, trailing: 80))
@@ -162,10 +163,12 @@ extension MapView {
                             if shouldShowIcon {
                                 MapPinImage(iconURL: iconURL)
                                     .accessibilityIdentifier("Map popover icon")
+                                    .accessibilityHidden(true)
                             }
                             Text(title ?? "")
                                 .font(.headline)
                                 .accessibilityIdentifier("Map popover title")
+                                .accessibilityAddTraits(.isHeader)
                         }
                     }
                 }

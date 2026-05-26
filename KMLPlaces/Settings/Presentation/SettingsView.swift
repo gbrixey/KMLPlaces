@@ -6,15 +6,17 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                SettingsItemView(imageName: "square.and.arrow.down", name: "Import Data")
-                    .onTapGesture {
-                        viewModel.importDataTapped()
-                    }
+                SettingsButton(
+                    imageName: "square.and.arrow.down",
+                    name: String(localized: .importData),
+                    action: { viewModel.importDataTapped() }
+                )
                 #if DEBUG
-                SettingsItemView(imageName: "wrench.and.screwdriver.fill", name: "Use Test Data")
-                    .onTapGesture {
-                        viewModel.useTestDataTapped()
-                    }
+                SettingsButton(
+                    imageName: "wrench.and.screwdriver.fill",
+                    name: String(localized: .useTestData),
+                    action: { viewModel.useTestDataTapped() }
+                )
                 #endif
             }
             .navigationTitle("Settings")
@@ -35,23 +37,26 @@ struct SettingsView: View {
 
 extension SettingsView {
 
-    struct SettingsItemView: View {
+    struct SettingsButton: View {
         let imageName: String
-        let name: LocalizedStringKey
+        let name: String
+        let action: () -> Void
 
         var body: some View {
-            HStack(spacing: 0) {
-                Image(systemName: imageName)
-                    .frame(width: 30)
-                    .padding(.trailing, 10)
-                    .foregroundColor(.blue)
-                Text(name)
-                    .foregroundColor(.blue)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+            Button(action: action) {
+                HStack(spacing: 0) {
+                    Image(systemName: imageName)
+                        .frame(width: 30)
+                        .padding(.trailing, 10)
+                        .foregroundColor(.blue)
+                    Text(name)
+                        .foregroundColor(.blue)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(name)
+                .contentShape(Rectangle())
             }
-            .accessibilityElement(children: .ignore)
-            .accessibilityLabel(name)
-            .contentShape(Rectangle())
         }
     }
 }

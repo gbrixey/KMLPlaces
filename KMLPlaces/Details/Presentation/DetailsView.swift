@@ -67,6 +67,7 @@ struct DetailsView: View {
         .frame(height: 200)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .accessibilityIdentifier("Details Map")
+        .accessibilityHidden(true)
     }
 }
 

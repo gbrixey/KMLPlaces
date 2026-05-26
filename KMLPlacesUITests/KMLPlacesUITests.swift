@@ -28,10 +28,9 @@ final class KMLPlacesUITests: XCTestCase {
         // Go to list view, open two folders, open details page,
         // assert map, name, and description are present, then go back to the root view
         app/*@START_MENU_TOKEN@*/.buttons["List"]/*[[".buttons.containing(.image, identifier: \"list.bullet\")",".otherElements",".buttons[\"List\"]",".buttons[\"list.bullet\"]"],[[[-1,3],[-1,2],[-1,1,1],[-1,0]],[[-1,3],[-1,2]]],[1]]@END_MENU_TOKEN@*/.firstMatch.tap()
-        app/*@START_MENU_TOKEN@*/.buttons["Businesses"]/*[[".buttons.containing(.staticText, identifier: \"Businesses\")",".otherElements.buttons[\"Businesses\"]",".buttons[\"Businesses\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.firstMatch.tap()
-        app/*@START_MENU_TOKEN@*/.buttons["Restaurants"]/*[[".buttons",".containing(.staticText, identifier: \"Restaurants\")",".containing(.image, identifier: \"folder\")",".otherElements.buttons[\"Restaurants\"]",".buttons[\"Restaurants\"]"],[[[-1,4],[-1,3],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.firstMatch.tap()
+        app.buttons["Businesses Folder"].firstMatch.tap()
+        app.buttons["Restaurants Folder"].firstMatch.tap()
         app/*@START_MENU_TOKEN@*/.buttons["Pi Vegan Pizzeria"]/*[[".buttons.containing(.staticText, identifier: \"Pi Vegan Pizzeria\")",".otherElements.buttons[\"Pi Vegan Pizzeria\"]",".buttons[\"Pi Vegan Pizzeria\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.firstMatch.tap()
-        XCTAssert(app.otherElements["Details Map"].firstMatch.exists)
         XCTAssert(app/*@START_MENU_TOKEN@*/.staticTexts["Details Name"]/*[[".scrollViews.staticTexts[\"Pi Vegan Pizzeria\"]",".otherElements.staticTexts[\"Details Name\"]",".staticTexts[\"Details Name\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.firstMatch.exists)
         XCTAssert(app/*@START_MENU_TOKEN@*/.staticTexts["Details Description"]/*[[".otherElements",".staticTexts[\"Pi Vegan Pizzeria serves all plant-based pizza, as well as other dishes like macaroni and cheese. They also have beer on draft.\"]",".staticTexts[\"Details Description\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.firstMatch.exists)
         app/*@START_MENU_TOKEN@*/.buttons["BackButton"]/*[[".navigationBars",".buttons",".buttons[\"Restaurants\"]",".buttons[\"BackButton\"]"],[[[-1,3],[-1,2],[-1,0,1]],[[-1,3],[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.firstMatch.tap()
@@ -55,8 +54,8 @@ final class KMLPlacesUITests: XCTestCase {
 
         // Go to list and open a folder
         app/*@START_MENU_TOKEN@*/.buttons["List"]/*[[".buttons.containing(.image, identifier: \"list.bullet\")",".otherElements",".buttons[\"List\"]",".buttons[\"list.bullet\"]"],[[[-1,3],[-1,2],[-1,1,1],[-1,0]],[[-1,3],[-1,2]]],[1]]@END_MENU_TOKEN@*/.firstMatch.tap()
-        app/*@START_MENU_TOKEN@*/.buttons["Businesses"]/*[[".buttons.containing(.staticText, identifier: \"Businesses\")",".otherElements.buttons[\"Businesses\"]",".buttons[\"Businesses\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.firstMatch.tap()
-        app/*@START_MENU_TOKEN@*/.buttons["Restaurants"]/*[[".buttons",".containing(.staticText, identifier: \"Restaurants\")",".containing(.image, identifier: \"folder\")",".otherElements.buttons[\"Restaurants\"]",".buttons[\"Restaurants\"]"],[[[-1,4],[-1,3],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.firstMatch.tap()
+        app.buttons["Businesses Folder"].firstMatch.tap()
+        app.buttons["Restaurants Folder"].firstMatch.tap()
 
         // Go to map and assert that only this folder's contents are shown
         app.buttons["Map"].firstMatch.tap()
@@ -69,7 +68,6 @@ final class KMLPlacesUITests: XCTestCase {
 
         // Tap annotation and assert popover content is shown
         annotationButtons[1].tap()
-        XCTAssert(app.images.matching(identifier: "Map popover icon").firstMatch.exists)
         XCTAssert(app.staticTexts["Map popover title"].firstMatch.exists)
         XCTAssert(app/*@START_MENU_TOKEN@*/.staticTexts["Map popover description"]/*[[".scrollViews.staticTexts",".otherElements",".staticTexts[\"Pi Vegan Pizzeria serves all plant-based pizza, as well as other dishes like macaroni and cheese. They also have beer on draft.\"]",".staticTexts[\"Map popover description\"]"],[[[-1,3],[-1,2],[-1,1,1],[-1,0]],[[-1,3],[-1,2]]],[0]]@END_MENU_TOKEN@*/.firstMatch.exists)
 
