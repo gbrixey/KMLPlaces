@@ -117,6 +117,7 @@ extension MapView {
             }) {
                 MapPinImage(iconURL: model.iconURL)
             }
+            .accessibilityIdentifier("Map annotation view button")
             .matchedTransitionSource(id: "map-popover", in: namespace)
             .popover(isPresented: $showPopover, arrowEdge: .bottom) {
                 PopoverView(
@@ -148,6 +149,7 @@ extension MapView {
                         Text(description ?? "")
                             .lineLimit(nil)
                             .multilineTextAlignment(.leading)
+                            .accessibilityIdentifier("Map popover description")
                         Spacer(minLength: 40)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -159,9 +161,11 @@ extension MapView {
                         HStack {
                             if shouldShowIcon {
                                 MapPinImage(iconURL: iconURL)
+                                    .accessibilityIdentifier("Map popover icon")
                             }
                             Text(title ?? "")
                                 .font(.headline)
+                                .accessibilityIdentifier("Map popover title")
                         }
                     }
                 }

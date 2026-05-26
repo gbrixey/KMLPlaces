@@ -15,7 +15,9 @@ struct DetailsView: View {
                     mapView(mapData: mapData)
                 }
                 Text(viewModel.name).bold()
+                    .accessibilityIdentifier("Details Name")
                 Text(viewModel.kmlDescription)
+                    .accessibilityIdentifier("Details Description")
                 Spacer()
             }
             .padding(20)
@@ -64,6 +66,7 @@ struct DetailsView: View {
         }
         .frame(height: 200)
         .clipShape(RoundedRectangle(cornerRadius: 12))
+        .accessibilityIdentifier("Details Map")
     }
 }
 
