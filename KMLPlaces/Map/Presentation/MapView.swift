@@ -22,6 +22,7 @@ struct MapView: View {
                         ForEach(viewModel.polygonModels, id: \.id) { polygonModel in
                             mapPolygon(model: polygonModel)
                         }
+                        UserAnnotation()
                     }
                     .mapControls {
                         MapUserLocationButton()

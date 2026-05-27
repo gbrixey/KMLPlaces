@@ -6,11 +6,13 @@ class MapRepository {
 
     init(controller: PersistenceController) {
         self.controller = controller
+        self.locationManager = LocationManager()
     }
 
     // MARK: - Private
 
     private let controller: PersistenceController
+    private let locationManager: LocationManager
 }
 
 // MARK: - MapDataStore
@@ -28,5 +30,9 @@ extension MapRepository: MapDataStore {
             Logger.logError(error)
             return nil
         }
+    }
+
+    func requestLocationAuthorization() {
+        locationManager.requestLocationAuthorization()
     }
 }

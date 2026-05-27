@@ -2,6 +2,7 @@ import SwiftUI
 
 protocol MapDataStore {
     func fetchRootFolder() -> Folder?
+    func requestLocationAuthorization()
 }
 
 class MapModule {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E482A342FC7A3F4004388B6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E482A332FC7A3F2004388B6 /* LocationManager.swift */; };
 		7EC60BAB2F8DE60E006E1B68 /* Test.kml in Sources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
 		7EC60BAD2F8DEADC006E1B68 /* Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
 		7EE694FD2F9C16FA007E1A07 /* ListNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE694FC2F9C16F2007E1A07 /* ListNavigationViewModel.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E482A332FC7A3F2004388B6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7E68FA4F2FBBEE9D00A18756 /* KMLPlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMLPlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E68FA692FBBF0C500A18756 /* KMLPlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMLPlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC60BAA2F8DE601006E1B68 /* Test.kml */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Test.kml; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			children = (
 				E124ECBD26B7B22300E7EA55 /* Extensions */,
 				7EE695072F9C2611007E1A07 /* ListItem.swift */,
+				7E482A332FC7A3F2004388B6 /* LocationManager.swift */,
 				E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */,
 				E125A62926F54DE60078CBC0 /* StyleManager.swift */,
 			);
@@ -592,6 +595,7 @@
 				E124ECC426B8C16900E7EA55 /* DetailsView.swift in Sources */,
 				E124ECA626B7A34100E7EA55 /* SettingsModule.swift in Sources */,
 				E124EC8626B7868100E7EA55 /* SettingsViewModel.swift in Sources */,
+				7E482A342FC7A3F4004388B6 /* LocationManager.swift in Sources */,
 				7EE695082F9C2613007E1A07 /* ListItem.swift in Sources */,
 				E124ECBA26B7AE7600E7EA55 /* ListPreviews.swift in Sources */,
 				E124ECA926B7A45300E7EA55 /* SettingsRepository.swift in Sources */,

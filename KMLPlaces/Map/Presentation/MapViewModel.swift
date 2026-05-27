@@ -28,6 +28,7 @@ class MapViewModel: ObservableObject {
     }
 
     func viewDidAppear() {
+        dataStore.requestLocationAuthorization()
         let currentFolderInList = listPath.compactMap { $0.asFolder }.last ?? rootFolder
         if currentFolder != currentFolderInList {
             currentFolder = currentFolderInList
