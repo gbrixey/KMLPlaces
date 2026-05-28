@@ -9,15 +9,48 @@ struct ListNavigationView: View {
     var body: some View {
         NavigationStack(path: $viewModel.path) {
             if let rootFolder = viewModel.rootFolder {
-                ListModule.build(folder: rootFolder, path: $viewModel.path)
+                ListModule.build(mode: .folder(rootFolder), path: $viewModel.path)
                     .navigationDestination(for: ListItem.self) { listItem in
                         switch listItem {
                         case .folder(let folder):
-                            ListModule.build(folder: folder, path: $viewModel.path)
+                            ListModule.build(mode: .folder(folder), path: $viewModel.path)
+                        case .nearbyPlaces(let nearbyPlaces):
+                            ListModule.build(mode: .nearbyPlaces(nearbyPlaces), path: $viewModel.path)
                         case .place(let place):
                             DetailsModule.build(place: place)
                         }
                     }
+                    .toolbar {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button {
+                                viewModel.locationButtonTapped()
+                            } label: {
+                                if viewModel.isRequestingLocation {
+                                    ProgressView()
+                                        .accessibilityLabel(String(localized: .fetchingCurrentLocation))
+                                } else {
+                                    Image(systemName: "location")
+                                        .foregroundStyle(.blue)
+                                        .accessibilityLabel(String(localized: .placesNearCurrentLocation))
+                                }
+                            }
+                        }
+                    }
+                    .alert(
+                        String(localized: .cannotGetCurrentLocation),
+                        isPresented: $viewModel.shouldShowLocationPermissionDeniedAlert,
+                        actions: {
+                            Button {
+                                viewModel.goToSettings()
+                            } label: {
+                                Text(String(localized: .goToSettings))
+                            }
+                            Button(role: .cancel, action: { })
+                        },
+                        message: {
+                            Text(String(localized: .enableLocationPermissionInSettings))
+                        }
+                    )
             } else {
                 PlaceholderView()
             }

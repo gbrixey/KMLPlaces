@@ -4,10 +4,8 @@ class ListViewModel: ObservableObject {
 
     // MARK: - Public
 
-    let title: String
     var folders: [Folder] = []
     var places: [Placemark] = []
-    let searchPrompt: String
 
     @Published var searchText = "" {
         didSet {
@@ -15,15 +13,31 @@ class ListViewModel: ObservableObject {
         }
     }
 
-    init(folder: Folder, path: Binding<[ListItem]>) {
-        self.folder = folder
-        _path = path
-        title = folder.name ?? ""
-        if folder.isRootFolder || title.isEmpty {
-            searchPrompt = "Search"
-        } else {
-            searchPrompt = "Search in \(title)"
+    var title: String {
+        switch mode {
+        case .folder(let folder):
+            return folder.name ?? ""
+        case .nearbyPlaces:
+            return "Nearby Places"
         }
+    }
+
+    var searchPrompt: String {
+        switch mode {
+        case .folder(let folder):
+            if folder.isRootFolder || folder.name.isNilOrEmpty {
+                return "Search"
+            } else {
+                return "Search in \(title)"
+            }
+        case .nearbyPlaces:
+            return "Search"
+        }
+    }
+
+    init(mode: ListMode, path: Binding<[ListItem]>) {
+        self.mode = mode
+        _path = path
         updateFoldersAndPlaces()
     }
 
@@ -53,14 +67,69 @@ class ListViewModel: ObservableObject {
         }
     }
 
+    func distanceString(for place: Placemark) -> String? {
+        guard let distance = distanceDictionary[place.objectID] else { return nil }
+        return measurementFormatter.string(from: Measurement(value: distance, unit: UnitLength.meters))
+    }
+
     // MARK: - Private
 
     @Binding private var path: [ListItem]
-    private let folder: Folder
-    private lazy var sortedFolders: [Folder] = { folder.subfoldersArray.sortedByName }()
-    private lazy var sortedPlaces: [Placemark] = { folder.placesArray.sortedByName }()
-    private lazy var flattenedSubfolders: [Folder] = { folder.flattenedSubfoldersArray.sortedByName }()
-    private lazy var flattenedPlaces: [Placemark] = { folder.flattenedPlacesArray.sortedByName }()
+    private let mode: ListMode
+
+    private lazy var measurementFormatter: MeasurementFormatter = {
+        let formatter = MeasurementFormatter()
+        formatter.unitStyle = .long
+        formatter.unitOptions = .naturalScale
+        formatter.numberFormatter.usesSignificantDigits = true
+        formatter.numberFormatter.maximumSignificantDigits = 2
+        return formatter
+    }()
+
+    private lazy var sortedFolders: [Folder] = {
+        switch mode {
+        case .folder(let folder):
+            return folder.subfoldersArray.sortedByName
+        case .nearbyPlaces:
+            return []
+        }
+    }()
+
+    private lazy var sortedPlaces: [Placemark] = {
+        switch mode {
+        case .folder(let folder):
+            return folder.placesArray.sortedByName
+        case .nearbyPlaces(let placesWithDistance):
+            return placesWithDistance.map { $0.placemark }
+        }
+    }()
+
+    private lazy var flattenedSubfolders: [Folder] = {
+        switch mode {
+        case .folder(let folder):
+            return folder.flattenedSubfoldersArray.sortedByName
+        case .nearbyPlaces:
+            return []
+        }
+    }()
+
+    private lazy var flattenedPlaces: [Placemark] = {
+        switch mode {
+        case .folder(let folder):
+            return folder.flattenedPlacesArray.sortedByName
+        case .nearbyPlaces(let placesWithDistance):
+            return placesWithDistance.map { $0.placemark }
+        }
+    }()
+
+    private lazy var distanceDictionary: [AnyHashable: Double] = {
+        guard case let .nearbyPlaces(placesWithDistance) = mode else {
+            return [:]
+        }
+        var dict: [AnyHashable: Double] = [:]
+        placesWithDistance.forEach { dict[$0.placemark.objectID] = $0.distance }
+        return dict
+    }()
 
     private func updateFoldersAndPlaces() {
         if searchText.isEmpty {

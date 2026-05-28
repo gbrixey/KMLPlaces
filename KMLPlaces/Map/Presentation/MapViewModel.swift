@@ -1,6 +1,7 @@
 import SwiftUI
 import MapKit
 import CoreData
+import CoreLocation
 
 class MapViewModel: ObservableObject {
 
@@ -28,7 +29,10 @@ class MapViewModel: ObservableObject {
     }
 
     func viewDidAppear() {
-        dataStore.requestLocationAuthorization()
+        if !didRequestLocationAuthorization {
+            locationManager.requestWhenInUseAuthorization()
+            didRequestLocationAuthorization = true
+        }
         let currentFolderInList = listPath.compactMap { $0.asFolder }.last ?? rootFolder
         if currentFolder != currentFolderInList {
             currentFolder = currentFolderInList
@@ -72,9 +76,11 @@ class MapViewModel: ObservableObject {
 
     @Binding var listPath: [ListItem]
     private let dataStore: MapDataStore
+    private let locationManager = CLLocationManager()
     private var rootFolder: Folder?
     private var currentFolder: Folder?
     private var places: [Placemark] = []
+    private var didRequestLocationAuthorization = false
 
     private func refreshMapItems() {
         title = currentFolder?.name ?? ""

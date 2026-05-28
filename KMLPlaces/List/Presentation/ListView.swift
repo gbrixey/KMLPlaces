@@ -20,9 +20,12 @@ struct ListView: View {
                 Button {
                     viewModel.placemarkTapped(place)
                 } label: {
-                    PlaceView(name: place.name ?? String(localized: .untitledPlace),
-                              styleURL: viewModel.styleURL(for: place),
-                              defaultIconName: viewModel.defaultIconName(for: place))
+                    PlaceView(
+                        name: place.name ?? String(localized: .untitledPlace),
+                        distance: viewModel.distanceString(for: place),
+                        styleURL: viewModel.styleURL(for: place),
+                        defaultIconName: viewModel.defaultIconName(for: place)
+                    )
                 }
             }
             if viewModel.folders.isEmpty && viewModel.places.isEmpty && !viewModel.searchText.isEmpty {
@@ -65,6 +68,7 @@ extension ListView {
 
     struct PlaceView: View {
         let name: String
+        let distance: String?
         let styleURL: String?
         let defaultIconName: String
 
@@ -78,9 +82,14 @@ extension ListView {
                 Text(name)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                if let distance = distance {
+                    // TODO: Check truncation behavior if the place name is long
+                    Text(distance)
+                        .foregroundColor(.primary)
+                }
             }
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel(name)
+            .accessibilityLabel([name, distance].withoutNils().commaSeparated)
         }
     }
 }

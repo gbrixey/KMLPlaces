@@ -26,3 +26,24 @@ extension Collection {
         return false
     }
 }
+
+extension Optional where Wrapped: Collection {
+
+    var isNilOrEmpty: Bool {
+        self?.isEmpty ?? true
+    }
+}
+
+extension Array {
+
+    func withoutNils<T>() -> [T] where Element == T? {
+        compactMap { $0 }
+    }
+}
+
+extension Array where Element == String {
+
+    var commaSeparated: String {
+        joined(separator: ", ")
+    }
+}
