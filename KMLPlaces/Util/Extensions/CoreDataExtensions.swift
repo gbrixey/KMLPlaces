@@ -59,7 +59,9 @@ extension Array where Element == Folder {
 
     var sortedByName: [Element] {
         sorted { folder1, folder2 in
-            folder1.name ?? "" < folder2.name ?? ""
+            let name1 = folder1.name ?? ""
+            let name2 = folder2.name ?? ""
+            return name1.compare(name2, options: [.numeric, .caseInsensitive]) == .orderedAscending
         }
     }
 }
@@ -68,7 +70,9 @@ extension Array where Element == Placemark {
 
     var sortedByName: [Element] {
         sorted { place1, place2 in
-            place1.name ?? "" < place2.name ?? ""
+            let name1 = place1.name ?? ""
+            let name2 = place2.name ?? ""
+            return name1.compare(name2, options: [.numeric, .caseInsensitive]) == .orderedAscending
         }
     }
 }
