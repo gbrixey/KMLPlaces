@@ -51,14 +51,16 @@ struct MapView: View {
                     }
                 }
             }
-            Text(viewModel.title)
-                .font(.title)
-                .fontWeight(.bold)
-                .lineLimit(1)
-                .accessibilityAddTraits(.isHeader)
-                .padding(horizontal: 20, vertical: 8)
-                .glassEffect()
-                .padding(EdgeInsets(top: 12, leading: 16, bottom: 0, trailing: 80))
+            if !viewModel.title.isEmpty {
+                Text(viewModel.title)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .lineLimit(1)
+                    .accessibilityAddTraits(.isHeader)
+                    .padding(horizontal: 20, vertical: 8)
+                    .glassEffect()
+                    .padding(EdgeInsets(top: 12, leading: 16, bottom: 0, trailing: 80))
+            }
         }
         .onAppear {
             viewModel.viewDidAppear()
