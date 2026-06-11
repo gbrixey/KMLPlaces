@@ -46,12 +46,22 @@ class MapViewModel: ObservableObject {
             let mapKitPolyline = MKPolyline(coordinates: polyline.coordinates,
                                             count: polyline.coordinates.count)
             guard currentCameraRect.intersects(mapKitPolyline.boundingMapRect) else { continue }
-            // TODO: Determine distance from the point to the polyline and present popover if it's below a certain threshold
+            // TODO: This threshold is kind of arbitrary and may need to be adjusted.
+            let threshold = min(currentCameraRect.size.width, currentCameraRect.size.height) / 20
+            if mapKitPolyline.mapDistance(to: tapPoint, isLessThanThreshold: threshold) {
+                popoverData = PopoverData(
+                    id: polyline.id,
+                    point: unitPoint,
+                    title: polyline.title,
+                    description: polyline.description
+                )
+            }
         }
         for polygon in polygonModels {
             let mapKitPolygon = MKPolygon(coordinates: polygon.coordinates,
                                           count: polygon.coordinates.count)
-            guard currentCameraRect.intersects(mapKitPolygon.boundingMapRect) else { continue }
+            let polygonEnclosingRegion = MKCoordinateRegion(enclosingCoordinates: polygon.coordinates)
+            guard polygonEnclosingRegion.contains(tapPoint.coordinate) else { continue }
             if mapKitPolygon.contains(tapPoint) {
                 popoverData = PopoverData(
                     id: polygon.id,
@@ -134,18 +144,8 @@ class MapViewModel: ObservableObject {
     private func setEnclosingRegion() {
         guard !places.isEmpty else { return }
         let allCoordinates = places.flatMap { $0.allCoordinates }
-        let allLatitudes = allCoordinates.map { $0.latitude }
-        let allLongitudes = allCoordinates.map { $0.longitude }
-        let minLatitude = allLatitudes.min()!
-        let maxLatitude = allLatitudes.max()!
-        let minLongitude = allLongitudes.min()!
-        let maxLongitude = allLongitudes.max()!
-        let center = CLLocationCoordinate2D(latitude: (minLatitude + maxLatitude) / 2,
-                                            longitude: (minLongitude + maxLongitude) / 2)
-        let paddingMultiplier = 1.2
-        let span = MKCoordinateSpan(latitudeDelta: (maxLatitude - minLatitude) * paddingMultiplier,
-                                    longitudeDelta: (maxLongitude - minLongitude) * paddingMultiplier)
-        cameraPosition = .region(MKCoordinateRegion(center: center, span: span))
+        let region = MKCoordinateRegion(enclosingCoordinates: allCoordinates)
+        cameraPosition = .region(region)
     }
 }
 

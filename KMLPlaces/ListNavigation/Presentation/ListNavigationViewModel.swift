@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreLocation
+import MapKit
 
 class ListNavigationViewModel: NSObject, ObservableObject {
 
@@ -55,12 +56,24 @@ class ListNavigationViewModel: NSObject, ObservableObject {
     private let dataStore: ListNavigationDataStore
     private let locationManager: CLLocationManager
 
-    /// - todo: Calculate distance to polygons and polylines
     private func filterPlacesByDistance(to userCoordinate: CLLocationCoordinate2D) {
         guard let places = rootFolder?.flattenedPlaces else { return }
+        let userPoint = MKMapPoint(userCoordinate)
         let placesWithDistance = places.compactMap { place -> PlacemarkWithDistance? in
-            guard let placeCoordinate = place.point?.coordinate else { return nil }
-            let distance = placeCoordinate.distance(from: userCoordinate)
+            let distance: Double
+            if let polygon = place.polygon {
+                let mapKitPolygon = MKPolygon(coordinates: polygon.coordinates,
+                                              count: polygon.coordinates.count)
+                distance = mapKitPolygon.distance(to: userPoint)
+            } else if let lineString = place.lineString {
+                let mapKitPolyline = MKPolyline(coordinates: lineString.coordinates,
+                                                count: lineString.coordinates.count)
+                distance = mapKitPolyline.distance(to: userPoint)
+            } else if let point = place.point {
+                distance = point.coordinate.distance(from: userCoordinate)
+            } else {
+                return nil
+            }
             return PlacemarkWithDistance(placemark: place, distance: distance)
         }
             .sorted { $0.distance < $1.distance }
