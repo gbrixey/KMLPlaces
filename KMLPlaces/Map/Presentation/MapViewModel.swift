@@ -47,7 +47,7 @@ class MapViewModel: ObservableObject {
                                             count: polyline.coordinates.count)
             guard currentCameraRect.intersects(mapKitPolyline.boundingMapRect) else { continue }
             // TODO: This threshold is kind of arbitrary and may need to be adjusted.
-            let threshold = min(currentCameraRect.size.width, currentCameraRect.size.height) / 20
+            let threshold = min(currentCameraRect.size.width, currentCameraRect.size.height) / 25
             if mapKitPolyline.mapDistance(to: tapPoint, isLessThanThreshold: threshold) {
                 popoverData = PopoverData(
                     id: polyline.id,

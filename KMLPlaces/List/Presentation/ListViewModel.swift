@@ -68,8 +68,14 @@ class ListViewModel: ObservableObject {
     }
 
     func distanceString(for place: Placemark) -> String? {
-        guard let distance = distanceDictionary[place.id] else { return nil }
-        return measurementFormatter.string(from: Measurement(value: distance, unit: UnitLength.meters))
+        guard var distance = distanceDictionary[place.id] else { return nil }
+        var unit = UnitLength.meters
+        if round(distance) >= 995 {
+            distance /= 1000
+            unit = .kilometers
+        }
+        let measurement = Measurement(value: distance, unit: unit)
+        return measurement.formatted(distanceFormatStyle)
     }
 
     // MARK: - Private
@@ -77,13 +83,9 @@ class ListViewModel: ObservableObject {
     @Binding private var path: [ListItem]
     private let mode: ListMode
 
-    private lazy var measurementFormatter: MeasurementFormatter = {
-        let formatter = MeasurementFormatter()
-        formatter.unitStyle = .long
-        formatter.unitOptions = .naturalScale
-        formatter.numberFormatter.usesSignificantDigits = true
-        formatter.numberFormatter.maximumSignificantDigits = 2
-        return formatter
+    private lazy var distanceFormatStyle: Measurement<UnitLength>.FormatStyle = {
+        let numberFormatStyle = FloatingPointFormatStyle<Double>().precision(.significantDigits(1...2))
+        return .init(width: .abbreviated, usage: .asProvided, numberFormatStyle: numberFormatStyle)
     }()
 
     private lazy var sortedFolders: [Folder] = {
