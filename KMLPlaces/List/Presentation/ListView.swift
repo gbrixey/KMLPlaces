@@ -80,10 +80,10 @@ extension ListView {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
                 Text(name)
+                    .lineLimit(2)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 if let distance = distance {
-                    // TODO: Check truncation behavior if the place name is long
                     Text(distance)
                         .foregroundColor(.primary)
                 }
