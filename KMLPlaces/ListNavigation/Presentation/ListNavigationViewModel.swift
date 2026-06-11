@@ -57,7 +57,7 @@ class ListNavigationViewModel: NSObject, ObservableObject {
 
     /// - todo: Calculate distance to polygons and polylines
     private func filterPlacesByDistance(to userCoordinate: CLLocationCoordinate2D) {
-        guard let places = rootFolder?.flattenedPlacesArray else { return }
+        guard let places = rootFolder?.flattenedPlaces else { return }
         let placesWithDistance = places.compactMap { place -> PlacemarkWithDistance? in
             guard let placeCoordinate = place.point?.coordinate else { return nil }
             let distance = placeCoordinate.distance(from: userCoordinate)

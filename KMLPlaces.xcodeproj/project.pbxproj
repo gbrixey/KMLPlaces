@@ -24,7 +24,6 @@
 		7EE695102F9C26CF007E1A07 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */; };
 		7EE695152FA40B06007E1A07 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */; };
 		7EE695292FAABDB8007E1A07 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7EE695272FAABDB8007E1A07 /* Localizable.xcstrings */; };
-		E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */; };
 		E124EC5426B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */; };
 		E124EC5826B60F9300E7EA55 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124EC2A26B60F9200E7EA55 /* Persistence.swift */; };
 		E124EC5A26B60F9300E7EA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E124EC2B26B60F9300E7EA55 /* Assets.xcassets */; };
@@ -42,14 +41,12 @@
 		E124ECAD26B7A4E400E7EA55 /* SettingsPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECAC26B7A4E400E7EA55 /* SettingsPreviews.swift */; };
 		E124ECB126B7A6C700E7EA55 /* ListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB026B7A6C700E7EA55 /* ListModule.swift */; };
 		E124ECB426B7A75500E7EA55 /* ListNavigationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB326B7A75500E7EA55 /* ListNavigationRepository.swift */; };
-		E124ECB726B7ADD000E7EA55 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB626B7ADD000E7EA55 /* CoreDataExtensions.swift */; };
 		E124ECBA26B7AE7600E7EA55 /* ListPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */; };
 		E124ECC026B7B24B00E7EA55 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */; };
 		E124ECC426B8C16900E7EA55 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECC326B8C16900E7EA55 /* DetailsView.swift */; };
 		E124ECCB26B8C49E00E7EA55 /* DetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */; };
 		E124ECCF26B8C7EA00E7EA55 /* ListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */; };
 		E125A62A26F54DE60078CBC0 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62926F54DE60078CBC0 /* StyleManager.swift */; };
-		E125A62D26F550550078CBC0 /* KMLPlacesAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */; };
 		E12999C826F12DEE009DC840 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999C726F12DEE009DC840 /* MapModule.swift */; };
 		E12999CC26F12E8D009DC840 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CB26F12E8D009DC840 /* MapView.swift */; };
 		E12999CF26F12F44009DC840 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12999CE26F12F44009DC840 /* MapViewModel.swift */; };
@@ -90,7 +87,6 @@
 		7E68FA4F2FBBEE9D00A18756 /* KMLPlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMLPlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E68FA692FBBF0C500A18756 /* KMLPlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMLPlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC60BAA2F8DE601006E1B68 /* Test.kml */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Test.kml; sourceTree = "<group>"; };
-		7EE694F72F9447DA007E1A07 /* Shared5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared5.xcdatamodel; sourceTree = "<group>"; };
 		7EE694FC2F9C16F2007E1A07 /* ListNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationViewModel.swift; sourceTree = "<group>"; };
 		7EE695012F9C17AA007E1A07 /* ListNavigationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationModule.swift; sourceTree = "<group>"; };
 		7EE695042F9C1AD0007E1A07 /* ListNavigationPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationPreviews.swift; sourceTree = "<group>"; };
@@ -98,9 +94,7 @@
 		7EE6950B2F9C26B1007E1A07 /* RootModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModule.swift; sourceTree = "<group>"; };
 		7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
-		7EE6951D2FA8361B007E1A07 /* Shared6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared6.xcdatamodel; sourceTree = "<group>"; };
 		7EE695272FAABDB8007E1A07 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesApp.swift; sourceTree = "<group>"; };
 		E124EC2A26B60F9200E7EA55 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E124EC2B26B60F9300E7EA55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,22 +108,17 @@
 		E124EC8826B7871200E7EA55 /* SettingsDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDocumentPicker.swift; sourceTree = "<group>"; };
 		E124EC9726B78D4A00E7EA55 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E124EC9B26B790E100E7EA55 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
-		E124ECA126B79BCD00E7EA55 /* Shared2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared2.xcdatamodel; sourceTree = "<group>"; };
 		E124ECA526B7A34100E7EA55 /* SettingsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
 		E124ECA826B7A45300E7EA55 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		E124ECAC26B7A4E400E7EA55 /* SettingsPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreviews.swift; sourceTree = "<group>"; };
 		E124ECB026B7A6C700E7EA55 /* ListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModule.swift; sourceTree = "<group>"; };
 		E124ECB326B7A75500E7EA55 /* ListNavigationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationRepository.swift; sourceTree = "<group>"; };
-		E124ECB626B7ADD000E7EA55 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		E124ECB926B7AE7600E7EA55 /* ListPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPreviews.swift; sourceTree = "<group>"; };
-		E124ECBC26B7B15900E7EA55 /* Shared3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared3.xcdatamodel; sourceTree = "<group>"; };
 		E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		E124ECC326B8C16900E7EA55 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		E124ECCA26B8C49E00E7EA55 /* DetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModule.swift; sourceTree = "<group>"; };
 		E124ECCE26B8C7EA00E7EA55 /* ListNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationView.swift; sourceTree = "<group>"; };
-		E125A62826F540240078CBC0 /* Shared4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared4.xcdatamodel; sourceTree = "<group>"; };
 		E125A62926F54DE60078CBC0 /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
-		E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLPlacesAppDelegate.swift; sourceTree = "<group>"; };
 		E12999C726F12DEE009DC840 /* MapModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModule.swift; sourceTree = "<group>"; };
 		E12999CB26F12E8D009DC840 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E12999CE26F12F44009DC840 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -259,10 +248,8 @@
 			children = (
 				7E0117972FDA116600698CE9 /* Models */,
 				E124EC2826B60F9200E7EA55 /* KMLPlacesApp.swift */,
-				E125A62C26F550550078CBC0 /* KMLPlacesAppDelegate.swift */,
 				E124EC2A26B60F9200E7EA55 /* Persistence.swift */,
 				E124EC9726B78D4A00E7EA55 /* Logger.swift */,
-				E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -347,7 +334,6 @@
 		E124ECBD26B7B22300E7EA55 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E124ECB626B7ADD000E7EA55 /* CoreDataExtensions.swift */,
 				E19D30B126D8783A00AC3B95 /* CoreLocationExtensions.swift */,
 				E124EC9B26B790E100E7EA55 /* FoundationExtensions.swift */,
 				7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */,
@@ -587,8 +573,6 @@
 				E124EC5426B60F9300E7EA55 /* KMLPlacesApp.swift in Sources */,
 				E124EC5826B60F9300E7EA55 /* Persistence.swift in Sources */,
 				E124EC7B26B6113E00E7EA55 /* ListViewModel.swift in Sources */,
-				E124ECB726B7ADD000E7EA55 /* CoreDataExtensions.swift in Sources */,
-				E125A62D26F550550078CBC0 /* KMLPlacesAppDelegate.swift in Sources */,
 				E12999D226F130CC009DC840 /* MapPreviews.swift in Sources */,
 				E125A62A26F54DE60078CBC0 /* StyleManager.swift in Sources */,
 				7E0117982FDA116600698CE9 /* LineString.swift in Sources */,
@@ -614,7 +598,6 @@
 				E124EC8926B7871200E7EA55 /* SettingsDocumentPicker.swift in Sources */,
 				E12999CC26F12E8D009DC840 /* MapView.swift in Sources */,
 				E19D30AF26D8764200AC3B95 /* DetailsViewModel.swift in Sources */,
-				E124EC5226B60F9300E7EA55 /* KMLPlaces.xcdatamodeld in Sources */,
 				E124EC7526B6112F00E7EA55 /* RootView.swift in Sources */,
 				7EE695152FA40B06007E1A07 /* MapKitExtensions.swift in Sources */,
 				7EE695062F9C1AD3007E1A07 /* ListNavigationPreviews.swift in Sources */,
@@ -1013,24 +996,6 @@
 			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		E124EC2626B60F9200E7EA55 /* KMLPlaces.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7EE6951D2FA8361B007E1A07 /* Shared6.xcdatamodel */,
-				7EE694F72F9447DA007E1A07 /* Shared5.xcdatamodel */,
-				E125A62826F540240078CBC0 /* Shared4.xcdatamodel */,
-				E124ECBC26B7B15900E7EA55 /* Shared3.xcdatamodel */,
-				E124ECA126B79BCD00E7EA55 /* Shared2.xcdatamodel */,
-				E124EC2726B60F9200E7EA55 /* Shared.xcdatamodel */,
-			);
-			currentVersion = 7EE6951D2FA8361B007E1A07 /* Shared6.xcdatamodel */;
-			path = KMLPlaces.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E124EC2126B60F9200E7EA55 /* Project object */;
 }

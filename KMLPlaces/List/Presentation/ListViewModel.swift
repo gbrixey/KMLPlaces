@@ -16,7 +16,7 @@ class ListViewModel: ObservableObject {
     var title: String {
         switch mode {
         case .folder(let folder):
-            return folder.name ?? ""
+            return folder.name
         case .nearbyPlaces:
             return "Nearby Places"
         }
@@ -25,7 +25,7 @@ class ListViewModel: ObservableObject {
     var searchPrompt: String {
         switch mode {
         case .folder(let folder):
-            if folder.isRootFolder || folder.name.isNilOrEmpty {
+            if folder.isRootFolder || folder.name.isEmpty {
                 return "Search"
             } else {
                 return "Search in \(title)"
@@ -52,7 +52,7 @@ class ListViewModel: ObservableObject {
     /// Style URL to use for the given place. For certain placemarks we don't want to use the style URL.
     func styleURL(for place: Placemark) -> String? {
         guard case .point = place.type else { return nil }
-        return place.styleUrl
+        return place.styleURL
     }
 
     /// System name of the image to use as a backup icon if we are not using the style icon for the given placemark.
@@ -68,7 +68,7 @@ class ListViewModel: ObservableObject {
     }
 
     func distanceString(for place: Placemark) -> String? {
-        guard let distance = distanceDictionary[place.objectID] else { return nil }
+        guard let distance = distanceDictionary[place.id] else { return nil }
         return measurementFormatter.string(from: Measurement(value: distance, unit: UnitLength.meters))
     }
 
@@ -89,7 +89,7 @@ class ListViewModel: ObservableObject {
     private lazy var sortedFolders: [Folder] = {
         switch mode {
         case .folder(let folder):
-            return folder.subfoldersArray.sortedByName
+            return folder.subfolders.sortedByName
         case .nearbyPlaces:
             return []
         }
@@ -98,7 +98,7 @@ class ListViewModel: ObservableObject {
     private lazy var sortedPlaces: [Placemark] = {
         switch mode {
         case .folder(let folder):
-            return folder.placesArray.sortedByName
+            return folder.places.sortedByName
         case .nearbyPlaces(let placesWithDistance):
             return placesWithDistance.map { $0.placemark }
         }
@@ -107,7 +107,7 @@ class ListViewModel: ObservableObject {
     private lazy var flattenedSubfolders: [Folder] = {
         switch mode {
         case .folder(let folder):
-            return folder.flattenedSubfoldersArray.sortedByName
+            return folder.flattenedSubfolders.sortedByName
         case .nearbyPlaces:
             return []
         }
@@ -116,7 +116,7 @@ class ListViewModel: ObservableObject {
     private lazy var flattenedPlaces: [Placemark] = {
         switch mode {
         case .folder(let folder):
-            return folder.flattenedPlacesArray.sortedByName
+            return folder.flattenedPlaces.sortedByName
         case .nearbyPlaces(let placesWithDistance):
             return placesWithDistance.map { $0.placemark }
         }
@@ -127,7 +127,7 @@ class ListViewModel: ObservableObject {
             return [:]
         }
         var dict: [AnyHashable: Double] = [:]
-        placesWithDistance.forEach { dict[$0.placemark.objectID] = $0.distance }
+        placesWithDistance.forEach { dict[$0.placemark.id] = $0.distance }
         return dict
     }()
 
@@ -141,7 +141,7 @@ class ListViewModel: ObservableObject {
         var subfoldersStartingWithSearchText: [Folder] = []
         var subfoldersContainingSearchText: [Folder] = []
         flattenedSubfolders.forEach { folder in
-            guard let name = folder.name?.lowercased().nilIfEmpty else { return }
+            guard let name = folder.name.lowercased().nilIfEmpty else { return }
             if name.hasPrefix(lowercaseSearchText) {
                 subfoldersStartingWithSearchText.append(folder)
             } else if name.contains(lowercaseSearchText) {
@@ -152,7 +152,7 @@ class ListViewModel: ObservableObject {
         var placesStartingWithSearchText: [Placemark] = []
         var placesContainingSearchText: [Placemark] = []
         flattenedPlaces.forEach { place in
-            guard let name = place.name?.lowercased().nilIfEmpty else { return }
+            guard let name = place.name.lowercased().nilIfEmpty else { return }
             if name.hasPrefix(lowercaseSearchText) {
                 placesStartingWithSearchText.append(place)
             } else if name.contains(lowercaseSearchText) {

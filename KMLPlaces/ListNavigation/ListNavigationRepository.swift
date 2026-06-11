@@ -1,4 +1,5 @@
-import CoreData
+import Foundation
+import SwiftData
 
 class ListNavigationRepository {
 
@@ -18,12 +19,11 @@ class ListNavigationRepository {
 extension ListNavigationRepository: ListNavigationDataStore {
 
     func fetchRootFolder() -> Folder? {
-        let fetchRequest: NSFetchRequest<Folder> = Folder.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "parentFolder = nil")
+        let predicate = #Predicate<Folder> { $0.parentFolder == nil }
+        let fetchDescriptor = FetchDescriptor(predicate: predicate)
         do {
-            let context = controller.context
-            let fetchResults = try context.fetch(fetchRequest)
-            return fetchResults.first
+            let rootFolder = try controller.modelContext.fetch(fetchDescriptor).first
+            return rootFolder
         } catch {
             Logger.logError(error)
             return nil

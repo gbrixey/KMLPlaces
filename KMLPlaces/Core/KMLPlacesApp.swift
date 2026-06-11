@@ -1,13 +1,18 @@
 import SwiftUI
+import SwiftData
 
 @main
 struct KMLPlacesApp: App {
-    @UIApplicationDelegateAdaptor(KMLPlacesAppDelegate.self) var appDelegate
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             RootModule.build()
         }
+        .modelContainer(persistenceController.modelContainer)
+    }
+
+    init() {
+        StyleManager.shared.loadStyles()
     }
 }

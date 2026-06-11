@@ -11,8 +11,8 @@ class DetailsViewModel: ObservableObject {
     @Published var mapData: MapData?
 
     init(place: Placemark) {
-        name = place.name ?? String(localized: .untitledPlace)
-        kmlDescription = place.kmlDescription ?? String(localized: .noDescription)
+        name = place.name.nilIfEmpty ?? String(localized: .untitledPlace)
+        kmlDescription = place.kmlDescription.nilIfEmpty ?? String(localized: .noDescription)
         mapData = Self.mapData(for: place)
     }
 
@@ -24,7 +24,7 @@ class DetailsViewModel: ObservableObject {
     }
 
     private static func mapType(for place: Placemark) -> MapType? {
-        let style = StyleManager.shared.style(url: place.styleUrl)
+        let style = StyleManager.shared.style(url: place.styleURL)
         if let coordinate = place.point?.coordinate {
             let annotation = Annotation(
                 coordinate: coordinate,

@@ -1,6 +1,7 @@
+import Foundation
 import UIKit
 import SwiftUI
-import CoreData
+import SwiftData
 import SDWebImage
 
 /// Class that is responsible for storing style information from the KML in memory for quick access.
@@ -59,20 +60,20 @@ class StyleManager {
         styles = [:]
         styleMaps = [:]
         SDWebImagePrefetcher.shared.cancelPrefetching()
-        let styleFetchRequest: NSFetchRequest<KMLPlaces.Style> = KMLPlaces.Style.fetchRequest()
-        let styleMapFetchRequest: NSFetchRequest<KMLPlaces.StyleMap> = KMLPlaces.StyleMap.fetchRequest()
+        let styleFetchDescriptor = FetchDescriptor<KMLPlaces.Style>()
+        let styleMapFetchDescriptor = FetchDescriptor<KMLPlaces.StyleMap>()
         do {
-            let context = PersistenceController.shared.context
-            let styleFetchResults = try context.fetch(styleFetchRequest)
-            let styleMapFetchResults = try context.fetch(styleMapFetchRequest)
+            let modelContext = PersistenceController.shared.modelContext
+            let styleFetchResults = try modelContext.fetch(styleFetchDescriptor)
+            let styleMapFetchResults = try modelContext.fetch(styleMapFetchDescriptor)
             styleFetchResults.forEach { styleObject in
-                guard let id = styleObject.id, let style = styleObject.style else { return }
-                styles[id] = style
+                guard let style = styleObject.style else { return }
+                styles[styleObject.id] = style
             }
             prefetchIcons()
             styleMapFetchResults.forEach { styleMapObject in
-                guard let id = styleMapObject.id, let styleMap = styleMapObject.styleMap else { return }
-                styleMaps[id] = styleMap
+                guard let styleMap = styleMapObject.styleMap else { return }
+                styleMaps[styleMapObject.id] = styleMap
             }
         } catch {
             Logger.logError(error)
@@ -128,8 +129,7 @@ private extension Style {
 
     var style: StyleManager.Style? {
         // This guard statement shouldn't fail since `KMLParser` also makes these checks before creating a Style object.
-        guard let icon = icon,
-              let iconURL = URL(string: icon),
+        guard let iconURL = URL(string: icon),
               let hotspotXUnitsString = hotspotXUnits,
               let hotspotXUnits = HotspotUnits(rawValue: hotspotXUnitsString),
               let hotspotYUnitsString = hotspotYUnits,

@@ -1,5 +1,5 @@
 import Foundation
-import CoreData
+import SwiftData
 import CoreLocation
 import SWXMLHash
 
@@ -13,23 +13,19 @@ class SettingsRepository {
         .shared
     }
 
-    private var context: NSManagedObjectContext {
-        controller.context
+    private var modelContext: ModelContext {
+        controller.modelContext
     }
 
     /// Delete everything in Core Data
     private func deleteAllData() throws {
-        let fetchRequests: [NSFetchRequest<NSFetchRequestResult>] = [
-            Folder.fetchRequest(),
-            LinearRing.fetchRequest(),
-            LineString.fetchRequest(),
-            Placemark.fetchRequest(),
-            Point.fetchRequest(),
-            Polygon.fetchRequest()
-        ]
-        for request in fetchRequests {
-            try context.execute(NSBatchDeleteRequest(fetchRequest: request))
-        }
+        try modelContext.delete(model: Point.self)
+        try modelContext.delete(model: LineString.self)
+        try modelContext.delete(model: Polygon.self)
+        try modelContext.delete(model: Placemark.self)
+        try modelContext.delete(model: Folder.self)
+        try modelContext.delete(model: Style.self)
+        try modelContext.delete(model: StyleMap.self)
     }
 
     // MARK: - Private - Parsing methods
@@ -53,8 +49,8 @@ class SettingsRepository {
         let documentHasPlacemarks = children.contains(where: { $0.element?.name == KMLNames.placemark })
         let shouldCreateNewRootFolder = documentHasPlacemarks || documentHasMultipleFolders
         if shouldCreateNewRootFolder {
-            let folder = Folder(context: context)
-            folder.name = documentKML.documentName
+            let folder = Folder(name: documentKML.documentName)
+            modelContext.insert(folder)
             for child in documentKML.children {
                 guard let element = child.element else { continue }
                 switch element.name {
@@ -83,9 +79,8 @@ class SettingsRepository {
               let iconURL = URL(string: iconURLString) else {
             return
         }
-        let style = Style(context: context)
-        style.id = id
-        style.icon = iconURL.absoluteString
+        let style = Style(id: id, icon: iconURL.absoluteString)
+        modelContext.insert(style)
         if let scaleText = iconStyleKML.firstChildElement(withName: KMLNames.scale)?.text,
            let scale = Double(scaleText) {
             style.scale = scale
@@ -140,8 +135,8 @@ class SettingsRepository {
               !id.isEmpty else {
             return
         }
-        let styleMap = StyleMap(context: context)
-        styleMap.id = id
+        let styleMap = StyleMap(id: id)
+        modelContext.insert(styleMap)
         let pairs = styleMapKML.children.filter { $0.element?.name.lowercased() == KMLNames.pair.lowercased() }
         pairs.forEach { pair in
             guard let key = pair.firstChildElement(withName: KMLNames.key)?.text,
@@ -163,9 +158,11 @@ class SettingsRepository {
 
     /// Parse a `<Folder>` KML element
     private func parseFolder(_ folderKML: XMLIndexer, parentFolder: Folder? = nil) {
-        let folder = Folder(context: context)
-        folder.name = folderKML.nameText ?? String(localized: .untitledFolder)
-        folder.parentFolder = parentFolder
+        let folder = Folder(
+            name: folderKML.nameText ?? String(localized: .untitledFolder),
+            parentFolder: parentFolder
+        )
+        modelContext.insert(folder)
         for child in folderKML.children {
             guard let elementName = child.element?.name else { continue }
             switch elementName {
@@ -181,11 +178,13 @@ class SettingsRepository {
 
     /// Parse a `<Placemark>` KML element
     private func parsePlacemark(_ placemarkKML: XMLIndexer, folder: Folder) {
-        let placemark = Placemark(context: context)
-        placemark.name = placemarkKML.nameText ?? String(localized: .untitledPlace)
-        placemark.kmlDescription = placemarkKML.kmlDescription ?? String(localized: .noDescription)
-        placemark.styleUrl = placemarkKML.firstChildElement(withName: KMLNames.styleURL)?.text
-        placemark.folder = folder
+        let placemark = Placemark(
+            name: placemarkKML.nameText ?? String(localized: .untitledPlace),
+            kmlDescription: placemarkKML.kmlDescription ?? String(localized: .noDescription),
+            styleURL: placemarkKML.firstChildElement(withName: KMLNames.styleURL)?.text,
+            folder: folder
+        )
+        modelContext.insert(placemark)
         for child in placemarkKML.children {
             guard let elementName = child.element?.name else { continue }
             switch elementName {
@@ -205,10 +204,8 @@ class SettingsRepository {
     private func parsePoint(_ pointKML: XMLIndexer, placemark: Placemark) {
         guard let coordinatesText = pointKML.coordinatesText,
               let coordinate = parseCoordinates(coordinatesText).first else { return }
-        let point = Point(context: context)
-        point.latitude = coordinate.latitude
-        point.longitude = coordinate.longitude
-        point.placemark = placemark
+        let point = Point(latitude: coordinate.latitude, longitude: coordinate.longitude, placemark: placemark)
+        modelContext.insert(point)
     }
 
     /// Parse a `<LineString>` KML element
@@ -216,9 +213,8 @@ class SettingsRepository {
         guard let coordinatesText = lineStringKML.coordinatesText else { return }
         let coordinates = parseCoordinates(coordinatesText)
         guard coordinates.count >= 2 else { return }
-        let lineString = LineString(context: context)
-        lineString.points = NSOrderedSet(array: points(from: coordinates))
-        lineString.placemark = placemark
+        let lineString = LineString(placemark: placemark, points: points(from: coordinates))
+        modelContext.insert(lineString)
     }
 
     /// Parse a `<Polygon>` KML element
@@ -228,11 +224,8 @@ class SettingsRepository {
               let coordinatesText = linearRingKML.coordinatesText else { return }
         let coordinates = parseCoordinates(coordinatesText)
         guard coordinates.count >= 3 else { return }
-        let polygon = Polygon(context: context)
-        polygon.placemark = placemark
-        let linearRing = LinearRing(context: context)
-        linearRing.points = NSOrderedSet(array: points(from: coordinates))
-        linearRing.outerPolygon = polygon
+        let polygon = Polygon(placemark: placemark, points: points(from: coordinates))
+        modelContext.insert(polygon)
     }
 
     /// Parse text from a `<coordinates>` KML element into an array of coordinate structs
@@ -246,10 +239,9 @@ class SettingsRepository {
     }
 
     private func points(from coordinates: [CLLocationCoordinate2D]) -> [Point] {
-        coordinates.map { coordinate -> Point in
-            let point = Point(context: context)
-            point.latitude = coordinate.latitude
-            point.longitude = coordinate.longitude
+        coordinates.enumerated().map { (index, coordinate) -> Point in
+            let point = Point(index: index, latitude: coordinate.latitude, longitude: coordinate.longitude)
+            modelContext.insert(point)
             return point
         }
     }

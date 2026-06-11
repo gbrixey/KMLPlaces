@@ -1,6 +1,6 @@
 import SwiftUI
+import SwiftData
 import MapKit
-import CoreData
 import CoreLocation
 
 class MapViewModel: ObservableObject {
@@ -84,7 +84,7 @@ class MapViewModel: ObservableObject {
 
     private func refreshMapItems() {
         title = currentFolder?.name ?? ""
-        places = currentFolder?.flattenedPlacesArray ?? []
+        places = currentFolder?.flattenedPlaces ?? []
         updateAnnotationItems()
         setEnclosingRegion()
     }
@@ -95,10 +95,10 @@ class MapViewModel: ObservableObject {
         polylineModels.removeAll()
         polygonModels.removeAll()
         for place in places {
-            let style = StyleManager.shared.style(url: place.styleUrl)
+            let style = StyleManager.shared.style(url: place.styleURL)
             if let coordinate = place.point?.coordinate {
                 let annotation = Annotation(
-                    id: place.objectID,
+                    id: place.id,
                     coordinate: coordinate,
                     iconURL: style?.iconURL,
                     title: place.name,
@@ -107,7 +107,7 @@ class MapViewModel: ObservableObject {
                 annotationModels.append(annotation)
             } else if let lineString = place.lineString {
                 let polylineModel = Polyline(
-                    id: place.objectID,
+                    id: place.id,
                     coordinates: lineString.coordinates,
                     strokeColor: style?.strokeColor ?? StyleManager.defaultPolylineStrokeColor,
                     strokeWidth: style?.strokeWidth.nilIfZero ?? StyleManager.defaultPolylineStrokeWidth,
@@ -117,7 +117,7 @@ class MapViewModel: ObservableObject {
                 polylineModels.append(polylineModel)
             } else if let polygon = place.polygon {
                 let polygonModel = Polygon(
-                    id: place.objectID,
+                    id: place.id,
                     coordinates: polygon.coordinates,
                     strokeColor: style?.strokeColor ?? StyleManager.defaultPolygonStrokeColor,
                     strokeWidth: style?.strokeWidth.nilIfZero ?? StyleManager.defaultPolygonStrokeWidth,
@@ -154,7 +154,7 @@ class MapViewModel: ObservableObject {
 extension MapViewModel {
 
     struct Annotation: Identifiable {
-        let id: NSManagedObjectID
+        let id: PersistentIdentifier
         let coordinate: CLLocationCoordinate2D
         let iconURL: URL?
         let title: String?
@@ -162,7 +162,7 @@ extension MapViewModel {
     }
 
     struct Polyline: Identifiable {
-        let id: NSManagedObjectID
+        let id: PersistentIdentifier
         let coordinates: [CLLocationCoordinate2D]
         let strokeColor: Color
         let strokeWidth: CGFloat
@@ -171,7 +171,7 @@ extension MapViewModel {
     }
 
     struct Polygon: Identifiable {
-        let id: NSManagedObjectID
+        let id: PersistentIdentifier
         let coordinates: [CLLocationCoordinate2D]
         let strokeColor: Color
         let strokeWidth: CGFloat
@@ -181,7 +181,7 @@ extension MapViewModel {
     }
 
     struct PopoverData: Identifiable {
-        let id: NSManagedObjectID
+        let id: PersistentIdentifier
         let point: UnitPoint
         let title: String?
         let description: String?

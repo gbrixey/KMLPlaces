@@ -3,11 +3,12 @@ import CoreLocation
 
 @Model
 class LineString {
-    var placemark: Placemark
-    @Relationship(inverse: \Point.lineString) var points: [Point] = []
+    @Relationship(deleteRule: .cascade) var placemark: Placemark
+    @Relationship(deleteRule: .cascade, inverse: \Point.lineString) var points: [Point] = []
 
-    init(placemark: Placemark) {
+    init(placemark: Placemark, points: [Point]) {
         self.placemark = placemark
+        self.points = points
     }
 }
 
@@ -16,6 +17,6 @@ class LineString {
 extension LineString {
 
     var coordinates: [CLLocationCoordinate2D] {
-        points.map { $0.coordinate }
+        points.sorted(using: SortDescriptor(\Point.index)).map { $0.coordinate }
     }
 }

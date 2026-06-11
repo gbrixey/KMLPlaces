@@ -13,7 +13,7 @@ struct ListView: View {
                 Button {
                     viewModel.folderTapped(folder)
                 } label: {
-                    FolderView(name: folder.name ?? String(localized: .untitledFolder))
+                    FolderView(name: folder.name.nilIfEmpty ?? String(localized: .untitledFolder))
                 }
             }
             ForEach(viewModel.places, id: \.id) { place in
@@ -21,7 +21,7 @@ struct ListView: View {
                     viewModel.placemarkTapped(place)
                 } label: {
                     PlaceView(
-                        name: place.name ?? String(localized: .untitledPlace),
+                        name: place.name.nilIfEmpty ?? String(localized: .untitledPlace),
                         distance: viewModel.distanceString(for: place),
                         styleURL: viewModel.styleURL(for: place),
                         defaultIconName: viewModel.defaultIconName(for: place)

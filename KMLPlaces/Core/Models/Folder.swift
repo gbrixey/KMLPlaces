@@ -4,9 +4,9 @@ import SwiftData
 class Folder {
     var name: String
 
-    @Relationship var parentFolder: Folder?
-    @Relationship(inverse: \Folder.parentFolder) var subfolders: [Folder] = []
-    @Relationship(inverse: \Placemark.folder) var places: [Placemark] = []
+    @Relationship(deleteRule: .cascade) var parentFolder: Folder?
+    @Relationship(deleteRule: .cascade, inverse: \Folder.parentFolder) var subfolders: [Folder] = []
+    @Relationship(deleteRule: .cascade, inverse: \Placemark.folder) var places: [Placemark] = []
 
     init(name: String, parentFolder: Folder? = nil) {
         self.name = name

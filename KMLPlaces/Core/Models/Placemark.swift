@@ -7,10 +7,10 @@ class Placemark {
     var kmlDescription: String
     var styleURL: String?
 
-    @Relationship var folder: Folder
-    @Relationship var point: Point?
-    @Relationship var lineString: LineString?
-    @Relationship var polygon: Polygon?
+    @Relationship(deleteRule: .cascade) var folder: Folder
+    @Relationship(deleteRule: .cascade, inverse: \Point.placemark) var point: Point?
+    @Relationship(deleteRule: .cascade, inverse: \LineString.placemark) var lineString: LineString?
+    @Relationship(deleteRule: .cascade, inverse: \Polygon.placemark) var polygon: Polygon?
 
     init(
         name: String,
