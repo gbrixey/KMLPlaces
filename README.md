@@ -4,4 +4,4 @@
 
 This app reads Google Earth place data from a KML file and shows the data in a list and map format.
 
-This app is built using SwiftUI and SwiftData. It is a newer version of [MyPlaces](https://github.com/gbrixey/MyPlaces) which was built with UIKit and Core Data.
+This app is built using SwiftUI and SwiftData. It is a newer version of [MyPlaces](https://github.com/gbrixey/MyPlaces) which uses UIKit and Core Data.
