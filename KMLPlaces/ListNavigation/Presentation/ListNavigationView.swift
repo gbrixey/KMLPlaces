@@ -4,7 +4,7 @@ struct ListNavigationView: View {
 
     // MARK: - Public
 
-    @ObservedObject var viewModel: ListNavigationViewModel
+    @Bindable var viewModel: ListNavigationViewModel
 
     var body: some View {
         NavigationStack(path: $viewModel.path) {

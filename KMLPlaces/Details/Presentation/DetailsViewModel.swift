@@ -2,13 +2,13 @@ import SDWebImage
 import SwiftUI
 import MapKit
 
-class DetailsViewModel: ObservableObject {
+@Observable class DetailsViewModel {
 
     // MARK: - Public
 
-    @Published var name: String
-    @Published var kmlDescription: String
-    @Published var mapData: MapData?
+    var name: String
+    var kmlDescription: String
+    var mapData: MapData?
 
     init(place: Placemark) {
         name = place.name.nilIfEmpty ?? String(localized: .untitledPlace)

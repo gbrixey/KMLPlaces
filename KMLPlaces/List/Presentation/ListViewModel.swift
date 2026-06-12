@@ -1,13 +1,13 @@
 import SwiftUI
 
-class ListViewModel: ObservableObject {
+@Observable class ListViewModel {
 
     // MARK: - Public
 
     var folders: [Folder] = []
     var places: [Placemark] = []
 
-    @Published var searchText = "" {
+    var searchText = "" {
         didSet {
             updateFoldersAndPlaces()
         }
@@ -80,14 +80,17 @@ class ListViewModel: ObservableObject {
 
     // MARK: - Private
 
+    @ObservationIgnored
     @Binding private var path: [ListItem]
     private let mode: ListMode
 
+    @ObservationIgnored
     private lazy var distanceFormatStyle: Measurement<UnitLength>.FormatStyle = {
         let numberFormatStyle = FloatingPointFormatStyle<Double>().precision(.significantDigits(1...2))
         return .init(width: .abbreviated, usage: .asProvided, numberFormatStyle: numberFormatStyle)
     }()
 
+    @ObservationIgnored
     private lazy var sortedFolders: [Folder] = {
         switch mode {
         case .folder(let folder):
@@ -97,6 +100,7 @@ class ListViewModel: ObservableObject {
         }
     }()
 
+    @ObservationIgnored
     private lazy var sortedPlaces: [Placemark] = {
         switch mode {
         case .folder(let folder):
@@ -106,6 +110,7 @@ class ListViewModel: ObservableObject {
         }
     }()
 
+    @ObservationIgnored
     private lazy var flattenedSubfolders: [Folder] = {
         switch mode {
         case .folder(let folder):
@@ -115,6 +120,7 @@ class ListViewModel: ObservableObject {
         }
     }()
 
+    @ObservationIgnored
     private lazy var flattenedPlaces: [Placemark] = {
         switch mode {
         case .folder(let folder):
@@ -124,6 +130,7 @@ class ListViewModel: ObservableObject {
         }
     }()
 
+    @ObservationIgnored
     private lazy var distanceDictionary: [AnyHashable: Double] = {
         guard case let .nearbyPlaces(placesWithDistance) = mode else {
             return [:]

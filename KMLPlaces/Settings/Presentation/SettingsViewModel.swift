@@ -1,13 +1,13 @@
 import SwiftUI
 
-class SettingsViewModel: NSObject, ObservableObject {
+@Observable class SettingsViewModel: NSObject {
 
     // MARK: - Public
 
-    @Published var showDocumentPicker = false
-    @Published var showAlert = false
-    @Published var alertTitle = ""
-    @Published var alertMessage = ""
+    var showDocumentPicker = false
+    var showAlert = false
+    var alertTitle = ""
+    var alertMessage = ""
 
     init(dataStore: SettingsDataStore,
          notificationCenter: NotificationCenter) {

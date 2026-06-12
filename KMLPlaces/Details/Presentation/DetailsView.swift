@@ -6,7 +6,7 @@ struct DetailsView: View {
 
     // MARK: - Public
 
-    @StateObject var viewModel: DetailsViewModel
+    @State var viewModel: DetailsViewModel
 
     var body: some View {
         ScrollView {

@@ -6,9 +6,10 @@ struct MapView: View {
 
     // MARK: - Public
 
-    @StateObject var viewModel: MapViewModel
+    @State var viewModel: MapViewModel
 
     var body: some View {
+        @Bindable var viewModel = viewModel
         ZStack(alignment: .topLeading) {
             GeometryReader { geometryProxy in
                 MapReader { mapProxy in

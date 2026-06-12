@@ -2,15 +2,15 @@ import SwiftUI
 import CoreLocation
 import MapKit
 
-class ListNavigationViewModel: NSObject, ObservableObject {
+@Observable class ListNavigationViewModel: NSObject {
 
     // MARK: - Public
 
-    @Binding var path: [ListItem]
-    @Published private(set) var rootFolder: Folder?
-    @Published var shouldShowLocationButton: Bool
-    @Published var isRequestingLocation = false
-    @Published var shouldShowLocationPermissionDeniedAlert = false
+    @ObservationIgnored @Binding var path: [ListItem]
+    private(set) var rootFolder: Folder?
+    var shouldShowLocationButton: Bool
+    var isRequestingLocation = false
+    var shouldShowLocationPermissionDeniedAlert = false
 
     init(path: Binding<[ListItem]>,
          dataStore: ListNavigationDataStore,

@@ -3,16 +3,16 @@ import SwiftData
 import MapKit
 import CoreLocation
 
-class MapViewModel: ObservableObject {
+@Observable class MapViewModel {
 
     // MARK: - Public
 
-    @Published var title: String = ""
-    @Published var cameraPosition = MapCameraPosition.automatic
-    @Published var annotationModels: [Annotation] = []
-    @Published var polylineModels: [Polyline] = []
-    @Published var polygonModels: [Polygon] = []
-    @Published var popoverData: PopoverData?
+    var title: String = ""
+    var cameraPosition = MapCameraPosition.automatic
+    var annotationModels: [Annotation] = []
+    var polylineModels: [Polyline] = []
+    var polygonModels: [Polygon] = []
+    var popoverData: PopoverData?
 
     /// The view updates this property when the map is moved.
     var currentCameraRect = MKMapRect()
@@ -84,7 +84,7 @@ class MapViewModel: ObservableObject {
 
     // MARK: - Private
 
-    @Binding var listPath: [ListItem]
+    @ObservationIgnored @Binding var listPath: [ListItem]
     private let dataStore: MapDataStore
     private let locationManager = CLLocationManager()
     private var rootFolder: Folder?

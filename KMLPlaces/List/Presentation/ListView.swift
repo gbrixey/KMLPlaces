@@ -5,7 +5,7 @@ struct ListView: View {
 
     // MARK: - Public
 
-    @ObservedObject var viewModel: ListViewModel
+    @Bindable var viewModel: ListViewModel
 
     var body: some View {
         List {

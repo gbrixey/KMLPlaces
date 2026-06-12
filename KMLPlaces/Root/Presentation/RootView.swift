@@ -4,9 +4,10 @@ struct RootView: View {
 
     // MARK: - Public
 
-    @StateObject var viewModel: RootViewModel
+    @State var viewModel: RootViewModel
 
     var body: some View {
+        @Bindable var viewModel = viewModel
         TabView {
             Tab("List", systemImage: "list.bullet") {
                 ListNavigationModule.build(path: $viewModel.listPath)

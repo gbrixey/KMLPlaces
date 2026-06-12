@@ -1,8 +1,8 @@
 import SwiftUI
 
-class RootViewModel: ObservableObject {
+@Observable class RootViewModel {
 
     // MARK: - Public
 
-    @Published var listPath: [ListItem] = []
+    var listPath: [ListItem] = []
 }
