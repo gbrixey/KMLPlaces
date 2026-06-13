@@ -4,5 +4,5 @@ import SwiftUI
 
     // MARK: - Public
 
-    var listPath: [ListItem] = []
+    var listPath: [ListNavigationPathElement] = []
 }

@@ -6,13 +6,13 @@ import MapKit
 
     // MARK: - Public
 
-    @ObservationIgnored @Binding var path: [ListItem]
+    @ObservationIgnored @Binding var path: [ListNavigationPathElement]
     private(set) var rootFolder: Folder?
     var shouldShowLocationButton: Bool
     var isRequestingLocation = false
     var shouldShowLocationPermissionDeniedAlert = false
 
-    init(path: Binding<[ListItem]>,
+    init(path: Binding<[ListNavigationPathElement]>,
          dataStore: ListNavigationDataStore,
          notificationCenter: NotificationCenter) {
         self._path = path
@@ -79,7 +79,7 @@ import MapKit
             .sorted { $0.distance < $1.distance }
             .prefix(10)
 
-        path.append(.nearbyPlaces(Array(placesWithDistance)))
+        path.append(.list(.nearbyPlaces(Array(placesWithDistance))))
     }
 }
 

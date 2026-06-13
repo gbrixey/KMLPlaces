@@ -20,7 +20,7 @@
 		7EE694FD2F9C16FA007E1A07 /* ListNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE694FC2F9C16F2007E1A07 /* ListNavigationViewModel.swift */; };
 		7EE695032F9C17AE007E1A07 /* ListNavigationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695012F9C17AA007E1A07 /* ListNavigationModule.swift */; };
 		7EE695062F9C1AD3007E1A07 /* ListNavigationPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695042F9C1AD0007E1A07 /* ListNavigationPreviews.swift */; };
-		7EE695082F9C2613007E1A07 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695072F9C2611007E1A07 /* ListItem.swift */; };
+		7EE695082F9C2613007E1A07 /* SharedListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695072F9C2611007E1A07 /* SharedListModels.swift */; };
 		7EE6950C2F9C26B3007E1A07 /* RootModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950B2F9C26B1007E1A07 /* RootModule.swift */; };
 		7EE695102F9C26CF007E1A07 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */; };
 		7EE695152FA40B06007E1A07 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */; };
@@ -92,7 +92,7 @@
 		7EE694FC2F9C16F2007E1A07 /* ListNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationViewModel.swift; sourceTree = "<group>"; };
 		7EE695012F9C17AA007E1A07 /* ListNavigationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationModule.swift; sourceTree = "<group>"; };
 		7EE695042F9C1AD0007E1A07 /* ListNavigationPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationPreviews.swift; sourceTree = "<group>"; };
-		7EE695072F9C2611007E1A07 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		7EE695072F9C2611007E1A07 /* SharedListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedListModels.swift; sourceTree = "<group>"; };
 		7EE6950B2F9C26B1007E1A07 /* RootModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModule.swift; sourceTree = "<group>"; };
 		7EE6950E2F9C26CD007E1A07 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				E124ECBD26B7B22300E7EA55 /* Extensions */,
-				7EE695072F9C2611007E1A07 /* ListItem.swift */,
+				7EE695072F9C2611007E1A07 /* SharedListModels.swift */,
 				E124ECBF26B7B24B00E7EA55 /* NotificationName.swift */,
 				E125A62926F54DE60078CBC0 /* StyleManager.swift */,
 			);
@@ -613,7 +613,7 @@
 				E124ECA626B7A34100E7EA55 /* SettingsModule.swift in Sources */,
 				E124EC8626B7868100E7EA55 /* SettingsViewModel.swift in Sources */,
 				7E922A552FDD12B70092E05E /* UserDefaultsExtensions.swift in Sources */,
-				7EE695082F9C2613007E1A07 /* ListItem.swift in Sources */,
+				7EE695082F9C2613007E1A07 /* SharedListModels.swift in Sources */,
 				E124ECBA26B7AE7600E7EA55 /* ListPreviews.swift in Sources */,
 				E124ECA926B7A45300E7EA55 /* SettingsRepository.swift in Sources */,
 			);

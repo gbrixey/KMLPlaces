@@ -10,13 +10,11 @@ struct ListNavigationView: View {
         NavigationStack(path: $viewModel.path) {
             if let rootFolder = viewModel.rootFolder {
                 ListModule.build(mode: .folder(rootFolder), path: $viewModel.path)
-                    .navigationDestination(for: ListItem.self) { listItem in
-                        switch listItem {
-                        case .folder(let folder):
-                            ListModule.build(mode: .folder(folder), path: $viewModel.path)
-                        case .nearbyPlaces(let nearbyPlaces):
-                            ListModule.build(mode: .nearbyPlaces(nearbyPlaces), path: $viewModel.path)
-                        case .place(let place):
+                    .navigationDestination(for: ListNavigationPathElement.self) { pathElement in
+                        switch pathElement {
+                        case .list(let mode):
+                            ListModule.build(mode: mode, path: $viewModel.path)
+                        case .details(let place):
                             DetailsModule.build(place: place)
                         }
                     }
@@ -83,6 +81,6 @@ extension ListNavigationView {
 // MARK: - Previews
 
 #Preview {
-    @Previewable @State var path: [ListItem] = []
+    @Previewable @State var path: [ListNavigationPathElement] = []
     ListNavigationView(viewModel: ListNavigationPreviews.viewModel(path: $path))
 }

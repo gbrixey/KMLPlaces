@@ -4,12 +4,11 @@ import SwiftUI
 
     // MARK: - Public
 
-    var folders: [Folder] = []
-    var places: [Placemark] = []
+    var listItems: [ListItem] = []
 
     var searchText = "" {
         didSet {
-            updateFoldersAndPlaces()
+            updateListItems()
         }
     }
 
@@ -35,18 +34,14 @@ import SwiftUI
         }
     }
 
-    init(mode: ListMode, path: Binding<[ListItem]>) {
+    init(mode: ListMode, path: Binding<[ListNavigationPathElement]>) {
         self.mode = mode
         _path = path
-        updateFoldersAndPlaces()
+        updateListItems()
     }
 
-    func placemarkTapped(_ placemark: Placemark) {
-        path.append(.place(placemark))
-    }
-
-    func folderTapped(_ folder: Folder) {
-        path.append(.folder(folder))
+    func listItemTapped(_ listItem: ListItem) {
+        path.append(listItem.pathElement)
     }
 
     /// Style URL to use for the given place. For certain placemarks we don't want to use the style URL.
@@ -81,7 +76,7 @@ import SwiftUI
     // MARK: - Private
 
     @ObservationIgnored
-    @Binding private var path: [ListItem]
+    @Binding private var path: [ListNavigationPathElement]
     private let mode: ListMode
 
     @ObservationIgnored
@@ -140,34 +135,74 @@ import SwiftUI
         return dict
     }()
 
-    private func updateFoldersAndPlaces() {
+    private func updateListItems() {
+        let folders: [Folder]
+        let places: [Placemark]
         if searchText.isEmpty {
             folders = sortedFolders
             places = sortedPlaces
-            return
+        } else {
+            let lowercaseSearchText = searchText.lowercased()
+            var subfoldersStartingWithSearchText: [Folder] = []
+            var subfoldersContainingSearchText: [Folder] = []
+            flattenedSubfolders.forEach { folder in
+                guard let name = folder.name.lowercased().nilIfEmpty else { return }
+                if name.hasPrefix(lowercaseSearchText) {
+                    subfoldersStartingWithSearchText.append(folder)
+                } else if name.contains(lowercaseSearchText) {
+                    subfoldersContainingSearchText.append(folder)
+                }
+            }
+            folders = subfoldersStartingWithSearchText + subfoldersContainingSearchText
+            var placesStartingWithSearchText: [Placemark] = []
+            var placesContainingSearchText: [Placemark] = []
+            flattenedPlaces.forEach { place in
+                guard let name = place.name.lowercased().nilIfEmpty else { return }
+                if name.hasPrefix(lowercaseSearchText) {
+                    placesStartingWithSearchText.append(place)
+                } else if name.contains(lowercaseSearchText) {
+                    placesContainingSearchText.append(place)
+                }
+            }
+            places = placesStartingWithSearchText + placesContainingSearchText
         }
-        let lowercaseSearchText = searchText.lowercased()
-        var subfoldersStartingWithSearchText: [Folder] = []
-        var subfoldersContainingSearchText: [Folder] = []
-        flattenedSubfolders.forEach { folder in
-            guard let name = folder.name.lowercased().nilIfEmpty else { return }
-            if name.hasPrefix(lowercaseSearchText) {
-                subfoldersStartingWithSearchText.append(folder)
-            } else if name.contains(lowercaseSearchText) {
-                subfoldersContainingSearchText.append(folder)
+        listItems = folders.map { .folder($0) } + places.map { .place($0) }
+    }
+}
+
+// MARK: - Subtypes
+
+extension ListViewModel {
+
+    enum ListItem: Identifiable {
+        case folder(Folder)
+        case place(Placemark)
+
+        var id: some Hashable {
+            switch self {
+            case .folder(let folder):
+                return folder.id
+            case .place(let placemark):
+                return placemark.id
             }
         }
-        folders = subfoldersStartingWithSearchText + subfoldersContainingSearchText
-        var placesStartingWithSearchText: [Placemark] = []
-        var placesContainingSearchText: [Placemark] = []
-        flattenedPlaces.forEach { place in
-            guard let name = place.name.lowercased().nilIfEmpty else { return }
-            if name.hasPrefix(lowercaseSearchText) {
-                placesStartingWithSearchText.append(place)
-            } else if name.contains(lowercaseSearchText) {
-                placesContainingSearchText.append(place)
+
+        var isHidden: Bool {
+            switch self {
+            case .folder(let folder):
+                return folder.isHidden
+            case .place(let placemark):
+                return placemark.isHidden
             }
         }
-        places = placesStartingWithSearchText + placesContainingSearchText
+
+        var pathElement: ListNavigationPathElement {
+            switch self {
+            case .folder(let folder):
+                return .list(.folder(folder))
+            case .place(let placemark):
+                return .details(placemark)
+            }
+        }
     }
 }

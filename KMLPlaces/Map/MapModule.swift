@@ -8,7 +8,7 @@ protocol MapDataStore {
 
 class MapModule {
 
-    class func build(listPath: Binding<[ListItem]>) -> some View {
+    class func build(listPath: Binding<[ListNavigationPathElement]>) -> some View {
         let dataStore = MapRepository(controller: .shared)
         let viewModel = MapViewModel(listPath: listPath,
                                      dataStore: dataStore,

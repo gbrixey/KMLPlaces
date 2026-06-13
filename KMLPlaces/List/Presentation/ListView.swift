@@ -9,28 +9,10 @@ struct ListView: View {
 
     var body: some View {
         List {
-            ForEach(viewModel.folders, id: \.name) { folder in
-                Button {
-                    viewModel.folderTapped(folder)
-                } label: {
-                    let folderName = folder.name.nilIfEmpty ?? String(localized: .untitledFolder)
-                    Label(folderName, systemImage: "folder")
-                        .accessibilityLabel(.folder(folderName))
-                }
+            ForEach(viewModel.listItems, id: \.id) { item in
+                ListItemButton(listItem: item, viewModel: viewModel)
             }
-            ForEach(viewModel.places, id: \.id) { place in
-                Button {
-                    viewModel.placemarkTapped(place)
-                } label: {
-                    PlaceView(
-                        name: place.name.nilIfEmpty ?? String(localized: .untitledPlace),
-                        distance: viewModel.distanceString(for: place),
-                        styleURL: viewModel.styleURL(for: place),
-                        defaultIconName: viewModel.defaultIconName(for: place)
-                    )
-                }
-            }
-            if viewModel.folders.isEmpty && viewModel.places.isEmpty && !viewModel.searchText.isEmpty {
+            if viewModel.listItems.isEmpty && !viewModel.searchText.isEmpty {
                 NoMatchesView()
             }
         }
@@ -48,6 +30,31 @@ extension ListView {
             Text("No matching places found.")
                 .frame(minHeight: 30)
                 .padding(.leading, 8)
+        }
+    }
+
+    struct ListItemButton: View {
+        let listItem: ListViewModel.ListItem
+        let viewModel: ListViewModel
+
+        var body: some View {
+            Button {
+                viewModel.listItemTapped(listItem)
+            } label: {
+                switch listItem {
+                case .folder(let folder):
+                    let folderName = folder.name.nilIfEmpty ?? String(localized: .untitledFolder)
+                    Label(folderName, systemImage: "folder")
+                        .accessibilityLabel(.folder(folderName))
+                case .place(let place):
+                    PlaceView(
+                        name: place.name.nilIfEmpty ?? String(localized: .untitledPlace),
+                        distance: viewModel.distanceString(for: place),
+                        styleURL: viewModel.styleURL(for: place),
+                        defaultIconName: viewModel.defaultIconName(for: place)
+                    )
+                }
+            }
         }
     }
 

@@ -6,7 +6,7 @@ protocol ListNavigationDataStore {
 
 class ListNavigationModule {
 
-    class func build(path: Binding<[ListItem]>) -> some View {
+    class func build(path: Binding<[ListNavigationPathElement]>) -> some View {
         let dataStore = ListNavigationRepository(controller: .shared)
         let viewModel = ListNavigationViewModel(path: path,
                                                 dataStore: dataStore,

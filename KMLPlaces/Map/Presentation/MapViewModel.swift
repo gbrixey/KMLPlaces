@@ -19,7 +19,7 @@ import CoreLocation
     /// The view updates this property when the map is moved.
     var currentCameraRect = MKMapRect()
 
-    init(listPath: Binding<[ListItem]>,
+    init(listPath: Binding<[ListNavigationPathElement]>,
          dataStore: MapDataStore,
          notificationCenter: NotificationCenter) {
         self._listPath = listPath
@@ -94,7 +94,7 @@ import CoreLocation
 
     // MARK: - Private
 
-    @ObservationIgnored @Binding var listPath: [ListItem]
+    @ObservationIgnored @Binding var listPath: [ListNavigationPathElement]
     private let dataStore: MapDataStore
     private let locationManager = CLLocationManager()
     private var rootFolder: Folder?

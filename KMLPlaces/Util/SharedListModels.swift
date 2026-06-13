@@ -1,12 +1,16 @@
-enum ListItem: Hashable {
+enum ListMode: Hashable {
     case folder(Folder)
-    case place(Placemark)
     case nearbyPlaces([PlacemarkWithDistance])
+}
+
+enum ListNavigationPathElement: Hashable {
+    case list(ListMode)
+    case details(Placemark)
 
     // MARK: - Convenience
 
     var asFolder: Folder? {
-        guard case let .folder(folder) = self else { return nil }
+        guard case let .list(.folder(folder)) = self else { return nil }
         return folder
     }
 }
