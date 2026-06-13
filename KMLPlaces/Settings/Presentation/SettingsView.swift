@@ -8,18 +8,14 @@ struct SettingsView: View {
         NavigationStack {
             List {
                 Section {
-                    SettingsButton(
-                        imageName: "square.and.arrow.down",
-                        name: String(localized: .importData),
-                        action: { viewModel.importDataTapped() }
-                    )
-#if DEBUG
-                    SettingsButton(
-                        imageName: "wrench.and.screwdriver.fill",
-                        name: String(localized: .useTestData),
-                        action: { viewModel.useTestDataTapped() }
-                    )
-#endif
+                    Button(action: { viewModel.importDataTapped() }) {
+                        Label(.importData, systemImage: "square.and.arrow.down")
+                    }
+                    #if DEBUG
+                    Button(action: { viewModel.useTestDataTapped() }) {
+                        Label(.useTestData, systemImage: "wrench.and.screwdriver.fill")
+                    }
+                    #endif
                 }
                 Section(.mapSettings) {
                     Toggle(String(localized: .showPolygons), isOn: $viewModel.shouldShowPolygonsOnMap)
@@ -37,34 +33,6 @@ struct SettingsView: View {
             Text(viewModel.alertMessage)
         }
 
-    }
-}
-
-// MARK: - Additional views
-
-extension SettingsView {
-
-    struct SettingsButton: View {
-        let imageName: String
-        let name: String
-        let action: () -> Void
-
-        var body: some View {
-            Button(action: action) {
-                HStack(spacing: 0) {
-                    Image(systemName: imageName)
-                        .frame(width: 30)
-                        .padding(.trailing, 10)
-                        .foregroundColor(.blue)
-                    Text(name)
-                        .foregroundColor(.blue)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .accessibilityElement(children: .ignore)
-                .accessibilityLabel(name)
-                .contentShape(Rectangle())
-            }
-        }
     }
 }
 
