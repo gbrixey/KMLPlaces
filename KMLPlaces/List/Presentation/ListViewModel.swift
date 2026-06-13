@@ -187,15 +187,6 @@ extension ListViewModel {
             }
         }
 
-        var isHidden: Bool {
-            switch self {
-            case .folder(let folder):
-                return folder.isHidden
-            case .place(let placemark):
-                return placemark.isHidden
-            }
-        }
-
         var pathElement: ListNavigationPathElement {
             switch self {
             case .folder(let folder):

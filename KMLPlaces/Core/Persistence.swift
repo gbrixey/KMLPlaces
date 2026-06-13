@@ -50,6 +50,15 @@ extension PersistenceController {
         let streetsFolder = addTestFolder(name: "Streets", parentFolder: rootFolder)
 
         addTestPlacemark(
+            folder: rootFolder,
+            name: "5260 11th Avenue NE",
+            description: "This is an Airbnb that I once stayed in.",
+            singlePoint: addTestPoint(
+                latitude: 47.66821560184484,
+                longitude: -122.3157768181883
+            )
+        )
+        addTestPlacemark(
             folder: restaurantsFolder,
             name: "Pi Vegan Pizzeria",
             description: "Pi Vegan Pizzeria serves all plant-based pizza, as well as other dishes like macaroni and cheese. They also have beer on draft.",

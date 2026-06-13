@@ -43,28 +43,46 @@ extension ListView {
             } label: {
                 switch listItem {
                 case .folder(let folder):
-                    let folderName = folder.name.nilIfEmpty ?? String(localized: .untitledFolder)
-                    Label(folderName, systemImage: "folder")
-                        .accessibilityLabel(.folder(folderName))
+                    FolderView(folder: folder)
                 case .place(let place):
-                    PlaceView(
-                        name: place.name.nilIfEmpty ?? String(localized: .untitledPlace),
-                        distance: viewModel.distanceString(for: place),
-                        styleURL: viewModel.styleURL(for: place),
-                        defaultIconName: viewModel.defaultIconName(for: place)
+                    PlaceView(place: place, viewModel: viewModel
                     )
                 }
             }
         }
     }
 
-    struct PlaceView: View {
-        let name: String
-        let distance: String?
-        let styleURL: String?
-        let defaultIconName: String
+    struct FolderView: View {
+        let folder: Folder
 
         var body: some View {
+            Label(name, systemImage: "folder")
+                .accessibilityLabel(accessibilityLabel)
+        }
+
+        private var name: String {
+            folder.name.nilIfEmpty ?? String(localized: .untitledFolder)
+        }
+
+        private var accessibilityLabel: String {
+            if folder.name.isEmpty {
+                return String(localized: .untitledFolder)
+            } else {
+                return String(localized: .folder(folder.name))
+            }
+        }
+    }
+
+    struct PlaceView: View {
+        let place: Placemark
+        let viewModel: ListViewModel
+
+        var body: some View {
+            let name = place.name.nilIfEmpty ?? String(localized: .untitledPlace)
+            let distance = viewModel.distanceString(for: place)
+            let styleURL = viewModel.styleURL(for: place)
+            let defaultIconName = viewModel.defaultIconName(for: place)
+
             HStack(spacing: 10) {
                 WebImage(url: StyleManager.shared.iconURL(styleURL: styleURL))
                     .placeholder(Image(systemName: defaultIconName))
