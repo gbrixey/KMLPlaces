@@ -17,11 +17,15 @@ struct MapView: View {
                         ForEach(viewModel.annotationModels, id: \.id) { annotationModel in
                             annotation(model: annotationModel)
                         }
-                        ForEach(viewModel.polylineModels, id: \.id) { polylineModel in
-                            mapPolyline(model: polylineModel)
+                        if viewModel.shouldShowPolylines {
+                            ForEach(viewModel.polylineModels, id: \.id) { polylineModel in
+                                mapPolyline(model: polylineModel)
+                            }
                         }
-                        ForEach(viewModel.polygonModels, id: \.id) { polygonModel in
-                            mapPolygon(model: polygonModel)
+                        if viewModel.shouldShowPolygons {
+                            ForEach(viewModel.polygonModels, id: \.id) { polygonModel in
+                                mapPolygon(model: polygonModel)
+                            }
                         }
                         UserAnnotation()
                     }

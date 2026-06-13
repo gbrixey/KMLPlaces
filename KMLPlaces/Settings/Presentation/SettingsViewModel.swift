@@ -9,10 +9,24 @@ import SwiftUI
     var alertTitle = ""
     var alertMessage = ""
 
+    var shouldShowPolygonsOnMap: Bool {
+        didSet {
+            dataStore.shouldShowPolygonsOnMap = shouldShowPolygonsOnMap
+        }
+    }
+
+    var shouldShowPolylinesOnMap: Bool {
+        didSet {
+            dataStore.shouldShowPolylinesOnMap = shouldShowPolylinesOnMap
+        }
+    }
+
     init(dataStore: SettingsDataStore,
          notificationCenter: NotificationCenter) {
         self.dataStore = dataStore
         self.notificationCenter = notificationCenter
+        self.shouldShowPolygonsOnMap = dataStore.shouldShowPolygonsOnMap
+        self.shouldShowPolylinesOnMap = dataStore.shouldShowPolylinesOnMap
     }
 
     func importDataTapped() {
@@ -27,7 +41,7 @@ import SwiftUI
 
     // MARK: - Private
 
-    private let dataStore: SettingsDataStore
+    private var dataStore: SettingsDataStore
     private let notificationCenter: NotificationCenter
 
     private func parseKMLFile(at url: URL) {

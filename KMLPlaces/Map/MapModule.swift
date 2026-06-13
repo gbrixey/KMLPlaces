@@ -2,6 +2,8 @@ import SwiftUI
 
 protocol MapDataStore {
     func fetchRootFolder() -> Folder?
+    var shouldShowPolygons: Bool { get }
+    var shouldShowPolylines: Bool { get }
 }
 
 class MapModule {

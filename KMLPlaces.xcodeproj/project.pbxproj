@@ -14,6 +14,7 @@
 		7E01179C2FDA116600698CE9 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0117902FDA116600698CE9 /* Folder.swift */; };
 		7E01179D2FDA116600698CE9 /* StyleMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0117962FDA116600698CE9 /* StyleMap.swift */; };
 		7E01179E2FDA116600698CE9 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0117952FDA116600698CE9 /* Style.swift */; };
+		7E922A552FDD12B70092E05E /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E922A542FDD12B70092E05E /* UserDefaultsExtensions.swift */; };
 		7EC60BAB2F8DE60E006E1B68 /* Test.kml in Sources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
 		7EC60BAD2F8DEADC006E1B68 /* Test.kml in Resources */ = {isa = PBXBuildFile; fileRef = 7EC60BAA2F8DE601006E1B68 /* Test.kml */; };
 		7EE694FD2F9C16FA007E1A07 /* ListNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE694FC2F9C16F2007E1A07 /* ListNavigationViewModel.swift */; };
@@ -86,6 +87,7 @@
 		7E0117962FDA116600698CE9 /* StyleMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleMap.swift; sourceTree = "<group>"; };
 		7E68FA4F2FBBEE9D00A18756 /* KMLPlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMLPlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E68FA692FBBF0C500A18756 /* KMLPlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMLPlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E922A542FDD12B70092E05E /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		7EC60BAA2F8DE601006E1B68 /* Test.kml */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Test.kml; sourceTree = "<group>"; };
 		7EE694FC2F9C16F2007E1A07 /* ListNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationViewModel.swift; sourceTree = "<group>"; };
 		7EE695012F9C17AA007E1A07 /* ListNavigationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigationModule.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				E124EC9B26B790E100E7EA55 /* FoundationExtensions.swift */,
 				7EE695142FA40B03007E1A07 /* MapKitExtensions.swift */,
 				E1748CA12707D95C00E30EBD /* SwiftUIExtensions.swift */,
+				7E922A542FDD12B70092E05E /* UserDefaultsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				E124ECC426B8C16900E7EA55 /* DetailsView.swift in Sources */,
 				E124ECA626B7A34100E7EA55 /* SettingsModule.swift in Sources */,
 				E124EC8626B7868100E7EA55 /* SettingsViewModel.swift in Sources */,
+				7E922A552FDD12B70092E05E /* UserDefaultsExtensions.swift in Sources */,
 				7EE695082F9C2613007E1A07 /* ListItem.swift in Sources */,
 				E124ECBA26B7AE7600E7EA55 /* ListPreviews.swift in Sources */,
 				E124ECA926B7A45300E7EA55 /* SettingsRepository.swift in Sources */,

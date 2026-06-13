@@ -13,6 +13,10 @@ class SettingsRepository {
         .shared
     }
 
+    private var userDefaults: UserDefaults {
+        .standard
+    }
+
     private var modelContext: ModelContext {
         controller.modelContext
     }
@@ -250,6 +254,16 @@ class SettingsRepository {
 // MARK: - SettingsDataStore
 
 extension SettingsRepository: SettingsDataStore {
+
+    var shouldShowPolygonsOnMap: Bool {
+        get { userDefaults.shouldShowPolygonsOnMap }
+        set { userDefaults.shouldShowPolygonsOnMap = newValue }
+    }
+
+    var shouldShowPolylinesOnMap: Bool {
+        get { userDefaults.shouldShowPolylinesOnMap }
+        set { userDefaults.shouldShowPolylinesOnMap = newValue }
+    }
 
     func parseKMLFile(at url: URL) -> Error? {
         let kmlData: Data

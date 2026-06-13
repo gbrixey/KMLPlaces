@@ -12,11 +12,20 @@ class MapRepository {
     // MARK: - Private
 
     private let controller: PersistenceController
+    private var userDefaults: UserDefaults { .standard }
 }
 
 // MARK: - MapDataStore
 
 extension MapRepository: MapDataStore {
+
+    var shouldShowPolygons: Bool {
+        userDefaults.shouldShowPolygonsOnMap
+    }
+
+    var shouldShowPolylines: Bool {
+        userDefaults.shouldShowPolylinesOnMap
+    }
 
     func fetchRootFolder() -> Folder? {
         let predicate = #Predicate<Folder> { $0.parentFolder == nil }

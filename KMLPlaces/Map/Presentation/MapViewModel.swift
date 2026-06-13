@@ -12,6 +12,8 @@ import CoreLocation
     var annotationModels: [Annotation] = []
     var polylineModels: [Polyline] = []
     var polygonModels: [Polygon] = []
+    var shouldShowPolygons: Bool
+    var shouldShowPolylines: Bool
     var popoverData: PopoverData?
 
     /// The view updates this property when the map is moved.
@@ -23,6 +25,8 @@ import CoreLocation
         self._listPath = listPath
         self.dataStore = dataStore
         self.rootFolder = dataStore.fetchRootFolder()
+        self.shouldShowPolygons = dataStore.shouldShowPolygons
+        self.shouldShowPolylines = dataStore.shouldShowPolylines
         self.currentFolder = self.rootFolder
         refreshMapItems()
         notificationCenter.addObserver(self, selector: #selector(dataChanged), name: .dataChanged, object: nil)
@@ -33,6 +37,8 @@ import CoreLocation
             locationManager.requestWhenInUseAuthorization()
             didRequestLocationAuthorization = true
         }
+        shouldShowPolygons = dataStore.shouldShowPolygons
+        shouldShowPolylines = dataStore.shouldShowPolylines
         let currentFolderInList = listPath.compactMap { $0.asFolder }.last ?? rootFolder
         if currentFolder != currentFolderInList {
             currentFolder = currentFolderInList
@@ -42,34 +48,38 @@ import CoreLocation
 
     func handleTap(at tapCoordinate: CLLocationCoordinate2D, unitPoint: UnitPoint) {
         let tapPoint = MKMapPoint(tapCoordinate)
-        for polyline in polylineModels {
-            let mapKitPolyline = MKPolyline(coordinates: polyline.coordinates,
-                                            count: polyline.coordinates.count)
-            guard currentCameraRect.intersects(mapKitPolyline.boundingMapRect) else { continue }
-            // TODO: This threshold is kind of arbitrary and may need to be adjusted.
-            let threshold = min(currentCameraRect.size.width, currentCameraRect.size.height) / 25
-            if mapKitPolyline.mapDistance(to: tapPoint, isLessThanThreshold: threshold) {
-                popoverData = PopoverData(
-                    id: polyline.id,
-                    point: unitPoint,
-                    title: polyline.title,
-                    description: polyline.description
-                )
+        if shouldShowPolylines {
+            for polyline in polylineModels {
+                let mapKitPolyline = MKPolyline(coordinates: polyline.coordinates,
+                                                count: polyline.coordinates.count)
+                guard currentCameraRect.intersects(mapKitPolyline.boundingMapRect) else { continue }
+                // TODO: This threshold is kind of arbitrary and may need to be adjusted.
+                let threshold = min(currentCameraRect.size.width, currentCameraRect.size.height) / 25
+                if mapKitPolyline.mapDistance(to: tapPoint, isLessThanThreshold: threshold) {
+                    popoverData = PopoverData(
+                        id: polyline.id,
+                        point: unitPoint,
+                        title: polyline.title,
+                        description: polyline.description
+                    )
+                }
             }
         }
-        for polygon in polygonModels {
-            let mapKitPolygon = MKPolygon(coordinates: polygon.coordinates,
-                                          count: polygon.coordinates.count)
-            let polygonEnclosingRegion = MKCoordinateRegion(enclosingCoordinates: polygon.coordinates)
-            guard polygonEnclosingRegion.contains(tapPoint.coordinate) else { continue }
-            if mapKitPolygon.contains(tapPoint) {
-                popoverData = PopoverData(
-                    id: polygon.id,
-                    point: unitPoint,
-                    title: polygon.title,
-                    description: polygon.description
-                )
-                return
+        if shouldShowPolygons {
+            for polygon in polygonModels {
+                let mapKitPolygon = MKPolygon(coordinates: polygon.coordinates,
+                                              count: polygon.coordinates.count)
+                let polygonEnclosingRegion = MKCoordinateRegion(enclosingCoordinates: polygon.coordinates)
+                guard polygonEnclosingRegion.contains(tapPoint.coordinate) else { continue }
+                if mapKitPolygon.contains(tapPoint) {
+                    popoverData = PopoverData(
+                        id: polygon.id,
+                        point: unitPoint,
+                        title: polygon.title,
+                        description: polygon.description
+                    )
+                    return
+                }
             }
         }
     }

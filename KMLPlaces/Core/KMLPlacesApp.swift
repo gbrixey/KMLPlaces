@@ -13,6 +13,7 @@ struct KMLPlacesApp: App {
     }
 
     init() {
+        UserDefaults.standard.registerDefaults()
         StyleManager.shared.loadStyles()
     }
 }

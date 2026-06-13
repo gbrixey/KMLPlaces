@@ -7,18 +7,24 @@ struct SettingsView: View {
         @Bindable var viewModel = viewModel
         NavigationStack {
             List {
-                SettingsButton(
-                    imageName: "square.and.arrow.down",
-                    name: String(localized: .importData),
-                    action: { viewModel.importDataTapped() }
-                )
-                #if DEBUG
-                SettingsButton(
-                    imageName: "wrench.and.screwdriver.fill",
-                    name: String(localized: .useTestData),
-                    action: { viewModel.useTestDataTapped() }
-                )
-                #endif
+                Section {
+                    SettingsButton(
+                        imageName: "square.and.arrow.down",
+                        name: String(localized: .importData),
+                        action: { viewModel.importDataTapped() }
+                    )
+#if DEBUG
+                    SettingsButton(
+                        imageName: "wrench.and.screwdriver.fill",
+                        name: String(localized: .useTestData),
+                        action: { viewModel.useTestDataTapped() }
+                    )
+#endif
+                }
+                Section(.mapSettings) {
+                    Toggle(String(localized: .showPolygons), isOn: $viewModel.shouldShowPolygonsOnMap)
+                    Toggle(String(localized: .showPolylines), isOn: $viewModel.shouldShowPolylinesOnMap)
+                }
             }
             .navigationTitle("Settings")
         }

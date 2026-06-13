@@ -3,6 +3,8 @@ import Foundation
 protocol SettingsDataStore {
     /// Returns nil if the operation was successful.
     func parseKMLFile(at url: URL) -> Error?
+    var shouldShowPolygonsOnMap: Bool { get set }
+    var shouldShowPolylinesOnMap: Bool { get set }
 }
 
 class SettingsModule {
