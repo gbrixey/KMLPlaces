@@ -13,7 +13,9 @@ struct ListView: View {
                 Button {
                     viewModel.folderTapped(folder)
                 } label: {
-                    FolderView(name: folder.name.nilIfEmpty ?? String(localized: .untitledFolder))
+                    let folderName = folder.name.nilIfEmpty ?? String(localized: .untitledFolder)
+                    Label(folderName, systemImage: "folder")
+                        .accessibilityLabel(.folder(folderName))
                 }
             }
             ForEach(viewModel.places, id: \.id) { place in
@@ -46,23 +48,6 @@ extension ListView {
             Text("No matching places found.")
                 .frame(minHeight: 30)
                 .padding(.leading, 8)
-        }
-    }
-
-    struct FolderView: View {
-        let name: String
-
-        var body: some View {
-            HStack(spacing: 10) {
-                Image(systemName: "folder")
-                    .frame(width: 30)
-                    .foregroundColor(.blue)
-                Text(name)
-                    .foregroundColor(.blue)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
-            .accessibilityElement(children: .ignore)
-            .accessibilityLabel(.folder(name))
         }
     }
 
