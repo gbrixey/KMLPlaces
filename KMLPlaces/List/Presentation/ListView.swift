@@ -45,8 +45,7 @@ extension ListView {
                 case .folder(let folder):
                     FolderView(folder: folder)
                 case .place(let place):
-                    PlaceView(place: place, viewModel: viewModel
-                    )
+                    PlaceView(place: place, viewModel: viewModel)
                 }
             }
         }
