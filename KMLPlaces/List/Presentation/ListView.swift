@@ -62,7 +62,7 @@ extension ListView {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel(String(localized: .folder(name)))
+            .accessibilityLabel(.folder(name))
         }
     }
 

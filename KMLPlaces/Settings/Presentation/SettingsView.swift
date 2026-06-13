@@ -18,11 +18,11 @@ struct SettingsView: View {
                     #endif
                 }
                 Section(.mapSettings) {
-                    Toggle(String(localized: .showPolygons), isOn: $viewModel.shouldShowPolygonsOnMap)
-                    Toggle(String(localized: .showPolylines), isOn: $viewModel.shouldShowPolylinesOnMap)
+                    Toggle(.showPolygons, isOn: $viewModel.shouldShowPolygonsOnMap)
+                    Toggle(.showPolylines, isOn: $viewModel.shouldShowPolylinesOnMap)
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle(.settings)
         }
         .sheet(isPresented: $viewModel.showDocumentPicker) {
             SettingsDocumentPicker(delegate: viewModel)

@@ -27,28 +27,28 @@ struct ListNavigationView: View {
                             } label: {
                                 if viewModel.isRequestingLocation {
                                     ProgressView()
-                                        .accessibilityLabel(String(localized: .fetchingCurrentLocation))
+                                        .accessibilityLabel(.fetchingCurrentLocation)
                                 } else {
                                     Image(systemName: "location")
                                         .foregroundStyle(.blue)
-                                        .accessibilityLabel(String(localized: .placesNearCurrentLocation))
+                                        .accessibilityLabel(.placesNearCurrentLocation)
                                 }
                             }
                         }
                     }
                     .alert(
-                        String(localized: .cannotGetCurrentLocation),
+                        .cannotGetCurrentLocation,
                         isPresented: $viewModel.shouldShowLocationPermissionDeniedAlert,
                         actions: {
                             Button {
                                 viewModel.goToSettings()
                             } label: {
-                                Text(String(localized: .goToSettings))
+                                Text(.goToSettings)
                             }
                             Button(role: .cancel, action: { })
                         },
                         message: {
-                            Text(String(localized: .enableLocationPermissionInSettings))
+                            Text(.enableLocationPermissionInSettings)
                         }
                     )
             } else {
