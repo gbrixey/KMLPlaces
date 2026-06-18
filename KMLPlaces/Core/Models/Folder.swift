@@ -22,6 +22,15 @@ extension Folder {
         parentFolder == nil
     }
 
+    var isHiddenOnMap: Bool {
+        get {
+            flattenedPlaces.allSatisfy { $0.isHiddenOnMap }
+        }
+        set {
+            flattenedPlaces.forEach { $0.isHiddenOnMap = newValue }
+        }
+    }
+
     var flattenedSubfolders: [Folder] {
         subfolders.reduce(subfolders, { $0 + $1.flattenedSubfolders })
     }

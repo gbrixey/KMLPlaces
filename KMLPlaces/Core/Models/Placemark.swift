@@ -6,6 +6,7 @@ class Placemark {
     var name: String
     var kmlDescription: String
     var styleURL: String?
+    var isHiddenOnMap: Bool
 
     @Relationship(deleteRule: .cascade) var folder: Folder
     @Relationship(deleteRule: .cascade, inverse: \Point.placemark) var point: Point?
@@ -16,6 +17,7 @@ class Placemark {
         name: String,
         kmlDescription: String,
         styleURL: String? = nil,
+        isHiddenOnMap: Bool = false,
         folder: Folder,
         point: Point? = nil,
         lineString: LineString? = nil,
@@ -24,6 +26,7 @@ class Placemark {
         self.name = name
         self.kmlDescription = kmlDescription
         self.styleURL = styleURL
+        self.isHiddenOnMap = isHiddenOnMap
         self.folder = folder
         self.point = point
         self.lineString = lineString

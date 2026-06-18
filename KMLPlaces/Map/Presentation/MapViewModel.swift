@@ -7,7 +7,6 @@ import CoreLocation
 
     // MARK: - Public
 
-    var title: String = ""
     var cameraPosition = MapCameraPosition.automatic
     var annotationModels: [Annotation] = []
     var polylineModels: [Polyline] = []
@@ -18,6 +17,10 @@ import CoreLocation
 
     /// The view updates this property when the map is moved.
     var currentCameraRect = MKMapRect()
+
+    var title: String {
+        currentFolder?.name ?? ""
+    }
 
     init(listPath: Binding<[ListNavigationPathElement]>,
          dataStore: MapDataStore,
@@ -30,6 +33,7 @@ import CoreLocation
         self.currentFolder = self.rootFolder
         refreshMapItems()
         notificationCenter.addObserver(self, selector: #selector(dataChanged), name: .dataChanged, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(hiddenStateChanged), name: .isHiddenOnMapChanged, object: nil)
     }
 
     func viewDidAppear() {
@@ -92,6 +96,10 @@ import CoreLocation
         refreshMapItems()
     }
 
+    @objc private func hiddenStateChanged() {
+        updateAnnotationItems()
+    }
+
     // MARK: - Private
 
     @ObservationIgnored @Binding var listPath: [ListNavigationPathElement]
@@ -103,10 +111,9 @@ import CoreLocation
     private var didRequestLocationAuthorization = false
 
     private func refreshMapItems() {
-        title = currentFolder?.name ?? ""
         places = currentFolder?.flattenedPlaces ?? []
         updateAnnotationItems()
-        setEnclosingRegion()
+        resetCameraPosition()
     }
 
     /// Update `annotationItems` with the data in `places`.
@@ -115,6 +122,9 @@ import CoreLocation
         polylineModels.removeAll()
         polygonModels.removeAll()
         for place in places {
+            if place.isHiddenOnMap {
+                continue
+            }
             let style = StyleManager.shared.style(url: place.styleURL)
             if let coordinate = place.point?.coordinate {
                 let annotation = Annotation(
@@ -151,7 +161,7 @@ import CoreLocation
     }
 
     /// Set map camera position so that all places are visible.
-    private func setEnclosingRegion() {
+    private func resetCameraPosition() {
         guard !places.isEmpty else { return }
         let allCoordinates = places.flatMap { $0.allCoordinates }
         let region = MKCoordinateRegion(enclosingCoordinates: allCoordinates)

@@ -9,14 +9,25 @@ struct ListView: View {
 
     var body: some View {
         List {
-            ForEach(viewModel.listItems.enumerated(), id: \.0) { (index, item) in
+            ForEach(viewModel.listItemDisplayModels.enumerated(), id: \.0) { (index, item) in
                 Button {
                     viewModel.listItemTapped(item, at: index)
                 } label: {
                     ListItemView(listItem: item)
                 }
+                .swipeActions {
+                    Button {
+                        viewModel.toggleHiddenOnMap(at: index)
+                    } label: {
+                        Label {
+                            Text(item.hideOnMapActionTitle)
+                        } icon: {
+                            Image(systemName: item.isHiddenOnMap ? "eye" : "eye.slash")
+                        }
+                    }
+                }
             }
-            if viewModel.listItems.isEmpty && !viewModel.searchText.isEmpty {
+            if viewModel.listItemDisplayModels.isEmpty && !viewModel.searchText.isEmpty {
                 NoMatchesView()
             }
         }
@@ -38,7 +49,7 @@ extension ListView {
     }
 
     struct ListItemView: View {
-        let listItem: ListViewModel.ListItem
+        let listItem: ListViewModel.ListItemDisplayModel
 
         var body: some View {
             HStack(spacing: 10) {
