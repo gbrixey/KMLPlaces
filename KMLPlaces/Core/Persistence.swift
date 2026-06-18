@@ -57,6 +57,11 @@ extension PersistenceController {
             id: "dining",
             icon: "http://maps.google.com/mapfiles/kml/shapes/dining.png"
         )
+        let polylineStyleID = addTestStyle(
+            id: "polyline",
+            icon: "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+            strokeWidth: 3
+        )
 
         addTestPlacemark(
             folder: rootFolder,
@@ -117,7 +122,7 @@ extension PersistenceController {
             folder: streetsFolder,
             name: "Ravenna Boulevard",
             description: "Ravenna Boulevard is a wide avenue with a tree-lined median that travels in a northwest-to-southeast direction, from Green Lake Way in the northwest to the west side of Ravenna Park in the southeast.",
-            styleURL: pushpinStyleID,
+            styleURL: polylineStyleID,
             lineStringPoints: [
                 addTestPoint(index: 1, latitude: 47.67961362930774, longitude: -122.3255349829181),
                 addTestPoint(index: 2, latitude: 47.67253416352224, longitude: -122.3189811528435),
@@ -159,10 +164,11 @@ extension PersistenceController {
         return folder
     }
 
-    private func addTestStyle(id: String, icon: String) -> String {
+    private func addTestStyle(id: String, icon: String, strokeWidth: Double = 1) -> String {
         let style = Style(
             id: id,
             icon: icon,
+            strokeWidth: strokeWidth,
             hotspotX: 0.5,
             hotspotXUnits: HotspotUnits.fraction.rawValue,
             hotspotY: 0,

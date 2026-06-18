@@ -202,5 +202,6 @@ extension MapView {
 // MARK: - Previews
 
 #Preview {
-    MapView(viewModel: MapPreviews.viewModel)
+    StyleManager.shared.loadStyles(persistenceController: .preview)
+    return MapView(viewModel: MapPreviews.viewModel)
 }

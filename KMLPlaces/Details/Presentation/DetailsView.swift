@@ -74,5 +74,6 @@ struct DetailsView: View {
 // MARK: - Previews
 
 #Preview {
-    DetailsView(viewModel: DetailsPreviews.viewModel)
+    StyleManager.shared.loadStyles(persistenceController: .preview)
+    return DetailsView(viewModel: DetailsPreviews.viewModel)
 }

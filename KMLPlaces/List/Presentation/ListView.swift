@@ -106,5 +106,6 @@ extension ListView {
 // MARK: - Previews
 
 #Preview {
-    ListView(viewModel: ListPreviews.viewModel)
+    StyleManager.shared.loadStyles(persistenceController: .preview)
+    return ListView(viewModel: ListPreviews.viewModel)
 }
