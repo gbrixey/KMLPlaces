@@ -1,12 +1,12 @@
 import SwiftUI
 
-@Observable class ListViewModel {
+class ListViewModel: ObservableObject {
 
     // MARK: - Public
 
-    var listItems: [ListItem] = []
+    @Published var listItems: [ListItem] = []
 
-    var searchText = "" {
+    @Published var searchText = "" {
         didSet {
             updateListItems()
         }
@@ -49,14 +49,11 @@ import SwiftUI
 
     private let mode: ListMode
 
-    @ObservationIgnored
     @Binding private var path: [ListNavigationPathElement]
 
     /// Path elements corresponding to the `self.listItems` array.
-    @ObservationIgnored
     private var listItemPathElements: [ListNavigationPathElement] = []
 
-    @ObservationIgnored
     private lazy var sortedFolders: [Folder] = {
         switch mode {
         case .folder(let folder):
@@ -66,7 +63,6 @@ import SwiftUI
         }
     }()
 
-    @ObservationIgnored
     private lazy var sortedPlaces: [Placemark] = {
         switch mode {
         case .folder(let folder):
@@ -76,7 +72,6 @@ import SwiftUI
         }
     }()
 
-    @ObservationIgnored
     private lazy var flattenedSubfolders: [Folder] = {
         switch mode {
         case .folder(let folder):
@@ -86,7 +81,6 @@ import SwiftUI
         }
     }()
 
-    @ObservationIgnored
     private lazy var flattenedPlaces: [Placemark] = {
         switch mode {
         case .folder(let folder):
@@ -96,7 +90,6 @@ import SwiftUI
         }
     }()
 
-    @ObservationIgnored
     private lazy var distanceDictionary: [AnyHashable: Double] = {
         guard case let .nearbyPlaces(placesWithDistance) = mode else {
             return [:]
