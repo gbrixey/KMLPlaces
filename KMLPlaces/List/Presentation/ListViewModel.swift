@@ -40,44 +40,21 @@ import SwiftUI
         updateListItems()
     }
 
-    func listItemTapped(_ listItem: ListItem) {
-        path.append(listItem.pathElement)
-    }
-
-    /// Style URL to use for the given place. For certain placemarks we don't want to use the style URL.
-    func styleURL(for place: Placemark) -> String? {
-        guard case .point = place.type else { return nil }
-        return place.styleURL
-    }
-
-    /// System name of the image to use as a backup icon if we are not using the style icon for the given placemark.
-    func defaultIconName(for place: Placemark) -> String {
-        switch place.type {
-        case .point:
-            return "mappin"
-        case .lineString:
-            return "point.bottomleft.forward.to.point.topright.scurvepath"
-        case .polygon:
-            return "square.dashed"
-        }
-    }
-
-    func distanceString(for place: Placemark) -> String? {
-        guard var distance = distanceDictionary[place.id] else { return nil }
-        var unit = UnitLength.meters
-        if round(distance) >= 995 {
-            distance /= 1000
-            unit = .kilometers
-        }
-        let measurement = Measurement(value: distance, unit: unit)
-        return measurement.formatted(distanceFormatStyle)
+    func listItemTapped(_ listItem: ListItem, at index: Int) {
+        let pathElement = listItemPathElements[index]
+        path.append(pathElement)
     }
 
     // MARK: - Private
 
+    private let mode: ListMode
+
     @ObservationIgnored
     @Binding private var path: [ListNavigationPathElement]
-    private let mode: ListMode
+
+    /// Path elements corresponding to the `self.listItems` array.
+    @ObservationIgnored
+    private var listItemPathElements: [ListNavigationPathElement] = []
 
     @ObservationIgnored
     private lazy var distanceFormatStyle: Measurement<UnitLength>.FormatStyle = {
@@ -166,7 +143,78 @@ import SwiftUI
             }
             places = placesStartingWithSearchText + placesContainingSearchText
         }
-        listItems = folders.map { .folder($0) } + places.map { .place($0) }
+        listItems = folders.map { listItem(for: $0) } + places.map { listItem(for: $0) }
+        listItemPathElements = folders.map { .list(.folder($0)) } + places.map { .details($0) }
+    }
+
+    private func listItem(for folder: Folder) -> ListItem {
+        let title = folder.name.nilIfEmpty ?? String(localized: .untitledFolder)
+        var accessibilityLabelComponents: [String] = []
+        if folder.name.isEmpty {
+            accessibilityLabelComponents.append(String(localized: .untitledFolder))
+        } else {
+            accessibilityLabelComponents.append(String(localized: .folder(folder.name)))
+        }
+//        if folder.isHiddenOnMap {
+//            accessibilityLabelComponents.append(String(localized: .hidden))
+//        }
+        return ListItem(
+            imageURL: nil,
+            systemImage: "folder",
+            title: title,
+            titleForegroundColor: .blue,
+            distance: nil,
+            isHiddenOnMap: false,
+            accessibilityLabel: accessibilityLabelComponents.commaSeparated
+        )
+    }
+
+    private func listItem(for place: Placemark) -> ListItem {
+        let title = place.name.nilIfEmpty ?? String(localized: .untitledPlace)
+        let distance = distanceString(for: place)
+        var accessibilityLabelComponents: [String] = [title]
+//        if place.isHiddenOnMap {
+//            accessibilityLabelComponents.append(String(localized: .hidden))
+//        }
+        return ListItem(
+            imageURL: iconURL(for: place),
+            systemImage: defaultIconName(for: place),
+            title: title,
+            titleForegroundColor: .primary,
+            distance: distance,
+            isHiddenOnMap: false,
+            accessibilityLabel: accessibilityLabelComponents.commaSeparated
+        )
+    }
+
+    /// Style icon URL to use for the given placemark. For certain placemarks (polygons and polylines) we don't want to use the icon defined in the style object.
+    private func iconURL(for place: Placemark) -> URL? {
+        guard case .point = place.type else { return nil }
+        return StyleManager.shared.iconURL(styleURL: place.styleURL)
+    }
+
+    /// System name of the image to use as a backup icon if we are not using the style icon for the given placemark.
+    private func defaultIconName(for place: Placemark) -> String {
+        switch place.type {
+        case .point:
+            return "mappin"
+        case .lineString:
+            return "point.bottomleft.forward.to.point.topright.scurvepath"
+        case .polygon:
+            return "square.dashed"
+        }
+    }
+
+    // TODO: Add another distance string for the accessibility label that has "meters" instead of "m"
+    private func distanceString(for place: Placemark) -> String? {
+        guard var distance = distanceDictionary[place.id] else { return nil }
+        var unit = UnitLength.meters
+        if round(distance) >= 995 {
+            distance /= 1000
+            unit = .kilometers
+        }
+        let measurement = Measurement(value: distance, unit: unit)
+        return measurement.formatted(distanceFormatStyle)
     }
 }
 
@@ -174,26 +222,13 @@ import SwiftUI
 
 extension ListViewModel {
 
-    enum ListItem: Identifiable {
-        case folder(Folder)
-        case place(Placemark)
-
-        var id: some Hashable {
-            switch self {
-            case .folder(let folder):
-                return folder.id
-            case .place(let placemark):
-                return placemark.id
-            }
-        }
-
-        var pathElement: ListNavigationPathElement {
-            switch self {
-            case .folder(let folder):
-                return .list(.folder(folder))
-            case .place(let placemark):
-                return .details(placemark)
-            }
-        }
+    struct ListItem {
+        let imageURL: URL?
+        let systemImage: String
+        let title: String
+        let titleForegroundColor: Color
+        let distance: String?
+        let isHiddenOnMap: Bool
+        let accessibilityLabel: String
     }
 }
