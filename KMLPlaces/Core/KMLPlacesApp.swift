@@ -14,6 +14,6 @@ struct KMLPlacesApp: App {
 
     init() {
         UserDefaults.standard.registerDefaults()
-        StyleManager.shared.loadStyles()
+        StyleManager.shared.loadStyles(persistenceController: persistenceController)
     }
 }

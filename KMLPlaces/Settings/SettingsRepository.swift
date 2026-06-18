@@ -278,7 +278,7 @@ extension SettingsRepository: SettingsDataStore {
         let documentKML = kml[KMLNames.kml][KMLNames.document]
         parseDocument(documentKML)
         controller.saveContext()
-        StyleManager.shared.loadStyles()
+        StyleManager.shared.loadStyles(persistenceController: controller)
         return nil
     }
 }

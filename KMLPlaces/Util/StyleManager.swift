@@ -56,14 +56,14 @@ class StyleManager {
     }
 
 
-    func loadStyles() {
+    func loadStyles(persistenceController: PersistenceController) {
         styles = [:]
         styleMaps = [:]
         SDWebImagePrefetcher.shared.cancelPrefetching()
         let styleFetchDescriptor = FetchDescriptor<KMLPlaces.Style>()
         let styleMapFetchDescriptor = FetchDescriptor<KMLPlaces.StyleMap>()
         do {
-            let modelContext = PersistenceController.shared.modelContext
+            let modelContext = persistenceController.modelContext
             let styleFetchResults = try modelContext.fetch(styleFetchDescriptor)
             let styleMapFetchResults = try modelContext.fetch(styleMapFetchDescriptor)
             styleFetchResults.forEach { styleObject in
@@ -72,8 +72,7 @@ class StyleManager {
             }
             prefetchIcons()
             styleMapFetchResults.forEach { styleMapObject in
-                guard let styleMap = styleMapObject.styleMap else { return }
-                styleMaps[styleMapObject.id] = styleMap
+                styleMaps[styleMapObject.id] = styleMapObject.styleMap
             }
         } catch {
             Logger.logError(error)
@@ -163,7 +162,7 @@ private extension Style {
 
 private extension StyleMap {
 
-    var styleMap: StyleManager.StyleMap? {
+    var styleMap: StyleManager.StyleMap {
         StyleManager.StyleMap(normal: normal ?? "", highlighted: highlighted ?? "")
     }
 }

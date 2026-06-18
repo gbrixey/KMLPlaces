@@ -49,10 +49,20 @@ extension PersistenceController {
         let parksFolder = addTestFolder(name: "Parks", parentFolder: rootFolder)
         let streetsFolder = addTestFolder(name: "Streets", parentFolder: rootFolder)
 
+        let pushpinStyleID = addTestStyle(
+            id: "pushpin",
+            icon: "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png"
+        )
+        let diningStyleID = addTestStyle(
+            id: "dining",
+            icon: "http://maps.google.com/mapfiles/kml/shapes/dining.png"
+        )
+
         addTestPlacemark(
             folder: rootFolder,
             name: "5260 11th Avenue NE",
             description: "This is an Airbnb that I once stayed in.",
+            styleURL: pushpinStyleID,
             singlePoint: addTestPoint(
                 latitude: 47.66821560184484,
                 longitude: -122.3157768181883
@@ -62,6 +72,7 @@ extension PersistenceController {
             folder: restaurantsFolder,
             name: "Pi Vegan Pizzeria",
             description: "Pi Vegan Pizzeria serves all plant-based pizza, as well as other dishes like macaroni and cheese. They also have beer on draft.",
+            styleURL: diningStyleID,
             singlePoint: addTestPoint(
                 latitude: 47.66721259265039,
                 longitude: -122.317679013754
@@ -71,6 +82,7 @@ extension PersistenceController {
             folder: restaurantsFolder,
             name: "The Wayward Cafe",
             description: "This used to be an all-vegan restaurant called The Wayward Vegan. However, under new ownership they started serving meat and changed their name to The Wayward Cafe, causing outrage among their regular customers.",
+            styleURL: diningStyleID,
             singlePoint: addTestPoint(
                 latitude: 47.67564026657583,
                 longitude: -122.3199066054594
@@ -80,6 +92,7 @@ extension PersistenceController {
             folder: businessesFolder,
             name: "Third Place Books",
             description: "Bookstore in the Ravenna neighborhood selling new and used books. It also has a cafe and a pub attached.",
+            styleURL: pushpinStyleID,
             singlePoint: addTestPoint(
                 latitude: 47.67528951264779,
                 longitude: -122.3066173231506
@@ -89,6 +102,7 @@ extension PersistenceController {
             folder: parksFolder,
             name: "Cowen Park",
             description: "Cowen Park is a small park in the Ravenna neighborhood, located immediately west of Ravenna Park.",
+            styleURL: pushpinStyleID,
             polygonPoints: [
                 addTestPoint(index: 1, latitude: 47.67125568050612, longitude: -122.3140680187018),
                 addTestPoint(index: 2, latitude: 47.67127808155655, longitude: -122.3130818223223),
@@ -103,6 +117,7 @@ extension PersistenceController {
             folder: streetsFolder,
             name: "Ravenna Boulevard",
             description: "Ravenna Boulevard is a wide avenue with a tree-lined median that travels in a northwest-to-southeast direction, from Green Lake Way in the northwest to the west side of Ravenna Park in the southeast.",
+            styleURL: pushpinStyleID,
             lineStringPoints: [
                 addTestPoint(index: 1, latitude: 47.67961362930774, longitude: -122.3255349829181),
                 addTestPoint(index: 2, latitude: 47.67253416352224, longitude: -122.3189811528435),
@@ -144,15 +159,31 @@ extension PersistenceController {
         return folder
     }
 
+    private func addTestStyle(id: String, icon: String) -> String {
+        let style = Style(
+            id: id,
+            icon: icon,
+            hotspotX: 0.5,
+            hotspotXUnits: HotspotUnits.fraction.rawValue,
+            hotspotY: 0,
+            hotspotYUnits: HotspotUnits.fraction.rawValue
+        )
+        let styleMap = StyleMap(id: "\(id)_map", normal: id, highlighted: id)
+        modelContext.insert(style)
+        modelContext.insert(styleMap)
+        return styleMap.id
+    }
+
     private func addTestPlacemark(
         folder: Folder,
         name: String,
         description: String,
+        styleURL: String,
         singlePoint: Point? = nil,
         lineStringPoints: [Point] = [],
         polygonPoints: [Point] = []
     ) {
-        let placemark = Placemark(name: name, kmlDescription: description, folder: folder, point: singlePoint)
+        let placemark = Placemark(name: name, kmlDescription: description, styleURL: styleURL, folder: folder, point: singlePoint)
         modelContext.insert(placemark)
         if !lineStringPoints.isEmpty {
             let lineString = LineString(placemark: placemark, points: lineStringPoints)
