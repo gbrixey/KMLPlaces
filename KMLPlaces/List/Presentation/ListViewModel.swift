@@ -57,12 +57,6 @@ import SwiftUI
     private var listItemPathElements: [ListNavigationPathElement] = []
 
     @ObservationIgnored
-    private lazy var distanceFormatStyle: Measurement<UnitLength>.FormatStyle = {
-        let numberFormatStyle = FloatingPointFormatStyle<Double>().precision(.significantDigits(1...2))
-        return .init(width: .abbreviated, usage: .asProvided, numberFormatStyle: numberFormatStyle)
-    }()
-
-    @ObservationIgnored
     private lazy var sortedFolders: [Folder] = {
         switch mode {
         case .folder(let folder):
@@ -171,8 +165,8 @@ import SwiftUI
 
     private func listItem(for place: Placemark) -> ListItem {
         let title = place.name.nilIfEmpty ?? String(localized: .untitledPlace)
-        let distance = distanceString(for: place)
-        var accessibilityLabelComponents: [String] = [title]
+        let (distance, distanceAccessibility) = distanceStrings(for: place)
+        var accessibilityLabelComponents: [String] = [title, distanceAccessibility].withoutNils()
 //        if place.isHiddenOnMap {
 //            accessibilityLabelComponents.append(String(localized: .hidden))
 //        }
@@ -205,16 +199,27 @@ import SwiftUI
         }
     }
 
-    // TODO: Add another distance string for the accessibility label that has "meters" instead of "m"
-    private func distanceString(for place: Placemark) -> String? {
-        guard var distance = distanceDictionary[place.id] else { return nil }
+    private func distanceStrings(for place: Placemark) -> (distance: String?, distanceAccessibility: String?) {
+        guard var distance = distanceDictionary[place.id] else { return (nil, nil) }
         var unit = UnitLength.meters
         if round(distance) >= 995 {
             distance /= 1000
             unit = .kilometers
         }
         let measurement = Measurement(value: distance, unit: unit)
-        return measurement.formatted(distanceFormatStyle)
+        return (
+            measurement.formatted(distanceFormatStyle(forAccessibility: false)),
+            measurement.formatted(distanceFormatStyle(forAccessibility: true))
+        )
+    }
+
+    private func distanceFormatStyle(forAccessibility: Bool) -> Measurement<UnitLength>.FormatStyle {
+        let numberFormatStyle = FloatingPointFormatStyle<Double>().precision(.significantDigits(1...2))
+         return Measurement<UnitLength>.FormatStyle(
+            width: forAccessibility ? .wide : .abbreviated,
+            usage: .asProvided,
+            numberFormatStyle: numberFormatStyle
+        )
     }
 }
 
