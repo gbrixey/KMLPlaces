@@ -59,8 +59,7 @@ extension PersistenceController {
         )
         let polylineStyleID = addTestStyle(
             id: "polyline",
-            icon: "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-            strokeWidth: 3
+            icon: "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png"
         )
 
         addTestPlacemark(
@@ -164,11 +163,10 @@ extension PersistenceController {
         return folder
     }
 
-    private func addTestStyle(id: String, icon: String, strokeWidth: Double = 1) -> String {
+    private func addTestStyle(id: String, icon: String) -> String {
         let style = Style(
             id: id,
             icon: icon,
-            strokeWidth: strokeWidth,
             hotspotX: 0.5,
             hotspotXUnits: HotspotUnits.fraction.rawValue,
             hotspotY: 0,

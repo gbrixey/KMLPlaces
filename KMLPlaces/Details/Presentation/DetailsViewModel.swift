@@ -37,7 +37,7 @@ import MapKit
             let polylineModel = Polyline(
                 coordinates: lineString.coordinates,
                 strokeColor: style?.strokeColor ?? StyleManager.defaultPolylineStrokeColor,
-                strokeWidth: style?.strokeWidth.nilIfZero ?? StyleManager.defaultPolylineStrokeWidth,
+                strokeWidth: style?.strokeWidth?.nilIfZero ?? StyleManager.defaultPolylineStrokeWidth,
                 title: place.name,
                 description: place.kmlDescription
             )
@@ -46,7 +46,7 @@ import MapKit
             let polygonModel = Polygon(
                 coordinates: polygon.coordinates,
                 strokeColor: style?.strokeColor ?? StyleManager.defaultPolygonStrokeColor,
-                strokeWidth: style?.strokeWidth.nilIfZero ?? StyleManager.defaultPolygonStrokeWidth,
+                strokeWidth: style?.strokeWidth?.nilIfZero ?? StyleManager.defaultPolygonStrokeWidth,
                 fillColor: style?.fillColor ?? StyleManager.defaultPolygonFillColor,
                 title: place.name,
                 description: place.kmlDescription

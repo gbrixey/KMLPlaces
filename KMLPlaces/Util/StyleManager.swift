@@ -99,7 +99,7 @@ extension StyleManager {
         let iconURL: URL
         let hotspot: Hotspot
         let strokeColor: Color?
-        let strokeWidth: Double
+        let strokeWidth: Double?
         let fillColor: Color?
     }
 

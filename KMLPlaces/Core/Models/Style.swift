@@ -5,7 +5,7 @@ class Style {
     var id: String
     var icon: String
     var scale: Double
-    var strokeWidth: Double
+    var strokeWidth: Double?
     var strokeColorHexString: String?
     var fillColorHexString: String?
     var hotspotX: Double
@@ -17,7 +17,7 @@ class Style {
         id: String,
         icon: String,
         scale: Double = 1,
-        strokeWidth: Double = 1,
+        strokeWidth: Double? = nil,
         strokeColorHexString: String? = nil,
         fillColorHexString: String? = nil,
         hotspotX: Double = 0,
